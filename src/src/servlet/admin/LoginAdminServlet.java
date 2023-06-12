@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class WithdrawalServlet
+ * Servlet implementation class LoginAdminServlet
  */
-@WebServlet("/WithdrawalServlet")
-public class WithdrawalServlet extends HttpServlet {
+@WebServlet("/LoginAdminServlet")
+public class LoginAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WithdrawalServlet() {
+    public LoginAdminServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

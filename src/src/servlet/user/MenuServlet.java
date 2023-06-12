@@ -1,4 +1,4 @@
-package servlet;
+package servlet.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MypageServlet
+ * Servlet implementation class MenuServlet
  */
-@WebServlet("/MypageServlet")
-public class MypageServlet extends HttpServlet {
+@WebServlet("/MenuServlet")
+public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageServlet() {
+    public MenuServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

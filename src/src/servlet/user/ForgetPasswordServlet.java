@@ -1,4 +1,4 @@
-package servlet;
+package servlet.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DeleteItemServlet
+ * Servlet implementation class ForgetPasswordServlet
  */
-@WebServlet("/DeleteItemServlet")
-public class DeleteItemServlet extends HttpServlet {
+@WebServlet("/ForgetPasswordServlet")
+public class ForgetPasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteItemServlet() {
+    public ForgetPasswordServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -1,4 +1,4 @@
-package servlet;
+package servlet.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class GuideServlet
+ * Servlet implementation class SearchItemServlet
  */
-@WebServlet("/GuideServlet")
-public class GuideServlet extends HttpServlet {
+@WebServlet("/SearchItemServlet")
+public class SearchItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GuideServlet() {
+    public SearchItemServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
