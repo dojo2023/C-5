@@ -1,1 +1,50 @@
 @charset "UTF-8";
+
+html, body, ul, ol, li, h1, h2, h3, h4, h5, h6,
+p, a, img, form, input, div {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Avenir Next", "Hiragino Kaku Gothic ProN W3", sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	background-color: #23454d;
+	color: #fff;
+	height: 110px;
+/*	position: fixed;
+	top: 0px;
+	z-index: 10;
+*/
+}
+
+header img {
+	float: left;
+	height: 90px;
+	width: 100px;
+	margin: 10px 0 0 20px;
+}
+
+header li a {
+	float: right;
+	padding: 0 40px;
+	line-height: 110px;
+	color: #fff;
+	background-color: rgba(255,255,255,0.3);
+	transition: all 0.5s;
+}
+
+header li a:hover {
+	background-color: rgba(255,255,255,0.5);
+}
+

@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>メニュー</title>
+<link rel="stylesheet" href="/mecar/css/common.css">
 </head>
 
 <body>
+<!-- リボンメニュー -->
 <header>
-	<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ透過2.png" alt="logo"></a></h1>
+	<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
 	<nav>
 		<ul>
 			<li><a href="/mecar/LogoutServlet">ログアウト</a></li>
@@ -21,6 +23,7 @@
 </header>
 
 <main>
+<h1>メニューページ</h1>
 
 </main>
 
