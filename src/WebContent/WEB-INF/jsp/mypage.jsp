@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>マイページ</h1>
 
 </body>
 </html>
