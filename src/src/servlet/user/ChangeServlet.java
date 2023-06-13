@@ -29,9 +29,21 @@ public class ChangeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//文字コードの指定
+		request.setCharacterEncoding("UTF-8");
+
 		//登録変更ページにフォワ―ドする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/change_mail.jsp");
-		dispatcher.forward(request, response);
+		//パスワード変更
+		if (request.getParameter("BUTTON").equals("パスワード変更")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/change_password.jsp");
+			dispatcher.forward(request, response);
+		}
+
+		//メールアドレス変更
+		else if (request.getParameter("BUTTON").equals("メールアドレス変更")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/change_mail.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**
