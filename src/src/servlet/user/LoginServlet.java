@@ -37,8 +37,26 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		/*// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("ID");
+		String pw = request.getParameter("PW");
+
+		// ログイン処理を行う
+		IdpwDAO iDao = new IdpwDAO();
+		if (iDao.isLoginOK(new Idpw(id, pw))) {	// ログイン成功
+			// セッションスコープにIDを格納する
+			HttpSession session = request.getSession();
+			session.setAttribute("id", new LoginUser(id));
+*/
+			// メニューサーブレットにリダイレクトする
+			response.sendRedirect("/mecar/MenuServlet");
+	/*	}
+		else {									// ログイン失敗
+			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+			request.setAttribute("result",
+			new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/mecar/LoginServlet"));
+		}*/
 	}
 
 }
