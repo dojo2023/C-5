@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 全体共通設定 */
 html, body, ul, ol, li, h1, h2, h3, h4, h5, h6,
 p, a, img, form, input, div {
 	margin: 0;
@@ -18,9 +19,9 @@ a {
 	text-decoration: none;
 }
 
+/* リボンメニュー */
 header {
 	background-color: #23454d;
-	color: #fff;
 	height: 110px;
 /*	position: fixed;
 	top: 0px;
@@ -46,5 +47,20 @@ header li a {
 
 header li a:hover {
 	background-color: rgba(255,255,255,0.5);
+}
+
+/* メイン */
+main {
+	background-color: #f7f7f7;
+	min-height: 400px;
+}
+
+/* コピーライト */
+footer {
+	text-align: center;
+	background-color: #d4acaa;
+	color: #fff;
+	padding: 40px;
+	opacity: 0.6;
 }
 
