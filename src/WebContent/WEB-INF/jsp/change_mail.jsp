@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>メールアドレス変更</h1>
 
 </body>
 </html>
