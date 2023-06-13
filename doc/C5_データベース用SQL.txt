@@ -1,0 +1,290 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/pleiades/workspace/data/EM
+
+※データベース作成のエラーが表示された場合は、
+https://sukkiri.jp/technologies/ides/eclipse/h2-createdb.html
+を参照してください。
+
+
+【ユーザー名】	【パスワード】
+C5		mecar
+
+
+【テーブルを削除】
+drop table テーブル名
+
+
+【テーブル名一覧】
+ユーザ				users
+アイテム			items
+インクエリ			inquiries
+アドミン			admin
+購買履歴トランザクション	history
+購入頻度			frequency
+
+
+【更新のSQL】
+UPDATE テーブル名 SET カラム名1 = '値'
+ WHERE 条件式;
+
+
+
+
+【usersテーブルを作成するSQL文】
+create table users (
+user_auto_id int auto_increment primary key,
+user_id varchar (20) unique not null,
+user_pw varchar (20) not null,
+user_mail varchar (100) not null,
+user_date date 
+);
+
+ 
+【usersテーブルにサンプルデータを登録するSQL文】
+INSERT INTO users (user_id,user_pw,user_mail) 
+VALUES ('yamada','pass','dojoyamda@pmail.com'
+);
+INSERT INTO users (user_id,user_pw,user_mail) 
+VALUES ('tanaka','pass','dojoytanaka@pmail.com'
+);
+INSERT INTO users (user_id,user_pw,user_mail) 
+VALUES ('satou','pass','dojoysatou@pmail.com'
+);
+
+
+//削除.whereで指定できるのはprimarykeyのみ
+
+DELETE FROM　users WHERE user_auto_id = 2;
+
+
+
+【itemsテーブルを作成するSQL文】
+create table items (
+item_id int auto_increment primary key,
+user_id varchar (20) not null,
+item_name varchar (100) not null,
+item_url varchar (1000) not null,
+item_price int ,
+item_category int  default 1 not null,
+frequency_purchase int default 3 not null,
+item_switch int default 0 not null,
+item_meter double default 100 not null
+);
+
+【外部キーの設定】
+ALTER TABLE items
+    ADD FOREIGN KEY (frequency_purchase)
+    REFERENCES  frequency(frequency_purchase); 
+
+//frequencyテーブルの購入頻度カラムを外部キーとして登録
+//itemsが子テーブル、frequencyが親テーブル
+
+
+ALTER TABLE items
+    ADD FOREIGN KEY (user_id)
+    REFERENCES  users(user_id); 
+
+//usersテーブルのユーザIDを外部キーとして登録
+//itemsが子テーブル、usersが親テーブル
+
+
+
+
+
+
+【itemsテーブルにサンプルデータを登録するSQL文】
+insert into items (
+user_id,
+item_name,
+item_url,
+item_price,
+item_category,
+frequency_purchase,
+item_switch,
+item_meter
+)
+values(
+'yamada',
+'水',
+'https://www.amazon.co.jp/Amazon%E9%99%90%E5%AE%9A%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89-CCL-%E3%81%84%E3%83%BB%E3%82%8D%E3%83%BB%E3%81%AF%E3%83%BB%E3%81%99-2LPET-%C3%978%E6%9C%AC/dp/B08TV9Y72N/ref=asc_df_B08TV9Y72N/?tag=jpgo-22&linkCode=df0&hvadid=342476803675&hvpos=&hvnetw=g&hvrand=9607039760965487196&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009306&hvtargid=pla-1168323873260&psc=1&th=1&psc=1&tag=&ref=&adgrpid=68580708403&hvpone=&hvptwo=&hvadid=342476803675&hvpos=&hvnetw=g&hvrand=9607039760965487196&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009306&hvtargid=pla-1168323873260',
+1000,
+'1',
+'3',
+'1',
+100
+);
+
+insert into items (
+user_id,
+item_name,
+item_url,
+item_price,
+item_category,
+frequency_purchase,
+item_switch,
+item_meter
+)
+values(
+'yamada',
+'化粧水',
+'https://dojo-teraco.seplus.jp/login',
+2000,
+'3',
+'4',
+'1',
+80
+);
+
+insert into items (
+user_id,
+item_name,
+item_url,
+item_price,
+item_category,
+frequency_purchase,
+item_switch,
+item_meter
+)
+values(
+'yamada',
+'クイックルワイパー',
+'https://dojo-teraco.seplus.jp/login',
+700,
+'2',
+'2',
+'1',
+50
+);
+
+【adminテーブルを作成するSQL文】
+create table admin (
+admin_auto_id int auto_increment primary key,
+admin_id varchar (20) unique not null,
+admin_pw varchar (20) not null
+);
+
+【adminテーブルにサンプルデータを登録するSQL文】
+INSERT INTO admin (
+admin_id,
+admin_pw
+)
+VALUES ('DOJO','pass'
+);
+
+
+
+
+
+【historyテーブルを作成するSQL文】
+create table history (
+history_id int auto_increment primary key,
+item_id int not null,
+history_date date not null
+);
+
+【外部キーの設定】
+
+ALTER TABLE history 
+    ADD FOREIGN KEY (item_id)
+    REFERENCES  items(item_id); 
+
+//historyテーブルの商品IDを外部キーとして登録
+//historyが子テーブル、itemsが親テーブル
+
+
+
+
+【historyテーブルにサンプルデータを登録するSQL文】
+INSERT INTO history (
+item_id,
+history_date
+)
+VALUES ('1','2023-6-13'
+);
+
+
+
+
+
+
+【inquiriesテーブルを作成するSQL文】
+create table inquiries (
+inquiry_id int auto_increment primary key,
+user_id varchar (20) not null,
+inquiry_subject varchar (50) not null,
+inquiry_content varchar (500),
+inquiry_status int not null,
+inquiry_date date not null
+);
+
+【外部キーの設定】
+
+ALTER TABLE inquiries 
+    ADD FOREIGN KEY (user_id)
+    REFERENCES  users(user_id); 
+
+//inquiriesテーブルのユーザIDを外部キーとして登録
+//inquiriesが子テーブル、usersが親テーブル
+
+
+
+
+【inquiriesテーブルにサンプルデータを登録するSQL文】
+INSERT INTO inquiries (
+user_id,
+inquiry_subject,
+inquiry_content,
+inquiry_status,
+inquiry_date
+)
+VALUES (
+'yamada',
+'バグについての連絡',
+'特になし',
+'0',
+'2023-6-10'
+);
+
+INSERT INTO inquiries (
+user_id,
+inquiry_subject,
+inquiry_status,
+inquiry_date
+)
+VALUES (
+'tanaka',
+'テスト',
+'3',
+'2023-6-9'
+);
+
+
+
+
+【frequencyテーブルを作成するSQL文】
+create table frequency (
+frequency_id int auto_increment primary key,
+frequency_name varchar (10),
+frequency_purchase int unique,
+frequency_days int 
+);
+
+【frequencyテーブルにデータを登録するSQL文】
+INSERT INTO frequency (
+frequency_name,
+frequency_purchase,
+frequency_days
+)
+VALUES 	('1週間','1',7),
+('2週間','2',14),
+('1か月','3',30),
+('2か月','4',60),
+('3か月','5',90);
+
+
+
+
+
