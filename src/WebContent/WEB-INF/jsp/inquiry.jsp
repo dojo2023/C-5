@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>お問い合わせ</title>
 </head>
 
 <body>
