@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>お問い合わせ一覧画面</h1>
 
 </body>
 </html>

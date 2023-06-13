@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>ユーザー検索結果画面</h1>
 </body>
 </html>
