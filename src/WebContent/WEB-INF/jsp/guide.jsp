@@ -22,6 +22,51 @@
 		<main>
 			<h1>ご利用ガイド</h1>
 
+			ログインページ<br>
+			<select name="login">
+				<optgroup label="ログインページ">
+					<option value="password">パスワードを忘れた際</option>
+					<option value="regist">新規登録</option>
+					<option value="login">ログイン</option>
+					<option value="reset">リセット</option>
+ 				</optgroup>
+		   </select> <br>
+			メニューページ<br>
+			<select name="login">
+				<optgroup label="ログインページ">
+					<option value="password" >パスワードを忘れた際</option>
+					<option value="regist">新規登録</option>
+					<option value="login">ログイン</option>
+					<option value="reset">リセット</option>
+ 				</optgroup>
+		   </select> <br>
+			マイページ<br>
+			<select name="login">
+				<optgroup label="ログインページ">
+					<option value="password" >パスワードを忘れた際</option>
+					<option value="regist">新規登録</option>
+					<option value="login">ログイン</option>
+					<option value="reset">リセット</option>
+ 				</optgroup>
+		   </select> <br>
+			お問い合わせページ<br>
+			<select name="login">
+				<optgroup label="ログインページ">
+					<option value="password" >パスワードを忘れた際</option>
+					<option value="regist">新規登録</option>
+					<option value="login">ログイン</option>
+					<option value="reset">リセット</option>
+ 				</optgroup>
+		   </select> <br>
+			ログアウト<br>
+			<select name="login">
+				<optgroup label="ログインページ">
+					<option value="password" >パスワードを忘れた際</option>
+					<option value="regist">新規登録</option>
+					<option value="login">ログイン</option>
+					<option value="reset">リセット</option>
+ 				</optgroup>
+		   </select>
 		</main>
 		<footer>
 			<p>&copy;Copyright Error Maker. All rights reserved.</p>
