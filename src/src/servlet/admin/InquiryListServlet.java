@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class InquiryListServlet
@@ -38,11 +37,9 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// お問い合わせ検索結果画面にリダイレクトする
-		  HttpSession session = request.getSession();
-		  if (session.getAttribute("id") == null) {
-		  response.sendRedirect("/mecar/Inquiry_result.jsp");
-		  return;
-		  }
-	}
+		// お問い合わせ検索結果画面にフォワードする
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry_result.jsp");
+		dispatcher.forward(request, response);
+		}
 }

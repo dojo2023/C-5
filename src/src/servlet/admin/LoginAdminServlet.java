@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.IdpwDAO;
+import model.Idpw;
+import model.LoginUser;
+
 /**
  * Servlet implementation class LoginAdminServlet
  */
@@ -25,6 +29,27 @@ public class LoginAdminServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+
+    //ログイン処理の編集まだできるかわからない。ここから
+
+    //dopostが二つあるから後で一つにまとめる。
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("ID");
+		String pw = request.getParameter("PW");
+
+		// ログイン処理を行う
+		AdminDAO iDao = new AdminDAO();
+		if (iDao.isLoginOK(new Idpw(id, pw))) {	// ログイン成功
+			// セッションスコープにIDを格納する
+			HttpSession session = request.getSession();
+			session.setAttribute("id", new LoginUser(id));
+
+
+
+
+    //ログイン処理の編集の続きここまで。
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -45,6 +70,4 @@ public class LoginAdminServlet extends HttpServlet {
 	  return;
 	  }
 	}
-
-
 }
