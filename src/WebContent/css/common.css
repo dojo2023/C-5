@@ -23,10 +23,10 @@ a {
 header {
 	background-color: #23454d;
 	height: 110px;
-/*	position: fixed;
+	width: 100%;
+	position: fixed;
 	top: 0px;
 	z-index: 10;
-*/
 }
 
 header img {
@@ -53,6 +53,7 @@ header li a:hover {
 main {
 	background-color: #f7f7f7;
 	min-height: 400px;
+	margin-top: 110px;
 }
 
 /* コピーライト */
