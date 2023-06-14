@@ -5,9 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/mecar/css/common.css">
 </head>
 <body>
-<h1>ユーザー一覧画面</h1>
-
+<!-- リボンメニュー -->
+<header>
+	<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
+	<nav>
+		<ul>
+			<li><a href="/mecar/LoginAdminServlet">ログアウト</a></li>
+			<li><a href="/mecar/InquiryListServlet">お問い合わせ一覧表</a></li>
+			<li><a href="/mecar/UsersListServlet">ユーザー一覧表</a></li>
+		</ul>
+	</nav>
+</header>
+    <main>
+		<h1>管理者側ユーザー一覧</h1>
+		<h2>ユーザー一覧</h2>
+		  <form id="form"method="POST" action="/mecar/UsersListServlet">
+  	      <input type="text" name="ID" placeholder="検索するワード"><br>
+  	      <input type="submit" name="検索" value="検索">
+          </form>
+    </main>
+<footer>
+	<p>&copy;Copyright Error Maker. All rights reserved.</p>
+</footer>
 </body>
 </html>
