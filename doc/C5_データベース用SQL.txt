@@ -48,10 +48,10 @@ INSERT INTO users (user_id,user_pw,user_mail)
 VALUES ('yamada','pass','dojoyamda@pmail.com'
 );
 INSERT INTO users (user_id,user_pw,user_mail) 
-VALUES ('tanaka','pass','dojoytanaka@pmail.com'
+VALUES ('tanaka','pass','dojotanaka@pmail.com'
 );
 INSERT INTO users (user_id,user_pw,user_mail) 
-VALUES ('satou','pass','dojoysatou@pmail.com'
+VALUES ('satou','pass','dojosatou@pmail.com'
 );
 
 
