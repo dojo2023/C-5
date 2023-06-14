@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
+		<script src="/mecar/js/mypage.js"></script>
 	</head>
 	<body>
 		<header>
@@ -21,16 +22,18 @@
 		</header>
 		<main>
 			<h1>マイページ</h1>
-			ユーザーID（EL式）さん
 			<form method="POST" action="/mecar/ChangeServlet">
-				<table>
+				<table align="center">
+					<tr>
+						<td colspan="2" align="center">ユーザーID（EL式）さん</td>
+					</tr>
 					<tr>
 						<td><a href=/mecar/ChangeServlet><input type="submit" name="BUTTON" value="パスワード変更"></a></td>
 						<td><a href=/mecar/ChangeServlet><input type="submit" name="BUTTON" value="メールアドレス変更"></a></td>
 					</tr>
 					<tr>
 						<td><a href=/mecar/GuideServlet><input type="button" value="ご利用ガイド"></a></td>
-						<td><a href=/mecar/LoginServlet><input type="button" value="退会の方はこちら"></a></td>
+						<td><input type="button" value="退会の方はこちら" onclick="MoveCheck();"></td>
 					</tr>
 				</table>
 			</form>

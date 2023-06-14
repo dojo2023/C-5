@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
+		<script src="/mecar/js/change_password.js"></script>
 	</head>
 	<body>
 		<header>
@@ -26,7 +27,7 @@
 					<tr><td>ユーザーID</td><td><input type="text"></td></tr>
 					<tr><td>現在のパスワード</td><td><input type="text"></td></tr>
 					<tr><td>新しいパスワード</td><td><input type="text"></td></tr>
-					<tr><td colspan="2"><input type="submit" value="変更"><input type="reset" value="リセット"></td></tr>
+					<tr><td colspan="2"><input type="button" value="変更" onclick="MoveCheck();"><input type="reset" value="リセット"></td></tr>
 				</table>
 			</form>
 		</main>
