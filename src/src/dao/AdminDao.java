@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import model.Admin;
 //ここまで追記
 public class AdminDao {
 
@@ -17,7 +19,7 @@ public class AdminDao {
 
 	public class AdminDAO {
 		// ログインできるならtrueを返す
-		public boolean isLoginOK(Idpw idpw) {
+		public boolean isLoginOK(Admin admin) {
 			Connection conn = null;
 			boolean loginResult = false;
 
@@ -26,13 +28,13 @@ public class AdminDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SELECT文を準備する
-				String sql = "select count(*) from IDPW where ID = ? and PW = ?";
+				String sql = "select count(*) from Admin where ID = ? and PW = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				pStmt.setString(1, idpw.getId());
-				pStmt.setString(2,idpw.getPw());
+				pStmt.setString(1, admin.getId());
+				pStmt.setString(2,admin.getPw());
 
 				// SELECT文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
@@ -73,7 +75,6 @@ public class AdminDao {
 
 
 	}
-
 
 
 	//ログイン処理の編集ここまで
