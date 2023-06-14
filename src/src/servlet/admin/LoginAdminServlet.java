@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.IdpwDAO;
-import model.Idpw;
-import model.LoginUser;
+import dao.AdminDao;
+import model.Admin;
 
 /**
  * Servlet implementation class LoginAdminServlet
@@ -38,14 +37,21 @@ public class LoginAdminServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("ID");
 		String pw = request.getParameter("PW");
+		// もしもログインしていなかったらインクエリリストサーブレットにリダイレクトする
+		  HttpSession session = request.getSession();
+		  if (session.getAttribute("id") == null) {
+		  response.sendRedirect("/mecar/InquiryListServlet");
+		  return;
+		  }
 
 		// ログイン処理を行う
-		AdminDAO iDao = new AdminDAO();
-		if (iDao.isLoginOK(new Idpw(id, pw))) {	// ログイン成功
+		AdminDao iDao = new AdminDao();
+		if (iDao.isLokingOK(new Admin(id, pw))) {	// ログイン成功
 			// セッションスコープにIDを格納する
-			HttpSession session = request.getSession();
-			session.setAttribute("id", new LoginUser(id));
-
+			HttpSession session1 = request.getSession();
+			session1.setAttribute("id", new Admin(id, pw));
+		}
+	}
 
 
 
@@ -62,7 +68,9 @@ public class LoginAdminServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	//一旦コメントアウトしとく
+	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// もしもログインしていなかったらインクエリリストサーブレットにリダイレクトする
 	  HttpSession session = request.getSession();
 	  if (session.getAttribute("id") == null) {
@@ -70,4 +78,7 @@ public class LoginAdminServlet extends HttpServlet {
 	  return;
 	  }
 	}
+	*/
+
+
 }
