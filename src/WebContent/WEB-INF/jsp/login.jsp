@@ -4,15 +4,22 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>SubsKeeperログイン</title>
+	<link rel="stylesheet" href="/mecar/css/common.css">
 </head>
 <body>
+<!-- リボンメニュー -->
+<header>
+	<h1 class="logo"><img src="/mecar/img/ロゴ.png" alt="logo"></h1>
+
+</header>
+<main>
 	<h1>ログインページ</h1>
 
 	<hr>
 	<form method="POST" action="/mecar/LoginServlet" id="login_form">
-		ユーザーID<input type="text" name="ID" class = "idpw"><br>
-		パスワード<input type="password" name="PW" id = "input_pass" class= "idpw"><br>
+		ユーザーID<input type="text" name="USER_ID" class = "Users"><br>
+		パスワード<input type="password" name="USER_PW" id = "input_pass" class= "Users"><br>
 		<!--  <button id ="passview">表示</button> -->
 		<input type="submit" name="LOGIN" value="ログイン">
 		<input type="reset" name="reset" value="リセット"><br>
@@ -21,6 +28,10 @@
 		<p><a href="/mecar/ForgetPasswordServlet">パスワードお忘れの方はこちら</a></p>
 		<p><a href="/mecar/RegistUserServlet">新規会員登録はこちら</a></p>
 	</form>
+</main>
+	<footer>
+	<p>&copy;Copyright Error Maker. All rights reserved.</p>
+</footer>
 
 </body>
 </html>

@@ -4,9 +4,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>SubsKeeperパスワード再登録</title>
+	<link rel="stylesheet" href="/mecar/css/common.css">
 </head>
 <body>
+<main>
+<!-- リボンメニュー -->
+	<header>
+		<h1 class="logo"><img src="/mecar/img/ロゴ.png" alt="logo"></h1>
+	</header>
 	<h1>パスワード再登録</h1>
 	<hr>
 	<form method="POST" action="/mecar/ForgetPasswordServlet" id="newPwSet">
@@ -18,5 +24,9 @@
 		<input type="reset" name="reset" value="リセット"><br>
 		<!-- <span id="error_message" class = error></span> -->
 	</form>
+</main>
+<footer>
+	<p>&copy;Copyright Error Maker. All rights reserved.</p>
+</footer>
 </body>
 </html>
