@@ -23,21 +23,21 @@ public class InquiriesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			// SQL文を準備する
-			String sql = "select * from Inquiries WHERE inquiry_id LIKE ? OR user_id LIKE ? ORDER BY inquiry_id";
+			String sql = "select * from Inquiries WHERE user_id LIKE ?  ORDER BY user_id";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (param.getInquiry_id() != null) {
-				pStmt.setString(1, "%" + param.getInquiry_id() + "%");
+//			if (param.getInquiry_id() != null) {
+//				pStmt.setString(1, "%" + param.getInquiry_id() + "%");
+//			}
+//			else {
+//				pStmt.setString(1, "%");
+//			}
+			if (param.getUser_id() != null) {
+				pStmt.setString(1, "%" + param.getUser_id() + "%");
 			}
 			else {
 				pStmt.setString(1, "%");
-			}
-			if (param.getUser_id() != null) {
-				pStmt.setString(2, "%" + param.getUser_id() + "%");
-			}
-			else {
-				pStmt.setString(2, "%");
 			}
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -45,7 +45,7 @@ public class InquiriesDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Inquiries inquiries = new Inquiries(
-				rs.getString("inquiry_id"),
+//				rs.getString("inquiry_id"),
 				rs.getString("user_id"),
 				rs.getString("inquiry_subject"),
 				rs.getString("inquiry_content"),
@@ -93,8 +93,7 @@ public class InquiriesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			// SQL文を準備する
-			String sql = "select * from Inquiries WHERE inquiry_id LIKE ? "
-					+ "OR user_id LIKE ? "
+			String sql = "select * from Inquiries WHERE user_id LIKE ? "
 					+ "OR inquiry_subject LIKE ? "
 					+ "OR inquiry_content LIKE ? "
 					+ "OR inquiry_status LIKE ? "
@@ -107,7 +106,7 @@ public class InquiriesDao {
 			pStmt.setString(3, "%" + keyWord+ "%");
 			pStmt.setString(4, "%" + keyWord+ "%");
 			pStmt.setString(5, "%" + keyWord+ "%");
-			pStmt.setString(6, "%" + keyWord+ "%");
+//			pStmt.setString(6, "%" + keyWord+ "%");
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -115,7 +114,7 @@ public class InquiriesDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Inquiries inquiries = new Inquiries(
-				rs.getString("inquiry_id"),
+//				rs.getString("inquiry_id"),
 				rs.getString("user_id"),
 				rs.getString("inquiry_subject"),
 				rs.getString("inquiry_content"),
@@ -162,44 +161,49 @@ public class InquiriesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			// SQL文を準備する
-			String sql = "insert into BC values (?, ?, ?, ?, ?, ?)";
+			String sql = "insert into Inquiries  values (null, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+
 			// SQL文を完成させる
-			if (inquiry.getInquiry_id() != null && !inquiry.getInquiry_id().equals("")) {
-				pStmt.setString(1, inquiry.getInquiry_id());
+//			if (inquiry.getInquiry_id() != null && !inquiry.getInquiry_id().equals("")) {
+//				pStmt.setString(1, inquiry.getInquiry_id());
+//			}
+//			else {
+//				pStmt.setString(1, null);
+//			}
+			if (inquiry.getUser_id() != null && !inquiry.getUser_id().equals("")) {
+				pStmt.setString(1, inquiry.getUser_id());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
-			if (inquiry.getUser_id() != null && !inquiry.getUser_id().equals("")) {
-				pStmt.setString(2, inquiry.getUser_id());
+			if (inquiry.getInquiry_subject() != null && !inquiry.getInquiry_subject().equals("")) {
+				pStmt.setString(2, inquiry.getInquiry_subject());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
-			if (inquiry.getInquiry_subject() != null && !inquiry.getInquiry_subject().equals("")) {
-				pStmt.setString(3, inquiry.getInquiry_subject());
+			if (inquiry.getInquiry_content() != null && !inquiry.getInquiry_content().equals("")) {
+				pStmt.setString(3, inquiry.getInquiry_content());
 			}
 			else {
 				pStmt.setString(3, null);
 			}
-			if (inquiry.getInquiry_content() != null && !inquiry.getInquiry_content().equals("")) {
-				pStmt.setString(4, inquiry.getInquiry_content());
+			if (inquiry.getInquiry_status() != null && !inquiry.getInquiry_status().equals("")) {
+				pStmt.setString(4, inquiry.getInquiry_status());
 			}
 			else {
 				pStmt.setString(4, null);
 			}
-			if (inquiry.getInquiry_status() != null && !inquiry.getInquiry_status().equals("")) {
-				pStmt.setString(5, inquiry.getInquiry_status());
+			if (inquiry.getInquiry_date() != null && !inquiry.getInquiry_date().equals("")) {
+				pStmt.setString(5, inquiry.getInquiry_date());
 			}
 			else {
 				pStmt.setString(5, null);
 			}
-			if (inquiry.getInquiry_date() != null && !inquiry.getInquiry_date().equals("")) {
-				pStmt.setString(6, inquiry.getInquiry_date());
-			}
-			else {
-				pStmt.setString(6, null);
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
 			}
 	    }
 		// 全ての例外を受け取る

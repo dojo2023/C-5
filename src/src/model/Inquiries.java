@@ -2,17 +2,17 @@ package model;
 import java.io.Serializable;
 
 public class Inquiries implements Serializable {
-	  private String inquiry_id;
+//	  private String inquiry_id;
 	  private String user_id;
 	  private String inquiry_subject;
 	  private String inquiry_content;
-	  private String inquiry_status;
-	  private String inquiry_date;
+	  private int inquiry_status;
+	  private date inquiry_date;
 
-public Inquiries(String inquiry_id, String user_id, String inquiry_subject, String inquiry_content,
+public Inquiries( String user_id, String inquiry_subject, String inquiry_content,
 			String inquiry_status, String inquiry_date) {
 		super();
-		this.inquiry_id = inquiry_id;
+//		this.inquiry_id = inquiry_id;
 		this.user_id = user_id;
 		this.inquiry_subject = inquiry_subject;
 		this.inquiry_content = inquiry_content;
@@ -21,7 +21,7 @@ public Inquiries(String inquiry_id, String user_id, String inquiry_subject, Stri
 	}
 public Inquiries() {
 	super();
-	this.inquiry_id = "";
+//	this.inquiry_id = "";
 	this.user_id = "";
 	this.inquiry_subject = "";
 	this.inquiry_content = "";
@@ -29,12 +29,12 @@ public Inquiries() {
 	this.inquiry_date = "";
     }
 
-public String getInquiry_id() {
-	return inquiry_id;
-}
-public void setInquiry_id(String inquiry_id) {
-	this.inquiry_id = inquiry_id;
-}
+//public String getInquiry_id() {
+//	return inquiry_id;
+//}
+//public void setInquiry_id(String inquiry_id) {
+//	this.inquiry_id = inquiry_id;
+//}
 public String getUser_id() {
 	return user_id;
 }
