@@ -44,6 +44,25 @@
 		<input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
 	</form>
 
+	<!-- 商品一覧 -->
+	<div class="list_wrapper">
+		<!-- カテゴリ部分 -->
+		<div class="categories_container">
+			<div class="category"></div>
+			<div class="category"></div>
+			<div class="category"></div>
+			<div class="category"></div>
+			<div class="category"></div>
+		</div>
+
+		<!-- 商品部分 -->
+		<div class="items_container">
+			<div class="item">プロテイン<input type="range"></div>
+			<div class="item">水<input type="range"></div>
+			<div class="item">フェイスマスク<input type="range"></div>
+		</div>
+	</div>
+
 </main>
 
 <footer>
