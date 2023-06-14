@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
+		<link rel="stylesheet" href="/mecar/css/guide.css">
 	</head>
 	<body>
 		<header>
@@ -22,7 +23,19 @@
 		<main>
 			<h1>ご利用ガイド</h1>
 
-			ログインページ<br>
+
+			<label for="switch" class="switch_label">
+				<div class="switch">
+					<input type="checkbox" id="switch" >
+					<div class="circle"></div>
+					<div class="base"></div>
+				</div>
+				<span class="title">ログインページ</span>
+			</label>
+
+
+
+			<br><br>ログインページ<br>
 			<select name="login">
 				<optgroup label="ログインページ">
 					<option value="password">パスワードを忘れた際</option>
