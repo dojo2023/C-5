@@ -24,84 +24,100 @@
 		<main>
 			<h1>ご利用ガイド</h1>
 
+<section class="accordion">
+		<!-- ログインページ -->
+		<input id="block-01" type="checkbox" class="toggle">
+		<label class="Label" for="block-01">ログインページ</label>
+		<div class="content">
+			<input id="block-02" type="checkbox" class="toggle">
+			<label class="Label" for="block-02">ログイン</label>
+			<div class="content">
+				<p>ログインできます。</p>
+			</div>
+			<input id="block-03" type="checkbox" class="toggle">
+			<label class="Label" for="block-03">リセット</label>
+			<div class="content">
+				<p>リセットできます。</p>
+			</div>
+			<input id="block-04" type="checkbox" class="toggle">
+			<label class="Label" for="block-04">新規登録</label>
+			<div class="content">
+				<p>新規登録フォームに遷移します。</p>
+			</div>
+			<input id="block-05" type="checkbox" class="toggle">
+			<label class="Label" for="block-05">パスワードを忘れた方</label>
+			<div class="content">
+				<p>パスワード変更ができます。</p>
+			</div>
+		</div>
 
-<!--  				<div class="circle"></div>
-					<div class="base"></div>-->
+		<!-- メニューページ -->
+		<input id="block-06" type="checkbox" class="toggle">
+		<label class="Label" for="block-06">メニューページ</label>
+		<div class="content">
+			<input id="block-07" type="checkbox" class="toggle">
+			<label class="Label" for="block-07">ログイン</label>
+			<div class="content">
+				<p>ログインできます。</p>
+			</div>
+			<input id="block-08" type="checkbox" class="toggle">
+			<label class="Label" for="block-08">リセット</label>
+			<div class="content">
+				<p>リセットできます。</p>
+			</div>
+			<input id="block-09" type="checkbox" class="toggle">
+			<label class="Label" for="block-09">新規登録</label>
+			<div class="content">
+				<p>新規登録フォームに遷移します。</p>
+			</div>
+			<input id="block-10" type="checkbox" class="toggle">
+			<label class="Label" for="block-10">パスワードを忘れた方</label>
+			<div class="content">
+				<p>パスワード変更ができます。</p>
+			</div>
+		</div>
 
+</section>
 
-			<label for="switch" class="switch_label">
-				<div class="switch">
-					<input type="checkbox" id="switch">
-				</div>
-				<span class="title">ログインページ詳細</span>
-			</label>
-
-			<label for="switch" class="switch_label">
-				<div class="switch">
-					<input type="checkbox" class="switch" >
-				</div>
-				<span class="login" id="login"></span>
-			</label>
-
-
-
-
-
-			<span class="login" id="reset"></span>
-			<span class="login" id="new_regist"></span>
-			<span class="login" id="forget_pass"></span>
-
-
-
-
-			<br><br>ログインページ<br>
-			<select name="login">
-				<optgroup label="ログインページ">
-					<option value="password">パスワードを忘れた際</option>
-					<option value="regist">新規登録</option>
-					<option value="login">ログイン</option>
-					<option value="reset">リセット</option>
- 				</optgroup>
-		   </select> <br>
-			メニューページ<br>
-			<select name="login">
-				<optgroup label="ログインページ">
-					<option value="password" >パスワードを忘れた際</option>
-					<option value="regist">新規登録</option>
-					<option value="login">ログイン</option>
-					<option value="reset">リセット</option>
- 				</optgroup>
-		   </select> <br>
-			マイページ<br>
-			<select name="login">
-				<optgroup label="ログインページ">
-					<option value="password" >パスワードを忘れた際</option>
-					<option value="regist">新規登録</option>
-					<option value="login">ログイン</option>
-					<option value="reset">リセット</option>
- 				</optgroup>
-		   </select> <br>
-			お問い合わせページ<br>
-			<select name="login">
-				<optgroup label="ログインページ">
-					<option value="password" >パスワードを忘れた際</option>
-					<option value="regist">新規登録</option>
-					<option value="login">ログイン</option>
-					<option value="reset">リセット</option>
- 				</optgroup>
-		   </select> <br>
-			ログアウト<br>
-			<select name="login">
-				<optgroup label="ログインページ">
-					<option value="password" >パスワードを忘れた際</option>
-					<option value="regist">新規登録</option>
-					<option value="login">ログイン</option>
-					<option value="reset">リセット</option>
- 				</optgroup>
-		   </select>
 		</main>
 		<footer>
 			<p>&copy;Copyright Error Maker. All rights reserved.</p>
 		</footer>
 	</body>
 </html>
+<!--
+<!--  				<div class="circle"></div>
+					<div class="base"></div>-->
+
+<!-- ログインページを選択したとき -->
+			<label for="switch" class="switch_label">
+				<div>
+					<input type="checkbox" class="switch" id="switch">
+				</div>
+				<span class="title">ログインページ</span>
+			</label>
+
+<!--
+			<label>
+				<div>
+					<input type="checkbox" class="switch">
+				</div>
+				<span class="title">ログインページ詳細1</span>
+			</label>
+-->
+
+<!-- ログインを選択したとき -->
+			<label for="switch1" class="switch_label1">
+				<div>
+					<input type="checkbox" class="switch" id="switch1">
+				</div>
+				<span class="login" id="login"></span>
+			</label>
+			<span class="login" id="login_des"></span>
+
+
+
+			<span class="login" id="reset"></span>
+			<span class="login" id="new_regist"></span>
+			<span class="login" id="forget_pass"></span>
+-->
