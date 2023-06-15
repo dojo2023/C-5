@@ -1,13 +1,96 @@
 @charset "UTF-8";
 
+
+/*ベース*/
+.toggle {
+	display: none;
+}
+
+/*タイトル*/
+.Label {
+	padding: 1em;
+	display: block;
+	color: #fff;
+	background:#019ac6;
+}
+
+/*タイトル横の矢印*/
+.Label::before{
+	content:"";
+	width: 6px;
+	height: 6px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	-webkit-transform: rotate(45deg);
+	position: absolute;
+	top:calc( 50% - 3px );
+	right: 20px;
+	transform: rotate(135deg);
+}
+
+.Label,
+.content {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	transition: all 0.3s;
+}
+
+/*本文*/
+.content {
+	height: 0;
+	margin-bottom:10px;
+	padding:0 20px;
+	overflow: hidden;
+}
+
+/*開閉時*/
+.toggle:checked + .Label + .content {
+	height: auto;
+	padding:20px ;
+	transition: all .3s;
+}
+
+.toggle:checked + .Label::before {
+	transform: rotate(-45deg) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ONOFFスイッチの作成 */
 
-/* スイッチの場所設定 */
-.switch_label {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+
 
 /* ボタンを押したときのベースの設定 */
 input:checked ~ .base {
@@ -51,8 +134,21 @@ input[type='checkbox'] {
   height: 0;
 }
 
+/* スイッチの場所設定 */
+.switch_label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+/* スイッチの場所設定 */
+.switch_label1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 /* 場所の設定 */
-.switch {
+#switch {
   position: relative;
 }
 
