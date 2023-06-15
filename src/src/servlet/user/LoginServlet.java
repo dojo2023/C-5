@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDao;
+import model.LoginUsers;
 import model.Users;
 
 /**
@@ -51,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 		if (iDao.isLoginOK(new Users(user_id, user_pw))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("user_id", new Users(user_id, user_pw));
+			session.setAttribute("user_id", new LoginUsers(user_id));
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/MenuServlet");
