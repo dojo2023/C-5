@@ -10,6 +10,8 @@ import java.util.List;
 import model.Inquiries;
 
 public class InquiriesDao {
+
+/*
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<Inquiries> select(Inquiries param) {
 	  Connection conn = null;
@@ -49,8 +51,8 @@ public class InquiriesDao {
 				rs.getString("user_id"),
 				rs.getString("inquiry_subject"),
 				rs.getString("inquiry_content"),
-				rs.getString("inquiry_status"),
-				rs.getString("inquiry_date")
+				rs.getInt("inquiry_status"),
+				rs.getDate("inquiry_date")
 				);
 				inquiriesList.add(inquiries);
 	     }
@@ -77,8 +79,12 @@ public class InquiriesDao {
 	  return inquiriesList;
     }
 
+*/
+
 //		キーワード検索
 	public List<Inquiries> select(String keyWord) {
+		//[0]
+		//[1,2]
 		Connection conn = null;
 		List<Inquiries> inquiriesList = new ArrayList<Inquiries>();
 
@@ -94,10 +100,11 @@ public class InquiriesDao {
 
 			// SQL文を準備する
 			String sql = "select * from Inquiries WHERE user_id LIKE ? "
+					+ "OR user_mail LIKE ?"
 					+ "OR inquiry_subject LIKE ? "
-					+ "OR inquiry_content LIKE ? "
-					+ "OR inquiry_status LIKE ? "
-					+ "OR inquiry_date LIKE ? ";
+					+ "OR inquiry_content LIKE ? ";
+//					+ "OR inquiry_status LIKE ? "
+//					+ "OR inquiry_date LIKE ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -105,7 +112,7 @@ public class InquiriesDao {
 			pStmt.setString(2, "%" + keyWord+ "%");
 			pStmt.setString(3, "%" + keyWord+ "%");
 			pStmt.setString(4, "%" + keyWord+ "%");
-			pStmt.setString(5, "%" + keyWord+ "%");
+//			pStmt.setString(5, "%" + keyWord+ "%");
 //			pStmt.setString(6, "%" + keyWord+ "%");
 
 			// SQL文を実行し、結果表を取得する
@@ -114,12 +121,13 @@ public class InquiriesDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Inquiries inquiries = new Inquiries(
-//				rs.getString("inquiry_id"),
+				rs.getInt("inquiry_id"),
 				rs.getString("user_id"),
+				rs.getString("user_mail"),
 				rs.getString("inquiry_subject"),
 				rs.getString("inquiry_content"),
-				rs.getString("inquiry_status"),
-				rs.getString("inquiry_date")
+				rs.getInt("inquiry_status"),
+				rs.getDate("inquiry_date")
 				);
 				inquiriesList.add(inquiries);
 			}
@@ -147,6 +155,7 @@ public class InquiriesDao {
 		return inquiriesList;
     }
 
+
 //		お問い合わせの登録
 	// 引数inquiryで指定されたレコードを登録し、成功したらtrueを返す
 	public boolean insert(Inquiries inquiry) {
@@ -161,7 +170,7 @@ public class InquiriesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			// SQL文を準備する
-			String sql = "insert into Inquiries  values (null, ?, ?, ?, ?, ?)";
+			String sql = "insert into Inquiries  values (null, ?, ?, ?, 0, CURRENT_DATE)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -188,18 +197,6 @@ public class InquiriesDao {
 			}
 			else {
 				pStmt.setString(3, null);
-			}
-			if (inquiry.getInquiry_status() != null && !inquiry.getInquiry_status().equals("")) {
-				pStmt.setString(4, inquiry.getInquiry_status());
-			}
-			else {
-				pStmt.setString(4, null);
-			}
-			if (inquiry.getInquiry_date() != null && !inquiry.getInquiry_date().equals("")) {
-				pStmt.setString(5, inquiry.getInquiry_date());
-			}
-			else {
-				pStmt.setString(5, null);
 			}
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

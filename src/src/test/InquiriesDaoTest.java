@@ -15,16 +15,17 @@ public class InquiriesDaoTest {
 		for (Inquiries inquiry : inquiriesList2) {
 //			System.out.println("inquiry_id：" + inquiry.getInquiry_id());
 			System.out.println("user_id：" + inquiry.getUser_id());
+			System.out.println("user_mail：" + inquiry.getUser_mail());
 			System.out.println("inquiry_subject：" + inquiry.getInquiry_subject());
 			System.out.println("inquiry_content：" + inquiry.getInquiry_content());
-			System.out.println("inquiry_status：" + inquiry.getInquiry_status());
-			System.out.println("inquiry_date：" + inquiry.getInquiry_date());
+//			System.out.println("inquiry_status：" + inquiry.getInquiry_status());
+//			System.out.println("inquiry_date：" + inquiry.getInquiry_date());
 			System.out.println();
 		}
 
 		// insertのテスト
 		System.out.println("---------- insertのテスト ----------");
-		Inquiries insRec = new Inquiries("test","件名テスト","本文テスト","test","test");
+		Inquiries insRec = new Inquiries("","mail@test","件名テスト","本文テスト",0,);
 
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
@@ -32,6 +33,7 @@ public class InquiriesDaoTest {
 			for (Inquiries inquiry : inquiriesList3) {
 //				System.out.println("inquiry_id：" + inquiry.getInquiry_id());
 				System.out.println("user_id：" + inquiry.getUser_id());
+				System.out.println("user_mail：" + inquiry.getUser_mail());
 				System.out.println("inquiry_subject：" + inquiry.getInquiry_subject());
 				System.out.println("inquiry_content：" + inquiry.getInquiry_content());
 				System.out.println("inquiry_status：" + inquiry.getInquiry_status());
