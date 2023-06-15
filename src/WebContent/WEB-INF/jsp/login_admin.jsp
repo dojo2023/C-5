@@ -13,6 +13,7 @@
     </header>
 <main>
 <h1>管理者ログイン</h1>
+
   <form id="form"method="POST" action="/mecar/LoginAdminServlet">
   	ユーザーID<input type="text" name="DOJO"><br>
   	パスワード<input type="password" name="pass"><br>
@@ -22,6 +23,7 @@
 <p id="output"></p>
 
 
+<!--エラーメッセージを表示する。jsに飛ぶ  -->
 <script type="text/javascript" src="./js/login_admin.js"></script>
 
 
