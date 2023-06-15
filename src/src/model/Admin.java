@@ -2,32 +2,32 @@ package model;
 import java.io.Serializable;
 
 public class Admin implements Serializable {
-	private String id;	// ID
-	private String pw;	// PW
+	private String DOJO;	// ID
+	private String pass;	// PW
 
-	public Admin(String id, String pw) {
-		this.id = id;
-		this.pw = pw;
+	public Admin(String DOJO, String pass) {
+		this.DOJO = DOJO;
+		this.pass = pass;
 	}
 
 	public Admin() {
-		this.id = "";
-		this.pw = "";
+		this.DOJO = "DOJO";
+		this.pass = "pass";
 	}
 
 	public String getId() {
-		return id;
+		return DOJO;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String DOJO) {
+		this.pass = DOJO;
 	}
 
 	public String getPw() {
-		return pw;
+		return pass;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPw(String pass) {
+		this.pass = pass;
 	}
 }
