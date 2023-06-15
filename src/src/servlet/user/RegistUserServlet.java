@@ -38,22 +38,20 @@ public class RegistUserServlet extends HttpServlet {
 	}
 
 	// リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-			String user_auto_id = request.getParameter("user_auto_id");
-			String user_id = request.getParameter("user_id");
-			String user_pw = request.getParameter("user_pw");
-			String user_mail = request.getParameter("user_mail");
-
-
+	request.setCharacterEncoding("UTF-8");
+	String user_auto_id = request.getAttribute("user_auto_id");
+	String user_id = request.getParameter("user_id");
+	String user_pw = request.getParameter("user_pw");
+	String user_mail = request.getParameter("user_mail");
 			// 登録処理を行う
 			UsersDAO bDao = new UsersDAO();
-			if (bDao.insert(new Bc(user_auto_id,user_id,user_pw,user_mail))) {	// 登録成功
+			if (bDao.insert(new Users(user_auto_id,user_id,user_pw,user_mail))) {	// 登録成功
 				request.setAttribute("result",
-				new Result("登録成功！", "レコードを登録しました。", "/mecar/RegistServlet"));
+				new Result("登録成功！", "レコードを登録しました。"/servlet.user/RegistServlet"));
 			}
 			else {												// 登録失敗
 				request.setAttribute("result",
-				new Result("登録失敗！", "レコードを登録できませんでした。", "/mecar/RegistServlet"));
+				new Result("登録失敗！", "レコードを登録できませんでした。"/servlet.user/RegistServlet"));
 			}
 
 	/**

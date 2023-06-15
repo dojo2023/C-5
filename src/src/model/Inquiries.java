@@ -3,13 +3,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Inquiries implements Serializable {
-	  private int inquiry_id;
-	  private String user_id;
-	  private String user_mail;
-	  private String inquiry_subject;
-	  private String inquiry_content;
-	  private int inquiry_status;
-	  private Date inquiry_date;
+	  private int inquiry_id;	//お問い合わせID（オートインクリメント）
+	  private String user_id;	//ユーザーID
+	  private String user_mail;	//ユーザーのメールアドレス
+	  private String inquiry_subject;	//お問い合わせ件名
+	  private String inquiry_content;	//お問い合わせ本文
+	  private int inquiry_status;	//対応ステータス
+	  private Date inquiry_date;	//お問い合わせの日付
 
   public Inquiries(int inquiry_id, String user_id, String user_mail, String inquiry_subject, String inquiry_content,
 			int inquiry_status, Date inquiry_date) {
@@ -23,6 +23,7 @@ public class Inquiries implements Serializable {
 		this.inquiry_date = inquiry_date;
 	}
 
+  // 初期値を設定する
   public Inquiries() {
 	super();
 	this.inquiry_id = 0;
@@ -34,6 +35,7 @@ public class Inquiries implements Serializable {
 	this.inquiry_date = null;
     }
 
+  // ゲッターとセッター
   public int getInquiry_id() {
 	return inquiry_id;
   }
