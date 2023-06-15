@@ -3,28 +3,28 @@ import java.io.Serializable;
 
 
 public class  Items implements Serializable {
-	private String item_id;
+	private int item_id;
 	private String user_id;
 	private String item_name;
 	private String item_url;
-	private String item_price;
-	private String item_category;
-	private String frequency_purchase;
-	private String item_switch;
-	private String item_meter;
+	private  int item_price;
+	private int item_category;
+	private int frequency_purchase;
+	private int item_switch;
+	private Double item_meter;
 
 
 
 	public  Items (
-		String item_id,
+		int item_id,
 		String user_id,
 		String item_name,
 		String item_url,
-		String item_price,
-		String item_category,
-		String frequency_purchase,
-		String item_switch,
-		String item_meter
+		int item_price,
+		int item_category,
+		int frequency_purchase,
+		int item_switch,
+		Double item_meter
 ) {
 		super();
 		this.item_id = item_id;
@@ -41,26 +41,26 @@ public class  Items implements Serializable {
 
 	public Items() {
 		super();
-		this.item_id = "";
+		this.item_id = 0;
 		this.user_id = "";
 		this.item_name = "";
 		this.item_url = "";
-		this.item_price = "";
-		this.item_category = "";
-		this.frequency_purchase = "";
-		this.item_switch = "";
-		this.item_meter = "";
+		this.item_price = 0;
+		this.item_category = 1;
+		this.frequency_purchase = 3;
+		this.item_switch = 0;
+		this.item_meter = 100.0;
 
 	}
 
 
 
-	public String getItem_id() {
+	public int getItem_id() {
 		return item_id;
 	}
 
 
-	public void setItem_id(String item_id) {
+	public void setItem_id(int item_id) {
 		this.item_id = item_id;
 	}
 
@@ -95,52 +95,52 @@ public class  Items implements Serializable {
 	}
 
 
-	public String getItem_price() {
+	public int getItem_price() {
 		return item_price;
 	}
 
 
-	public void setItem_price(String item_price) {
+	public void setItem_price(int item_price) {
 		this.item_price = item_price;
 	}
 
 
-	public String getItem_category() {
+	public int getItem_category() {
 		return item_category;
 	}
 
 
-	public void setItem_category(String item_category) {
+	public void setItem_category(int item_category) {
 		this.item_category = item_category;
 	}
 
 
-	public String getFrequency_purchase() {
+	public int getFrequency_purchase() {
 		return frequency_purchase;
 	}
 
 
-	public void setFrequency_purchase(String frequency_purchase) {
+	public void setFrequency_purchase(int frequency_purchase) {
 		this.frequency_purchase = frequency_purchase;
 	}
 
 
-	public String getItem_switch() {
+	public int getItem_switch() {
 		return item_switch;
 	}
 
 
-	public void setItem_switch(String item_switch) {
+	public void setItem_switch(int item_switch) {
 		this.item_switch = item_switch;
 	}
 
 
-	public String getItem_meter() {
+	public double getItem_meter() {
 		return item_meter;
 	}
 
 
-	public void setItem_meter(String item_meter) {
+	public void setItem_meter(double item_meter) {
 		this.item_meter = item_meter;
 	}
 

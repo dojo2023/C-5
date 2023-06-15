@@ -229,6 +229,8 @@ ALTER TABLE inquiries
 //inquiriesテーブルのユーザIDを外部キーとして登録
 //inquiriesが子テーブル、usersが親テーブル
 
+【inquiriesテーブルとusersテーブルを結合する】
+SELECT * FROM INQUIRIES  LEFT OUTER JOIN USERS  ON USERS .user_id = INQUIRIES .user_id
 
 
 
