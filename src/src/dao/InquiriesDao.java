@@ -99,7 +99,8 @@ public class InquiriesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			// SQL文を準備する
-			String sql = "select * from Inquiries WHERE user_id LIKE ? "
+			String sql = "select * from Inquiries LEFT OUTER JOIN users  ON users .user_id = inquiries .user_id "
+					+ "WHERE Inquiries.user_id LIKE ? "
 					+ "OR user_mail LIKE ?"
 					+ "OR inquiry_subject LIKE ? "
 					+ "OR inquiry_content LIKE ? ";
@@ -122,7 +123,7 @@ public class InquiriesDao {
 			while (rs.next()) {
 				Inquiries inquiries = new Inquiries(
 				rs.getInt("inquiry_id"),
-				rs.getString("user_id"),
+				rs.getString("inquiries.user_id"),
 				rs.getString("user_mail"),
 				rs.getString("inquiry_subject"),
 				rs.getString("inquiry_content"),

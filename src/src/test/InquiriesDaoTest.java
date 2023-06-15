@@ -11,7 +11,7 @@ public class InquiriesDaoTest {
 
 		// selectのテスト
 		System.out.println("---------- selectのテスト ----------");
-		List<Inquiries> inquiriesList2 = dao.select(new Inquiries());
+		List<Inquiries> inquiriesList2 = dao.select("");
 		for (Inquiries inquiry : inquiriesList2) {
 //			System.out.println("inquiry_id：" + inquiry.getInquiry_id());
 			System.out.println("user_id：" + inquiry.getUser_id());
@@ -25,13 +25,13 @@ public class InquiriesDaoTest {
 
 		// insertのテスト
 		System.out.println("---------- insertのテスト ----------");
-		Inquiries insRec = new Inquiries("","mail@test","件名テスト","本文テスト",0,);
+		Inquiries insRec = new Inquiries(0,"yamada","mail@test","件名テスト","本文テスト",0,null);
 
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
-			List<Inquiries> inquiriesList3 = dao.select(insRec);
+			List<Inquiries> inquiriesList3 = dao.select("");
 			for (Inquiries inquiry : inquiriesList3) {
-//				System.out.println("inquiry_id：" + inquiry.getInquiry_id());
+				System.out.println("inquiry_id：" + inquiry.getInquiry_id());
 				System.out.println("user_id：" + inquiry.getUser_id());
 				System.out.println("user_mail：" + inquiry.getUser_mail());
 				System.out.println("inquiry_subject：" + inquiry.getInquiry_subject());
