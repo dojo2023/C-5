@@ -7,6 +7,7 @@
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
 		<link rel="stylesheet" href="/mecar/css/guide.css">
+		<script src="/mecar/js/guide.js"></script>
 	</head>
 	<body>
 		<header>
@@ -24,14 +25,32 @@
 			<h1>ご利用ガイド</h1>
 
 
+<!--  				<div class="circle"></div>
+					<div class="base"></div>-->
+
+
 			<label for="switch" class="switch_label">
 				<div class="switch">
-					<input type="checkbox" id="switch" >
-					<div class="circle"></div>
-					<div class="base"></div>
+					<input type="checkbox" id="switch">
 				</div>
-				<span class="title">ログインページ</span>
+				<span class="title">ログインページ詳細</span>
 			</label>
+
+			<label for="switch" class="switch_label">
+				<div class="switch">
+					<input type="checkbox" class="switch" >
+				</div>
+				<span class="login" id="login"></span>
+			</label>
+
+
+
+
+
+			<span class="login" id="reset"></span>
+			<span class="login" id="new_regist"></span>
+			<span class="login" id="forget_pass"></span>
+
 
 
 

@@ -22,8 +22,8 @@
 		<h1>ユーザー検索結果</h1>
 		<h2>検索結果一覧</h2>
 		 <form id="form"method="POST" action="/mecar/UsersListServlet">
-  	      <input type="text" name="ID" placeholder="検索するワード"><br>
-  	      <input type="submit" name="検索" value="検索">
+  	      <input type="text" name="ID" placeholder="検索するワード">
+  	      <input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
   	      </form>
     </main>
 <footer>

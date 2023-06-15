@@ -3,8 +3,8 @@
  */
 
 document.getElementById('form').onsubmit = function(event) {
-	 const id = document.getElementById('form').ID.value;
-	 const pw = document.getElementById('form').PW.value;
+	 const id = document.getElementById('form').DOJO.value;
+	 const pw = document.getElementById('form').pass.value;
 	 if (id === "" || pw === "") {
 		 event.preventDefault();
 	 	document.getElementById('output').textContent = 'IDとPWを入力してください！';

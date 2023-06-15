@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import model.Admin;
 //ここまで追記
-public class AdminDao {
+
 
 
 
@@ -17,7 +17,7 @@ public class AdminDao {
 	//ここからログイン処理の編集
 
 
-	public class AdminDAO {
+	public class AdminDao {
 		// ログインできるならtrueを返す
 		public boolean isLoginOK(Admin admin) {
 			Connection conn = null;
@@ -31,7 +31,7 @@ public class AdminDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SELECT文を準備する
-				String sql = "select count(*) from Admin where ID = ? and PW = ?";
+				String sql = "select count(*) from Admin where admin_id = ? and admin_pw = ? ";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				pStmt.setString(1, admin.getId());
 				pStmt.setString(2,admin.getPw());
@@ -77,5 +77,12 @@ public class AdminDao {
 	}
 
 
+
+	//public boolean isLokingOK(Admin admin) {
+	//	boolean loginResult = false;
+	//	return loginResult;
+//	}
+
+
 	//ログイン処理の編集ここまで
-}
+
