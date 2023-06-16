@@ -7,7 +7,8 @@ public class Users implements Serializable {
 	private String user_pw;	// パスワード
 	private String user_mail;//メアド
 	private String user_date;//減量ボタン押下時刻
-/*
+
+
 	public Users(String user_auto_id,String user_id, String user_pw,
 			String user_mail, String user_date) {
 		this.user_auto_id = user_auto_id;
@@ -16,7 +17,7 @@ public class Users implements Serializable {
 		this.user_mail = user_mail;
 		this.user_date = user_date;
 	}
-	*/
+
 	//ログイン
 	public Users(String user_id, String user_pw) {
 		this.user_id = user_id;

@@ -21,7 +21,7 @@
 	パスワード<input type="password" name="PW" id = "input_pass" class= "idpw"><br>
 	メールアドレス<input type="text" name="MAIL"><br>
 	<!--  <button id ="passview">表示</button> -->
-	<input type="submit" name="DEFINITE" value="確定">
+	<input type="submit" name="REGIST" value="確定">
 	<input type="reset" name="reset" value="リセット"><br>
 	<!--  <span id="error_message" class = error></span> -->
 </form>
