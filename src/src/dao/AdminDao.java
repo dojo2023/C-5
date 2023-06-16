@@ -75,9 +75,6 @@ import model.Admin;
 
 
 	}
-
-
-
 	//public boolean isLokingOK(Admin admin) {
 	//	boolean loginResult = false;
 	//	return loginResult;
