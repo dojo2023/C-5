@@ -77,36 +77,36 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "insert into USERS values (?, ?, ?, ?)";
+				String sql = "insert into USERS values (null, ?, ?, ?, null)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (member.getUser_auto_id() != null && !member.getUser_auto_id().equals("")) {
-					pStmt.setString(1, member.getUser_auto_id());
+//				if (member.getUser_auto_id() != null && !member.getUser_auto_id().equals("")) {
+//					pStmt.setString(1, member.getUser_auto_id());
+//				}
+//				else {
+//					pStmt.setString(1, null);
+//				}
+
+				if (member.getUser_id() != null && !member.getUser_id().equals("")) {
+					pStmt.setString(1, member.getUser_id());
 				}
 				else {
 					pStmt.setString(1, null);
 				}
 
-				if (member.getUser_id() != null && !member.getUser_id().equals("")) {
-					pStmt.setString(2, member.getUser_id());
+				if (member.getUser_pw() != null && !member.getUser_pw().equals("")) {
+					pStmt.setString(2, member.getUser_pw());
 				}
 				else {
 					pStmt.setString(2, null);
 				}
 
-				if (member.getUser_pw() != null && !member.getUser_pw().equals("")) {
-					pStmt.setString(3, member.getUser_pw());
+				if (member.getUser_mail() != null && !member.getUser_mail().equals("")) {
+					pStmt.setString(3, member.getUser_mail());
 				}
 				else {
 					pStmt.setString(3, null);
-				}
-
-				if (member.getUser_mail() != null && !member.getUser_mail().equals("")) {
-					pStmt.setString(4, member.getUser_mail());
-				}
-				else {
-					pStmt.setString(4, null);
 				}
 
 				// SQL文を実行する
