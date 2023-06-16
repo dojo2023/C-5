@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>お問い合わせ</title>
   <link rel="stylesheet" href="/mecar/css/common.css">
+  <link rel="stylesheet" href="/mecar/css/inquiry.css">
 </head>
 
 <body>
