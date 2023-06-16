@@ -1,1 +1,9 @@
 @charset "UTF-8";
+
+/* 文章・ボタンを中央にそろえる */
+
+
+/* エラーメッセージ */
+#error_message{
+  color: red;
+}

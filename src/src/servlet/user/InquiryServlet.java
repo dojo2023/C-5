@@ -54,17 +54,18 @@ public class InquiryServlet extends HttpServlet {
 
 		// データベースに保存する
 		InquiriesDao iDao = new InquiriesDao();
-//		if (iDao.insert(new Inquiries(inquiry_id,user_id,user_mail,inquiry_subject,inquiry_content,inquiry_status,inquiry_date))) {	// 登録成功
+//		if (iDao.insert(new Inquies(inquiry_id,user_id,user_mail,inquiry_subject,
+//				inquiry_content,inquiry_status,inquiry_date))) {	// 登録成功
 //			request.setAttribute("result",
 //			new ("登録成功！", "レコードを登録しました。", "/simpleBC/MenuServlet"));
-//		}
+		}
 //		else {	// 登録失敗
 //			request.setAttribute("result",
 //			new Inquiries("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
 //		}
 
 		// お問い合わせページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry.jsp");
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry.jsp");
+//		dispatcher.forward(request, response);
     }
-}
+//}
