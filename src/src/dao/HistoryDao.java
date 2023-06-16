@@ -21,7 +21,7 @@ public class HistoryDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			//SQL文を準備する
-			String sql = "insert into history values (null, ?, ?)";
+			String sql = "insert into history values (null, ?, current_date)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SQL文を完成させる
@@ -30,12 +30,6 @@ public class HistoryDao {
 			}
 			else {
 				pStmt.setInt(1, 0);
-			}
-			if (history.getHistory_date() != null && !history.getHistory_date().equals("")) {
-				pStmt.setDate(2, history.getHistory_date());
-			}
-			else {
-				pStmt.setDate(2, null);
 			}
 
 			//SQL文を実行する
@@ -60,6 +54,9 @@ public class HistoryDao {
 				}
 			}
 		}
+
+		//結果を返す
+		return result;
 	}
 
 }
