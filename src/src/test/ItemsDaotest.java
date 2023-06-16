@@ -1,8 +1,4 @@
 package test;
-import java.util.List;
-
-import dao.ItemsDao;
-import model.Items;
 
 public class ItemsDaotest {
 
@@ -25,7 +21,7 @@ public class ItemsDaotest {
 				System.out.println();
 			}
 
-			*/
+
 
 			// insert()のテスト
 			System.out.println("---------- insert()のテスト ----------");
