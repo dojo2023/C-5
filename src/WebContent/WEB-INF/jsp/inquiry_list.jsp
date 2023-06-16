@@ -23,9 +23,19 @@
 		<h1>お問い合わせ一覧画面</h1>
 		<h2>お問い合わせ一覧</h2>
 		    <form id="form"method="POST" action="/mecar/InquiryListServlet">
+		     <div class="container">
   	        <input type="text" name="ID" placeholder="検索するワード">
   	        <input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
+  	        </div>
             </form>
+            	<table border="1">
+					<tr>
+					<td>対応ステータス</td>
+					<td>ユーザーID</td>
+					<td>メールアドレス</td>
+					<td>件名</td>
+					</tr>
+            	</table>
     </main>
 <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
