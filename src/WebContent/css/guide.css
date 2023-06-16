@@ -172,12 +172,6 @@ input[type='checkbox'] {
   display: flex;
   align-items: center;
 }
-/* スイッチの場所設定 */
-.switch_label1 {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
 
 /* 場所の設定 */
 #switch {
@@ -193,3 +187,11 @@ input[type='checkbox'] {
 .login {
   margin-left: 8px;
 }
+
+
+
+
+
+
+
+

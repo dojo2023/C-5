@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
+		<link rel="stylesheet" href="/mecar/css/mypage.css">
 		<script src="/mecar/js/mypage.js"></script>
 	</head>
 	<body>
@@ -26,20 +27,27 @@
 
 <!-- 各項目へのボタン -->
 			<form method="POST" action="/mecar/ChangeServlet">
-				<table align="center">
+				<table>
 					<tr>
-						<td colspan="2" align="center">ユーザーID（EL式）さん</td>
+						<td colspan="2">ユーザーID（EL式）さん</td>
 					</tr>
 					<tr>
-						<td><a href=/mecar/ChangeServlet><input type="submit" name="BUTTON" value="パスワード変更"></a></td>
-						<td><a href=/mecar/ChangeServlet><input type="submit" name="BUTTON" value="メールアドレス変更"></a></td>
-						<td><label><input type="hidden" name="BUTTON" value="メールアドレス変更"><a href=/mecar/ChangeServlet>a</a></label></td>
+						<td><a href=/mecar/ChangeServlet class="btn btn-gradient"><label for="button" class="button_label"><input type="submit" id="switch" name="BUTTON" value="パスワード変更"><span>パスワード変更</span></label></a></td>
+						<td><a href=/mecar/ChangeServlet class="btn btn-gradient"><label for="button" class="button_label"><input type="submit" id="switch" name="BUTTON" value="メールアドレス変更"><span>メールアドレス変更</span></label></a></td>
 					</tr>
 					<tr>
 						<td><a href=/mecar/GuideServlet><input type="button" value="ご利用ガイド"></a></td>
 						<td><input type="button" value="退会の方はこちら" onclick="MoveCheck();"></td>
 					</tr>
 				</table>
+
+
+
+
+
+
+
+
 			</form>
 		</main>
 		<footer>

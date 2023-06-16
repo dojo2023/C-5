@@ -103,7 +103,6 @@
 				</div>
 
 			</section>
-
 		</main>
 		<footer>
 			<p>&copy;Copyright Error Maker. All rights reserved.</p>
