@@ -30,4 +30,11 @@ public class Admin implements Serializable {
 	public void setPw(String pass) {
 		this.pass = pass;
 	}
+
+	public boolean isLoginOK(Admin admin) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+
 }
