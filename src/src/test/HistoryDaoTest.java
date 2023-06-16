@@ -9,7 +9,7 @@ public class HistoryDaoTest {
 
 		//insertのテスト
 		System.out.println("------------- insertのテスト --------------");
-		History insRec = new History(0,0,null);
+		History insRec = new History(0,1,null);
 
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
