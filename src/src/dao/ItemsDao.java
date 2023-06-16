@@ -15,6 +15,7 @@ import model.Items;
 
 public class ItemsDao {
 
+	/*
 
 	//decrease
 	//一斉減量
@@ -79,6 +80,7 @@ public class ItemsDao {
 		return result;
 	}
 
+*/
 
 	//select
 
