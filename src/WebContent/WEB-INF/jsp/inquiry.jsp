@@ -25,10 +25,12 @@
   </header>
 
   <main>
-  <form style="margin: auto; width: 220px;" id = "inquiry_form" method="POST" name="" action="/mecar/InquiryServlet">
+  <form  id = "inquiry_form" method="POST" name="" action="/mecar/InquiryServlet">
   <h1>お問い合わせ</h1>
-    ユーザーID
-    メールアドレス<br>
+    <label>ユーザーID</label>
+    <input type="text" name="user_id" id="user_id" placeholder="ユーザーID(EL式)"><br>
+    <label>メールアドレス</label><br>
+    <input type="text" name="user_mail" id="user_mail" placeholder="メールアドレス"><br>
     件名<input type="text" name="Title"><br>
     お問い合わせ内容<br>
     <textarea name="Inquiry"></textarea><br>
