@@ -25,6 +25,7 @@
   </header>
 
   <main>
+  <form style="margin: auto; width: 220px;" id = "inquiry_form" method="POST" name="" action="/mecar/InquiryServlet">
   <h1>お問い合わせ</h1>
     ユーザーID
     メールアドレス<br>
@@ -32,7 +33,9 @@
     お問い合わせ内容<br>
     <textarea name="Inquiry"></textarea><br>
     <input type="submit" name="submit" onclick="MoveCheck();" value="送信">
+    </form>
   </main>
+  <span class= "center" id="error_message"></span>
 
   <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
