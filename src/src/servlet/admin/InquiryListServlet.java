@@ -42,9 +42,9 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
 		// お問い合わせ検索結果画面にフォワードする
+
+
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
@@ -57,8 +57,9 @@ public class InquiryListServlet extends HttpServlet {
 		String keyWord = request.getParameter("keyWord");
 
 		//検索処理を行う
-		InquiriesDao aDao = new InquiriesDao();
-		List<Inquiries> cardList = aDao.select(keyWord);
+		//aInquiriesは適当な名前
+		InquiriesDao aInquiries = new InquiriesDao();
+		List<Inquiries> cardList = aInquiries.select(keyWord);
 		// 検索結果をリクエストスコープに格納する。
 		request.setAttribute("cardList" , cardList);
 
