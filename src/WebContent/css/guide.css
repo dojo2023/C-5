@@ -11,8 +11,33 @@
 	padding: 1em;
 	display: block;
 	color: #fff;
-	background:#019ac6;
+	background:#23454d;
+	opacity: 1;
 }
+/* タイトルグラデーション */
+.Label1 {
+	background:#23454d;
+	opacity: 1;
+}
+.Label2 {
+	background:#23454d;
+	opacity:0.9;
+}
+.Label3 {
+	background:#23454d;
+	opacity: 0.8;
+}
+.Label4 {
+	background:#23454d;
+	opacity: 0.7;
+}
+.Label5 {
+	background:#23454d;
+	opacity: 0.6;
+}
+
+
+
 
 /*タイトル横の矢印*/
 .Label::before{
@@ -55,7 +80,14 @@
 	transform: rotate(-45deg) !important;
 }
 
-
+/* 画像サイズ */
+#login_img {
+	height: 280px;
+}
+/* 画像を上に固定 */
+.img {
+	vertical-align: top;
+}
 
 
 

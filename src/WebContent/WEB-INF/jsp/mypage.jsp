@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<header>
+<!-- リボンメニュー -->
 			<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
 			<nav>
 			<ul>
@@ -22,6 +23,8 @@
 		</header>
 		<main>
 			<h1>マイページ</h1>
+
+<!-- 各項目へのボタン -->
 			<form method="POST" action="/mecar/ChangeServlet">
 				<table align="center">
 					<tr>
@@ -30,6 +33,7 @@
 					<tr>
 						<td><a href=/mecar/ChangeServlet><input type="submit" name="BUTTON" value="パスワード変更"></a></td>
 						<td><a href=/mecar/ChangeServlet><input type="submit" name="BUTTON" value="メールアドレス変更"></a></td>
+						<td><label><input type="hidden" name="BUTTON" value="メールアドレス変更"><a href=/mecar/ChangeServlet>a</a></label></td>
 					</tr>
 					<tr>
 						<td><a href=/mecar/GuideServlet><input type="button" value="ご利用ガイド"></a></td>

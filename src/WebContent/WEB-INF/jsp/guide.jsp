@@ -11,6 +11,8 @@
 	</head>
 	<body>
 		<header>
+
+<!-- リボンメニュー -->
 			<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
 			<nav>
 				<ul>
@@ -24,60 +26,83 @@
 		<main>
 			<h1>ご利用ガイド</h1>
 
-<section class="accordion">
-		<!-- ログインページ -->
-		<input id="block-01" type="checkbox" class="toggle">
-		<label class="Label" for="block-01">ログインページ</label>
-		<div class="content">
-			<input id="block-02" type="checkbox" class="toggle">
-			<label class="Label" for="block-02">ログイン</label>
-			<div class="content">
-				<p>ログインできます。</p>
-			</div>
-			<input id="block-03" type="checkbox" class="toggle">
-			<label class="Label" for="block-03">リセット</label>
-			<div class="content">
-				<p>リセットできます。</p>
-			</div>
-			<input id="block-04" type="checkbox" class="toggle">
-			<label class="Label" for="block-04">新規登録</label>
-			<div class="content">
-				<p>新規登録フォームに遷移します。</p>
-			</div>
-			<input id="block-05" type="checkbox" class="toggle">
-			<label class="Label" for="block-05">パスワードを忘れた方</label>
-			<div class="content">
-				<p>パスワード変更ができます。</p>
-			</div>
-		</div>
+<!-- ご利用ガイドアコーディオン開閉 -->
+			<section class="accordion">
 
-		<!-- メニューページ -->
-		<input id="block-06" type="checkbox" class="toggle">
-		<label class="Label" for="block-06">メニューページ</label>
-		<div class="content">
-			<input id="block-07" type="checkbox" class="toggle">
-			<label class="Label" for="block-07">ログイン</label>
-			<div class="content">
-				<p>ログインできます。</p>
-			</div>
-			<input id="block-08" type="checkbox" class="toggle">
-			<label class="Label" for="block-08">リセット</label>
-			<div class="content">
-				<p>リセットできます。</p>
-			</div>
-			<input id="block-09" type="checkbox" class="toggle">
-			<label class="Label" for="block-09">新規登録</label>
-			<div class="content">
-				<p>新規登録フォームに遷移します。</p>
-			</div>
-			<input id="block-10" type="checkbox" class="toggle">
-			<label class="Label" for="block-10">パスワードを忘れた方</label>
-			<div class="content">
-				<p>パスワード変更ができます。</p>
-			</div>
-		</div>
+<!-- ログインページ -->
+				<input id="block-01" type="checkbox" class="toggle">
+				<label class="Label Label1" for="block-01">ログインページ</label>
+				<div class="content">
+					<table>
+						<tr>
+							<td rowspan="4" class="img">
+								<img src="/mecar/img/ログインページ（サンプル）.png" id="login_img">
+							</td>
+							<td>
+								<input id="block-02" type="checkbox" class="toggle">
+								<label class="Label Label2" for="block-02">①ログイン</label>
+								<div class="content">
+									<p>ログインできます。</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-03" type="checkbox" class="toggle">
+								<label class="Label Label3" for="block-03">②リセット</label>
+								<div class="content">
+									<p>リセットできます。</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-04" type="checkbox" class="toggle">
+								<label class="Label Label4" for="block-04">③パスワードを忘れた方</label>
+								<div class="content">
+									<p>パスワード変更ができます。</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-05" type="checkbox" class="toggle">
+								<label class="Label Label5" for="block-05">④新規登録</label>
+								<div class="content">
+									<p>新規登録フォームに遷移します。</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
 
-</section>
+<!-- メニューページ -->
+				<input id="block-06" type="checkbox" class="toggle">
+				<label class="Label Label1" for="block-06">メニューページ</label>
+				<div class="content">
+					<input id="block-07" type="checkbox" class="toggle">
+					<label class="Label Label2" for="block-07">ログイン</label>
+					<div class="content">
+						<p>ログインできます。</p>
+					</div>
+					<input id="block-08" type="checkbox" class="toggle">
+					<label class="Label Label3" for="block-08">リセット</label>
+					<div class="content">
+						<p>リセットできます。</p>
+					</div>
+					<input id="block-09" type="checkbox" class="toggle">
+					<label class="Label Label4" for="block-09">新規登録</label>
+					<div class="content">
+						<p>新規登録フォームに遷移します。</p>
+					</div>
+					<input id="block-10" type="checkbox" class="toggle">
+					<label class="Label Label5" for="block-10">パスワードを忘れた方</label>
+					<div class="content">
+						<p>パスワード変更ができます。</p>
+					</div>
+				</div>
+
+			</section>
 
 		</main>
 		<footer>
