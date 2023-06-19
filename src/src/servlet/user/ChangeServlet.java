@@ -32,6 +32,7 @@ public class ChangeServlet extends HttpServlet {
 		//文字コードの指定
 		request.setCharacterEncoding("UTF-8");
 
+
 		System.out.println(request.getParameter("BUTTON"));
 		//登録変更ページにフォワ―ドする
 		//パスワード変更

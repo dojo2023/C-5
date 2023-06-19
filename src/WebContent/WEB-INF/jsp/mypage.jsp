@@ -27,17 +27,27 @@
 
 <!-- 各項目へのボタン -->
 			<form method="POST" action="/mecar/ChangeServlet">
-				<table>
+				<table align="center">
 					<tr>
 						<td colspan="2">ユーザーID（EL式）さん</td>
 					</tr>
 					<tr>
-						<td><a href=/mecar/ChangeServlet class="btn btn-gradient"><label for="button" class="button_label"><input type="submit" id="switch" name="BUTTON" value="パスワード変更"><span>パスワード変更</span></label></a></td>
-						<td><a href=/mecar/ChangeServlet class="btn btn-gradient"><label for="button" class="button_label"><input type="submit" id="switch" name="BUTTON" value="メールアドレス変更"><span>メールアドレス変更</span></label></a></td>
+						<td class="td">
+							<label for="button" class="btn btn-gradient button_label">
+								<input type="submit" id="button" name="BUTTON" value="パスワード変更">
+								<span class="span">パスワード変更</span>
+							</label>
+						</td>
+						<td class="td">
+							<label for="button2" class="btn btn-gradient button_label2">
+								<input type="submit" id="button2" name="BUTTON" value="メールアドレス変更">
+								<span>メールアドレス変更</span>
+							</label>
+						</td>
 					</tr>
 					<tr>
-						<td><a href=/mecar/GuideServlet><input type="button" value="ご利用ガイド"></a></td>
-						<td><input type="button" value="退会の方はこちら" onclick="MoveCheck();"></td>
+						<td class="td"><a href=/mecar/GuideServlet class="btn btn-gradient"><label for="button3" class="button_label3"><input type="button" id="button3" value="ご利用ガイド"><span>ご利用ガイド</span></label></a></td>
+						<td class="td"><a onclick="MoveCheck();" class="btn btn-gradient"><label for="button4" class="button_label4"><input type="button" value="退会の方はこちら" onclick="MoveCheck();"><span>退会の方はこちら</span></label></a></td>
 					</tr>
 				</table>
 
