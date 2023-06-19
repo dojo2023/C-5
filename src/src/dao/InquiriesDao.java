@@ -175,12 +175,6 @@ public class InquiriesDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-//			if (inquiry.getInquiry_id() != null && !inquiry.getInquiry_id().equals("")) {
-//				pStmt.setString(1, inquiry.getInquiry_id());
-//			}
-//			else {
-//				pStmt.setString(1, null);
-//			}
 			if (inquiry.getUser_id() != null && !inquiry.getUser_id().equals("")) {
 				pStmt.setString(1, inquiry.getUser_id());
 			}

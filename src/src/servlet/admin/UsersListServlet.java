@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.UsersDao;
 
@@ -44,11 +43,11 @@ public class UsersListServlet extends HttpServlet {
 
 
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
-			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-			response.sendRedirect("/mecar/LoginAdminServlet");
-			return;
-			}
+			//HttpSession session = request.getSession();
+			//if (session.getAttribute("id") == null) {
+			//response.sendRedirect("/mecar/LoginAdminServlet");
+			//return;
+			//}
 
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");

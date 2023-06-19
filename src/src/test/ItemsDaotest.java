@@ -9,6 +9,10 @@ public class ItemsDaotest {
 		ItemsDao dao = new ItemsDao();
 
 
+
+
+
+
 	// select()のテスト
 			System.out.println("---------- select()のテスト ----------");
 			List<Items> cardList2 = dao.select(new Items(0, "yamada", "クイック", "",0,0,0,0,0.0));
@@ -25,15 +29,15 @@ public class ItemsDaotest {
 
 			}
 
-
+/*
 
 			// insert()のテスト
 			System.out.println("---------- insert()のテスト ----------");
 			Items insRec = new Items(0, "tanaka", "しらたき", "しらたきAmazonURL",2000,1,3,1,67.8);
 			if (dao.insert(insRec)) {
 				System.out.println("登録成功！");
-				List<Items> cardList3 = dao.select(insRec);
-				for (Items card : cardList3) {
+				List<Items> cardList7 = dao.select(insRec);
+				for (Items card : cardList7) {
 					System.out.println("商品ID：" + card.getItem_id());
 					System.out.println("ユーザID：" + card.getUser_id());
 					System.out.println("商品名：" + card.getItem_name());
@@ -89,6 +93,31 @@ public class ItemsDaotest {
 			else {
 				System.out.println("削除失敗！");
 			}
+
+*/
+			//decreaseALL()
+			System.out.println("---------- decreaseALL() ----------");
+			Items decall = new Items(1, "yamada", "", "",0,0,0,0,0.0);
+			if (dao.decreaseALL(decall)) {
+				System.out.println("一斉減量成功！");
+				List<Items> cardList5 = dao.select(decall);
+				for (Items card : cardList5) {
+					System.out.println("商品ID：" + card.getItem_id());
+					System.out.println("ユーザID：" + card.getUser_id());
+					System.out.println("商品名：" + card.getItem_name());
+					System.out.println("商品URL：" + card.getItem_url());
+					System.out.println("商品価格：" + card.getItem_price());
+					System.out.println("カテゴリー：" + card.getItem_category());
+					System.out.println("頻度：" + card.getFrequency_purchase());
+					System.out.println("スイッチ：" + card.getItem_switch());
+					System.out.println("メーター：" + card.getItem_meter());
+
+				}
+			}
+			else {
+				System.out.println("一斉減量失敗！");
+			}
+
 
 }
 
