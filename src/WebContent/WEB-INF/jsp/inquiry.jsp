@@ -25,19 +25,26 @@
   </header>
 
   <main>
-  <form  id = "inquiry_form" method="POST" name="" action="/mecar/InquiryServlet">
   <h1>お問い合わせ</h1>
-    <label>ユーザーID</label>
-    <input type="text" name="user_id" id="user_id" placeholder="ユーザーID(EL式)"><br>
-    <label>メールアドレス</label><br>
-    <input type="text" name="user_mail" id="user_mail" placeholder="メールアドレス"><br>
-    件名<input type="text" name="Title"><br>
+  <form  id = "inquiry_form" method="POST" name="" action="/mecar/InquiryServlet">
+    <table class="table">
+      <tr>
+        <td>
+          <label>ユーザーID</label><br>
+          <input type="text" name="user_id" id="user_id" placeholder="ユーザーID(EL式)"></td>
+        <td>
+          <label>メールアドレス</label><br>
+          <input type="text" name="user_mail" id="user_mail" placeholder="メールアドレス"><br></td>
+      </tr>
+     </table>
+    件名(※必須)<br>
+    <input type="text" class="title" name="Title"><br>
     お問い合わせ内容<br>
-    <textarea name="Inquiry"></textarea><br>
-    <input type="submit" name="submit" onclick="MoveCheck();" value="送信">
+    <textarea class="textarea" name="Inquiry"></textarea><br>
+    <input type="submit" class="submit" name="submit" onclick="MoveCheck();" value="送信"><br>
+    <span class= "center" id="error_message"></span>
     </form>
   </main>
-  <span class= "center" id="error_message"></span>
 
   <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>

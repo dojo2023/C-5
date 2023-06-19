@@ -1,7 +1,41 @@
 @charset "UTF-8";
 
-/* 文章・ボタンを中央にそろえる */
+/* フォームを中央にそろえる */
+form{
+	width: 600px;
+    margin: auto;
+}
 
+/* 送信ボタンを中央に配置する */
+
+/* 送信ボタンのデザイン */
+.submit{
+  background: #668c95;
+  padding:0.3em 1em;
+  border:#23454d 1px solid;
+  text-decoration:none;
+  color: white;
+  font-size:1em;
+  transition: 0.3s ease-in-out;
+}
+
+.submit:hover{
+  background-color: #9cb4ba;
+}
+
+/* ID・メールアドレスの大きさ */
+
+
+/* 件名のテキストエリアの大きさ */
+.title{
+    width:100%;
+}
+
+/* お問い合わせ内容のテキストエリアの大きさ */
+.textarea{
+  width:100%;
+  height:100px;
+}
 
 /* エラーメッセージ */
 #error_message{
