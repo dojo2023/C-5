@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.InquiriesDao;
 import model.Inquiries;
@@ -33,6 +32,16 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//空文字でデータを入力する。カードリスト2とか
+		InquiriesDao aInquiries = new InquiriesDao();
+
+		//クラス名	    変数名     =  代入する値;
+		List<Inquiries> cardList2 = aInquiries.select("");
+
+
+		// 検索結果をリクエストスコープに格納する。
+		request.setAttribute("cardList2" , cardList2);
+
 	// お問い合わせ画面にフォワードする。
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry_list.jsp");
 	dispatcher.forward(request, response);
@@ -43,14 +52,12 @@ public class InquiryListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// お問い合わせ検索結果画面にフォワードする
-
-
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/mecar/LoginAdminServlet");
-			return;
-		}
+		//HttpSession session = request.getSession();
+		//if (session.getAttribute("id") == null) {
+			//response.sendRedirect("/mecar/LoginAdminServlet");
+			//return;
+		//}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
