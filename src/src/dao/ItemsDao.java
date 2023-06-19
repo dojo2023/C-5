@@ -15,12 +15,14 @@ import model.Items;
 
 public class ItemsDao {
 
-	/*
 
-	//decrease
+
+	//decreaseALL
 	//一斉減量
 	//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
-	public boolean decrease(Items pdec) {
+	//【保留】この引数ってなに？勝手に決めて大丈夫？
+
+	public boolean decreaseALL(Items pdec) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -31,32 +33,33 @@ public class ItemsDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 			// SQL文を準備する
-						String sql = "update Items set  item_meter =?  where user_id=? and item_switch =0";
+			//item_meter = item_meter - 100/日数
+			//item_meter = item_meter - (サブクエリで購入頻度の日数FREQUENCY_DAYSを呼び出し、100で除算）
+			//整数/整数の除算は小数点がカットされてしまうため、cast(値 as REAL)で小数点を出す
+			//最後にwhere USER_ID = ? and ITEM_SWITCH = 0で、ログインユーザーの商品かつ減量停止OFFの商品を出す
+
+
+						String sql = "UPDATE ITEMS "
+								+ "SET ITEMS.ITEM_METER = ITEMS.ITEM_METER - ( "
+								+ "    SELECT  cast(100 as REAL)/cast(FREQUENCY_DAYS  as REAL) "
+								+ "    FROM FREQUENCY "
+								+ "    WHERE ITEMS.FREQUENCY_PURCHASE = FREQUENCY.FREQUENCY_PURCHASE) "
+								+ "where  USER_ID  = ?  and ITEM_SWITCH = 0 ";
 						PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		//減少量を計算する
 
 			// SQL文を完成させる
 
-
-						if (pdec.getItem_name() != null && !pdec.getItem_name().equals("")) {
-							pStmt.setString(1, pdec.getItem_name());
-						}
-						else {
-							pStmt.setString(1, null);
-						}
-
-
-
-						pStmt.setInt(2, pdec.getItem_id());
-
+						pStmt.setString(1, pdec.getUser_id());
 
 
 
 			// SQL文を実行する
-			if (pStmt.executeUpdate() == 1) {
-				result = true;
-			}
+//			if (pStmt.executeUpdate() == 1) {
+//				result = true;
+//			}
+			pStmt.executeUpdate();
+			result = true;
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -80,11 +83,82 @@ public class ItemsDao {
 		return result;
 	}
 
-*/
+
+	//decrease
+	//日数ごとの減量（ユーザーにプルダウンで選んでもらう）
+
+	//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
+		//【保留】この引数ってなに？勝手に決めて大丈夫？
+
+		public boolean decrease(Items pdec) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+				// SQL文を準備する
+				//item_meter = item_meter - 100/日数
+				//整数/整数の除算は小数点がカットされてしまうため、cast(値 as REAL)で小数点を出す
+				//最後にwhere USER_ID = ? and ITEM_SWITCH = 0で、ログインユーザーの商品かつ減量停止OFFの商品を出す
+
+
+							String sql = "UPDATE ITEMS "
+									+ "	SET ITEMS.ITEM_METER = ITEMS.ITEM_METER - cast(100 as REAL)/cast(? as REAL) "
+									+ "	where USER_ID = ? and ITEM_SWITCH = 0;";
+							PreparedStatement pStmt = conn.prepareStatement(sql);
+
+
+				// SQL文を完成させる
+
+							pStmt.setString(1, pdec.getUser_id());
+				//【保留】javabeans追加？
+						/*
+							pStmt.setString(2, pdec.getUser_id());
+						*/
+
+
+
+				// SQL文を実行する
+				pStmt.executeUpdate();
+				result = true;
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
+
+
+
+
+
+
+
+
 
 	//select
 
-	public List<Items> select(Items param) {
+	public List<Items> select(String keyWord) {
 		Connection conn = null;
 		List<Items> cardList = new ArrayList<Items>();
 
@@ -101,14 +175,11 @@ public class ItemsDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる。追加する
-			if (param.getItem_name() != null) {
-				pStmt.setString(1, "%" + param.getItem_name() + "%");
-			}
-			else {
-				pStmt.setString(1, "%");
-			}
 
-			pStmt.setString(2, param.getUser_id() );
+				pStmt.setString(1, "%" + keyWord + "%");
+
+	//【保留】user_idを指定しないと、他ユーザーの商品も見れてしまう
+				//pStmt.setString(2, param.getUser_id() );
 
 
 
