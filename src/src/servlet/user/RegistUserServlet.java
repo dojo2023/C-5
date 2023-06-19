@@ -49,11 +49,11 @@ public class RegistUserServlet extends HttpServlet {
 //				UsersDao bDao = new UsersDao();
 //				if (bDao.insert(new Users(user_auto_id,user_id,))) {	// 登録成功
 //					request.setAttribute("result",
-//					new Result("登録成功！", "レコードを登録しました。","/mecar/RegistServlet"));
+//					new Result("登録成功！", "会員登録しました。","/mecar/RegistServlet"));
 //				}
 //				else {												// 登録失敗
 //					request.setAttribute("result",
-//					new Result("登録失敗！", "レコードを登録できませんでした。","/mecar/RegistServlet"));
+//					new Result("登録失敗！", "会員登録できませんでした。","/mecar/RegistServlet"));
 //				}
 
 		// ログインサーブレットにリダイレクトする

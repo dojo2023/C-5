@@ -57,11 +57,11 @@ public class LoginServlet extends HttpServlet {
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/MenuServlet");
 		}
-		/*else {									// ログイン失敗
-			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result",
-			new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/mecar/LoginServlet"));
-		}*/
+		else {									// ログイン失敗
+			  // ログインにフォワードする。
+			  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			  dispatcher.forward(request, response);
+		}
 	}
 
 }

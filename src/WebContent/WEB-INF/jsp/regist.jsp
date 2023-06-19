@@ -3,9 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>SubsKeeper新規登録</title>
-<link rel="stylesheet" href="/mecar/css/common.css">
+	<meta charset="UTF-8">
+	<title>SubsKeeper新規登録</title>
+	<link rel="stylesheet" href="/mecar/css/common.css">
+	<!-- Javascriptの挿入 -->
+	<script src="/mecar/js/login.js"></script>
 </head>
 <!-- リボンメニュー -->
 <header>
@@ -13,19 +15,19 @@
 
 </header>
 <body>
-<main>
-<h1>新規登録</h1>
-<hr>
-<form method="POST" action="/mecar/RegistUserServlet" id="idregist">
-	ユーザーID<input type="text" name="ID" class = "idpw"><br>
-	パスワード<input type="password" name="PW" id = "input_pass" class= "idpw"><br>
-	メールアドレス<input type="text" name="MAIL"><br>
-	<!--  <button id ="passview">表示</button> -->
-	<input type="submit" name="REGIST" value="確定">
-	<input type="reset" name="reset" value="リセット"><br>
-	<!--  <span id="error_message" class = error></span> -->
-</form>
-</main>
+	<main>
+		<h1>新規登録</h1>
+		<hr>
+		<form method="POST" action="/mecar/RegistUserServlet" id="idregist">
+			ユーザーID<input type="text" name="ID" class = "idpw"><br>
+			パスワード<input type="password" name="PW" id = "input_pass" class= "idpw"><br>
+			メールアドレス<input type="text" name="MAIL">
+			<button id ="passview">表示</button><br>
+			<input type="submit" name="REGIST" value="確定">
+			<input type="reset" name="reset" value="リセット"><br>
+			<!--  <span id="error_message" class = error></span> -->
+		</form>
+	</main>
 <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>

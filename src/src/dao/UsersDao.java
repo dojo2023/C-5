@@ -103,7 +103,9 @@ public class UsersDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Users users = new Users(
+				rs.getInt("user_auto_id"),
 				rs.getString("user_id"),
+				rs.getString("user_pw"),
 				rs.getString("user_mail")
 				);
 				usersList.add(users);
@@ -150,6 +152,7 @@ public class UsersDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
+
 //				if (member.getUser_auto_id() != null && !member.getUser_auto_id().equals("")) {
 //					pStmt.setString(1, member.getUser_auto_id());
 //				}
@@ -206,7 +209,7 @@ public class UsersDao {
 		}
 
 
-		// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
+		// 引数memberで指定されたレコードを更新し、成功したらtrueを返す
 		public boolean update(Users member) {
 			Connection conn = null;
 			boolean result = false;
@@ -219,7 +222,7 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "update Users set user_pw=?, user_mail=? where user_auto_id=?";
+				String sql = "update Users set user_pw=?, user_mail=? where user_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -237,7 +240,7 @@ public class UsersDao {
 					pStmt.setString(2, null);
 				}
 
-				pStmt.setInt(3, member.getUser_auto_id());
+				pStmt.setString(3, member.getUser_id());
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
@@ -266,8 +269,8 @@ public class UsersDao {
 			return result;
 		}
 
-		// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-		public boolean delete(int user_auto_id) {
+		// 引数memberで指定されたレコードを削除し、成功したらtrueを返す
+		public boolean delete(String user_id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -279,11 +282,11 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "delete from Users where user_auto_id =?";
+				String sql = "delete from Users where user_id =?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				pStmt.setInt(1,user_auto_id);
+				pStmt.setString(1,user_id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
