@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.ItemsDao;
 import model.Items;
 
+//担当：羽田
 /**
  * Servlet implementation class SearchItemServlet
  */
@@ -51,7 +52,7 @@ public class SearchItemServlet extends HttpServlet {
 		//検索結果をリクエストスコープに格納する。
 		request.setAttribute("cardList", cardList);
 
-		//結果ページにフォワードする
+		//メニューページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
 		dispatcher.forward(request, response);
 	}
