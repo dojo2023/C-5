@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ItemsDao;
 import model.Items;
+import model.LoginUsers;
 
 //担当：羽田
 /**
@@ -41,18 +42,21 @@ public class SearchItemServlet extends HttpServlet {
 			return;
 		}
 
+		//セッションスコープからインスタンスを取得する（ユーザーIDを取得する準備）
+		LoginUsers user_id = (LoginUsers) session.getAttribute("user_id");
+
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String keyWord = request.getParameter("item_name");
 
 		//検索処理を行う
 		ItemsDao iDao = new ItemsDao();
-		List<Items> cardList = iDao.select(keyWord);
+		List<Items> cardList = iDao.select(keyWord, user_id.getUser_id());
 
 		//検索結果をリクエストスコープに格納する。
 		request.setAttribute("cardList", cardList);
 
-		//メニューページにフォワードする
+		//検索結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
 		dispatcher.forward(request, response);
 	}

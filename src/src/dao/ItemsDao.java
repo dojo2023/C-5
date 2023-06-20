@@ -20,7 +20,7 @@ public class ItemsDao {
 	//selectCate
 		//カテゴリー別表示用
 
-		public List<Items> selectCate(Items Catecord) {
+		public List<Items> selectCate(int item_category, String user_id) {
 			Connection conn = null;
 			List<Items> cardList = new ArrayList<Items>();
 
@@ -38,8 +38,8 @@ public class ItemsDao {
 
 				// SQL文を完成させる。追加する
 
-					pStmt.setInt(1, Catecord.getItem_category() );
-					pStmt.setString(2, Catecord.getUser_id());
+					pStmt.setInt(1, item_category );
+					pStmt.setString(2, user_id);
 
 
 
@@ -288,7 +288,7 @@ public class ItemsDao {
 
 	//【保留】select
 
-		public List<Items> select(String keyWord) {
+		public List<Items> select(String keyWord, String user_id) {
 		Connection conn = null;
 		List<Items> cardList = new ArrayList<Items>();
 
@@ -307,6 +307,7 @@ public class ItemsDao {
 			// SQL文を完成させる。追加する
 
 				pStmt.setString(1, "%" + keyWord + "%");
+				pStmt.setString(2, user_id);
 
 	//【保留】user_idを指定しないと、他ユーザーの商品も見れてしまう
 				//pStmt.setString(2, param.getUser_id() );
