@@ -1,8 +1,8 @@
 package servlet.user;
 
 /*
+
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,14 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.BcDAO;
 import dao.ItemsDao;
-import model.Bc;
 import model.Items;
-import model.Result;
+
 //担当：羽田
 /**
  * Servlet implementation class DecreaseServlet
+
 
 @WebServlet("/DecreaseServlet")
 public class DecreaseServlet extends HttpServlet {
@@ -52,12 +51,18 @@ public class DecreaseServlet extends HttpServlet {
 				//user_idを取得する
 				String user_id = (String) session.getAttribute("user_id");
 
+				//【保留】プルダウンのvalueを取得。ここでは仮名"pullNumberを使用した
+				String
+
 
 				// 減量システム処理を行う
 				ItemsDao bDao = new ItemsDao();
-				if (request.getParameter("SUBMIT").equals("一斉減量")) {
-					bDao.decreaseALL(new Items(0, user_id, "", "",0,0,0,0,0.0)}
-				else if
+				//if (request.getParameter("SUBMIT").equals("一斉減量")) {
+					if(request.getParameter("pullNumber").equals("auto")) {bDao.decreaseALL(new Items(0, user_id, "", "",0,0,0,0,0.0));
+					}
+					else {
+
+				}
 
 
 
@@ -82,4 +87,5 @@ public class DecreaseServlet extends HttpServlet {
 
 	}
 
-}*/
+}
+*/
