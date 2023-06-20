@@ -51,22 +51,17 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// お問い合わせ検索結果画面にフォワードする
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		//HttpSession session = request.getSession();
-		//if (session.getAttribute("id") == null) {
-			//response.sendRedirect("/mecar/LoginAdminServlet");
-			//return;
-		//}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String keyWord = request.getParameter("keyWord");
 
-		//検索処理を行う
-		//aInquiriesは適当な名前
+
 		InquiriesDao aInquiries = new InquiriesDao();
+
+		//クラス名	    変数名     =  代入する値;
 		List<Inquiries> cardList = aInquiries.select(keyWord);
+
 		// 検索結果をリクエストスコープに格納する。
 		request.setAttribute("cardList" , cardList);
 

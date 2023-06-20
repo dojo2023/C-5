@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/mecar/css/common.css">
 <link rel="stylesheet" href="/mecar/css/inquiry_list.css">
+<script src="/mecar/js/inquiry_list.js"></script>
 </head>
 <body>
 <!-- リボンメニュー -->
@@ -26,7 +27,7 @@
 		<h2>お問い合わせ一覧</h2>
 		    <form id="form"method="POST" action="/mecar/InquiryListServlet">
 		     <div class="right-align">
-  	         <input type="text" name="ID" placeholder="検索するワード">
+  	         <input type="text" name="keyWord" placeholder="検索するワード">
   	         <input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
   	         </div>
              </form>
@@ -45,7 +46,7 @@
          	     <td>${e.inquiry_status}</td>
           		 <td>${e.user_id}</td>
            		 <td>${e.user_mail}</td>
-          		 <td>${e.inquiry_subject}</td>
+          	     <td>${e.inquiry_subject}</td>
         		 <td>${e.inquiry_date}</td>
       			 </tr>
    				 </c:forEach>
