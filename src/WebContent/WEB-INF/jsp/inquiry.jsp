@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -31,19 +32,18 @@
       <tr>
         <td>
           <label>ユーザーID</label><br>
-          <input type="text" name="user_id" id="user_id" placeholder="ユーザーID(EL式)"></td>
+          <input type="text" name="user_id" id="user_id" size=40 readonly value="${user_id.user_id}"></td>
         <td>
           <label>メールアドレス</label><br>
-          <input type="text" name="user_mail" id="user_mail" placeholder="メールアドレス"><br></td>
+          <input type="text" name="user_mail" id="user_mail"size=40 readonly value="${user_id.user_mail}"><br></td>
       </tr>
      </table>
-    件名(※必須)<br>
+    件名(※必須)    <span class= "center" id="error_message"></span><br>
     <input type="text" class="title" name="Title"><br>
     お問い合わせ内容<br>
     <textarea class="textarea" name="Inquiry"></textarea><br>
-    <input type="submit" class="submit" name="submit" onclick="MoveCheck();" value="送信"><br>
-    <span class= "center" id="error_message"></span>
-    </form>
+    <div class="input_wrap"><input type="submit" class="submit" name="submit" onclick="MoveCheck();" value="送信"></div><br>
+        </form>
   </main>
 
   <footer>

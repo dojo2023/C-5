@@ -46,13 +46,14 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String user_id = request.getParameter("USER_ID");
 		String user_pw = request.getParameter("USER_PW");
+		String user_mail = request.getParameter("USER_MAIL");
 
 		// ログイン処理を行う
 		UsersDao iDao = new UsersDao();
 		if (iDao.isLoginOK(new Users(user_id, user_pw))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("user_id", new LoginUsers(user_id));
+			session.setAttribute("user_id", new LoginUsers(user_id, user_mail));
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/MenuServlet");
