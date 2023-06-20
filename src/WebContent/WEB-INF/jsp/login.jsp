@@ -20,8 +20,8 @@
 
 	<hr>
 	<form method="POST" action="/mecar/LoginServlet" id="login_form">
-		ユーザーID<input type="text" name="USER_ID" id = "id" class = "Users"><br>
-		パスワード<input type="password" name="USER_PW" id = "pass" class= "Users">
+		ユーザーID<input type="text" name="USER_ID" class = "Users"><br>
+		パスワード<input type="password" name="USER_PW" id = "input_pass" class= "Users">
 		<button id ="passview">表示</button><br>
 		<input type="submit" name="LOGIN" value="ログイン">
 		<input type="reset" name="RESET" value="リセット"><br>

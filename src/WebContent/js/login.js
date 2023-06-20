@@ -30,18 +30,16 @@
 		}
 	});
 
+	document.getElementById('login_form').onsubmit = function(event) {
+		const id = document.getElementById('login_form').USER_ID.value;
+		const pw = document.getElementById('login_form').USER_PW.value;
+
+		if (id === "" || pw === "") {
+			event.preventDefault();
+	 		document.getElementById('output').textContent = 'IDとPWを入力してください！';
+		}
+	};
+
 })
 
 
- document.getElementById('login_form').onsubmit = function(event) {
-	 const id = document.getElementById('login_form').USER_ID.value;
-	 const pw = document.getElementById('login_form').USER_PW.value;
-
-	 if (id === "" || pw === "") {
-		 event.preventDefault();
-	 	document.getElementById('output').textContent = 'IDとPWを入力してください！';
-	/*} else if (id !== "USER_ID" || pw !== "USER_PW") {
-		 event.preventDefault();
-	 	document.getElementById('output').textContent = 'IDまたはPWが間違ってます！';
-	 }*/
-};

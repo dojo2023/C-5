@@ -10,6 +10,31 @@ import java.util.List;
 
 import model.Users;
 public class UsersDao {
+
+//	public string select(Users users) {
+//
+//	Connection conn = null;
+//	try {
+//		// JDBCドライバを読み込む
+//		Class.forName("org.h2.Driver");
+//
+//		// データベースに接続する
+//		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+//
+//		// SELECT文を準備する
+//		String sql2 = "select USER_MAIL from Users where USER_ID = ?";
+//
+//		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+//		pStmt2.setString(1, users.getUser_id());
+//
+//		ResultSet rs2 = pStmt2.executeQuery();
+//
+//		rs2.next()
+//		rs2.getString("user_mail");
+//
+//	}
+
+
 	// ログインできるならtrueを返す
 		public boolean isLoginOK(Users users) {
 			Connection conn = null;
@@ -24,12 +49,17 @@ public class UsersDao {
 
 				// SELECT文を準備する
 				String sql = "select count(*) from Users where USER_ID = ? and USER_PW = ?";
+				String sql2 = "select USER_MAIL from Users where USER_ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				pStmt.setString(1, users.getUser_id());
 				pStmt.setString(2,users.getUser_pw());
 
+				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+				pStmt2.setString(1, users.getUser_id());
+
 				// SELECT文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
+				ResultSet rs2 = pStmt2.executeQuery();
 
 				// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェックする
 				rs.next();
