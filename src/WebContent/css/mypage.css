@@ -39,12 +39,12 @@ html {
 a.btn,d
 label.btn,
 button.btn {
-  font-size: 1.6rem; /* サイズ（全体）変えるならここ */
+  font-size: 1.6rem;	/* サイズ（全体）変えるならここ */
   font-weight: 700;
-  line-height: 1.5; /* サイズ(高さのみ)変えるならここ */
+  line-height: 1.5;		/* サイズ(高さのみ)変えるならここ */
   position: relative;
   display: inline-block;
-  padding: 1rem 4rem; /* ここの分が反応せず例外になる */
+  padding: 1rem 4rem;	/* ここの分が反応せず例外になる */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -58,7 +58,11 @@ button.btn {
   letter-spacing: 0.1em;
   color: #212529;
   border-radius: 0.5rem;
+  right: 0px;	/* ボタン4つのサイズ調整 */
+  width: 400px;	/* ボタン4つのサイズ調整 */
 }
+
+
 
 
 
@@ -103,7 +107,7 @@ label.btn-gradient:after {
   top: 0;
   left: 0;
 
-  width: 400px;
+  width: 100%;
   height: 100%;
 
   /* グラデーションの変わる速さ */
@@ -130,7 +134,7 @@ a.btn-gradient:after {
   top: 0;
   left: 0;
 
-  width: 400px;
+  width: 100%;
   height: 100%;
 
   /* グラデーションの変わる速さ */
@@ -182,5 +186,6 @@ a.btn-gradient:hover:after {
 }
 
 .td {
-	width: 400px;
+  right: 0px;
+  width: 400px;
 }

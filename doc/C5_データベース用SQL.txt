@@ -259,7 +259,7 @@ inquiry_date
 VALUES (
 'tanaka',
 'テスト',
-'3',
+'2',
 '2023-6-9'
 );
 
