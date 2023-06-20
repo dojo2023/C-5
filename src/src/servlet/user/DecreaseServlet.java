@@ -1,6 +1,5 @@
 package servlet.user;
 
-/*
 
 import java.io.IOException;
 
@@ -14,11 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import dao.ItemsDao;
 import model.Items;
+import model.LoginUsers;
+
 
 //担当：羽田
 /**
  * Servlet implementation class DecreaseServlet
-
+ */
 
 @WebServlet("/DecreaseServlet")
 public class DecreaseServlet extends HttpServlet {
@@ -48,23 +49,28 @@ public class DecreaseServlet extends HttpServlet {
 
 				}
 
-				//user_idを取得する
-				String user_id = (String) session.getAttribute("user_id");
+				//インスタンスを取り出す
+				LoginUsers sessionuser_id = (LoginUsers) session.getAttribute("user_id");
+				//中身のuser_idを取得する
+				String user_id = (String)sessionuser_id.getUser_id();
 
-				//【保留】プルダウンのvalueを取得。ここでは仮名"pullNumberを使用した
-				String
+				//プルダウンのvalueを取得。ここでは仮名"pullNumberを使用した
 
 
 				// 減量システム処理を行う
 				ItemsDao bDao = new ItemsDao();
-				//if (request.getParameter("SUBMIT").equals("一斉減量")) {
+				//もしサブミットで一斉減量が選択されたら
+				if (request.getParameter("SUBMIT").equals("一斉減量")) {
+					//もしプルダウンで自動が選択されていたら
 					if(request.getParameter("pullNumber").equals("auto")) {bDao.decreaseALL(new Items(0, user_id, "", "",0,0,0,0,0.0));
 					}
 					else {
+				//【保留】プルダウンの仕様待ち
+				//プルダウンの数字の文だけ繰り返す？
+						bDao.decrease(new Items(0, user_id, "", "",0,0,0,0,0.0));
 
+					}
 				}
-
-
 
 
 				//
@@ -72,15 +78,8 @@ public class DecreaseServlet extends HttpServlet {
 
 
 
-
-
-				// 検索結果をリクエストスコープに格納する
-				//request.setAttribute("データ名", 登録するデータ);
-				//cardListはDAOで名前がつけられている
-				request.setAttribute("cardList", cardList);
-
 				// メニューページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 				dispatcher.forward(request, response);
 
 
@@ -88,4 +87,3 @@ public class DecreaseServlet extends HttpServlet {
 	}
 
 }
-*/
