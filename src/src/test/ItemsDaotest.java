@@ -1,8 +1,5 @@
 package test;
-import java.util.List;
-
 import dao.ItemsDao;
-import model.Items;
 
 
 public class ItemsDaotest {
@@ -10,7 +7,7 @@ public class ItemsDaotest {
 		ItemsDao dao = new ItemsDao();
 
 
-
+		/*
 
 	// selectCate()のカテゴリー別テスト。
 
@@ -65,7 +62,7 @@ public class ItemsDaotest {
 			//【保留】keywordなど変更点があるため後日テスト
 
 
-/*
+
 
 			// insert()のテスト
 			System.out.println("---------- insert()のテスト ----------");
