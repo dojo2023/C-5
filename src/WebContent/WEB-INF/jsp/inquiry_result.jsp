@@ -42,7 +42,14 @@
 
 				 <c:forEach var="e" items="${cardList}">
        			 <tr>
-         	     <td>${e.inquiry_status}</td>
+         <!--  	     <td>${e.inquiry_status}</td>    -->
+         		 <td>
+         	     <c:choose>
+       			 <c:when test="${e.inquiry_status == 0}">未対応</c:when>
+       			 <c:when test="${e.inquiry_status == 1}">対応中</c:when>
+      			 <c:when test="${e.inquiry_status == 2}">対応済み</c:when>
+    			 </c:choose>
+  				 </td>
           		 <td>${e.user_id}</td>
            		 <td>${e.user_mail}</td>
           		 <td>${e.inquiry_subject}</td>
