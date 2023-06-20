@@ -4,14 +4,18 @@ import java.io.Serializable;
 
 public class LoginUsers implements Serializable {
 	private String user_id;	// ログイン時のID
+	private String user_mail;//メアド
 
 	public LoginUsers() {
-		this(null);
+		this.user_id = "";
+		this.user_mail = "";
 	}
 
-	public LoginUsers(String user_id) {
+	public LoginUsers(String user_id ,String user_mail ) {
 		this.user_id = user_id;
+		this.user_mail = user_mail;
 	}
+
 
 	public String getUser_id() {
 		return user_id;
@@ -19,5 +23,13 @@ public class LoginUsers implements Serializable {
 
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
+	}
+
+	public String getUser_mail() {
+		return user_mail;
+	}
+
+	public void setUser_mail(String user_mail) {
+		this.user_mail = user_mail;
 	}
 }
