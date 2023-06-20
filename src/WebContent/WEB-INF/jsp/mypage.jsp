@@ -29,7 +29,7 @@
 			<form method="POST" action="/mecar/ChangeServlet">
 				<table align="center">
 					<tr>
-						<td colspan="2">ユーザーID（EL式）さん</td>
+						<td colspan="2">${user_id.user_id}　さん</td>
 					</tr>
 					<tr>
 						<td class="td">
@@ -46,8 +46,21 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="td"><a href=/mecar/GuideServlet class="btn btn-gradient"><label for="button3" class="button_label3"><input type="button" id="button3" value="ご利用ガイド"><span>ご利用ガイド</span></label></a></td>
-						<td class="td"><a onclick="MoveCheck();" class="btn btn-gradient"><label for="button4" class="button_label4"><input type="button" value="退会の方はこちら" onclick="MoveCheck();"><span>退会の方はこちら</span></label></a></td>
+						<td class="td">
+							<a href=/mecar/GuideServlet class="btn btn-gradient">
+								<label for="button3" class="button_label3">
+									<input type="button" id="button3" value="ご利用ガイド">
+									<span>ご利用ガイド</span>
+								</label>
+							</a>
+						</td>
+						<td class="td">
+							<a onclick="MoveCheck();" class="btn btn-gradient">
+								<label for="button4" class="button_label4">
+									<span>退会の方はこちら</span>
+								</label>
+							</a>
+						</td>
 					</tr>
 				</table>
 
