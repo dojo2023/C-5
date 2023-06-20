@@ -17,12 +17,150 @@ public class ItemsDao {
 
 
 
-	//decreaseALL
-	//一斉減量
-	//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
-	//【保留】この引数ってなに？勝手に決めて大丈夫？
+	//selectCate
+		//カテゴリー別表示用
 
-	public boolean decreaseALL(Items pdec) {
+		public List<Items> selectCate(Items Catecord) {
+			Connection conn = null;
+			List<Items> cardList = new ArrayList<Items>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+				// SQL文を準備する。追加する
+				//slectするのは、結果表にコピーする内容。
+				String sql = "select * from Items  WHERE item_category = ? and user_id = ? ORDER BY item_meter ASC";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる。追加する
+
+					pStmt.setInt(1, Catecord.getItem_category() );
+					pStmt.setString(2, Catecord.getUser_id());
+
+
+
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					Items card = new Items(
+					rs.getInt("item_id"),
+					rs.getString("user_id"),
+					rs.getString("item_name"),
+					rs.getString("item_url"),
+					rs.getInt("item_price"),
+					rs.getInt("item_category"),
+					rs.getInt("frequency_purchase"),
+					rs.getInt("item_switch"),
+					rs.getDouble("item_meter")
+					);
+					cardList.add(card);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				cardList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				cardList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						cardList = null;
+					}
+				}
+			}
+
+			// 結果を返す
+			return cardList;
+		}
+
+	//selectList
+		//一覧表示用
+		public List<Items> selectList(Items Listcord) {
+			Connection conn = null;
+			List<Items> cardList = new ArrayList<Items>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+				// SQL文を準備する。追加する
+				//slectするのは、結果表にコピーする内容。
+				String sql = "select * from Items  WHERE  user_id = ? ORDER BY item_meter ASC";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる。追加する
+				pStmt.setString(1, Listcord.getUser_id());
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					Items card = new Items(
+					rs.getInt("item_id"),
+					rs.getString("user_id"),
+					rs.getString("item_name"),
+					rs.getString("item_url"),
+					rs.getInt("item_price"),
+					rs.getInt("item_category"),
+					rs.getInt("frequency_purchase"),
+					rs.getInt("item_switch"),
+					rs.getDouble("item_meter")
+					);
+					cardList.add(card);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				cardList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				cardList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						cardList = null;
+					}
+				}
+			}
+
+			// 結果を返す
+			return cardList;
+		}
+
+
+
+	//decreaseALL
+		//一斉減量
+		//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
+		public boolean decreaseALL(Items pdec) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -85,10 +223,8 @@ public class ItemsDao {
 
 
 	//decrease
-	//日数ごとの減量（ユーザーにプルダウンで選んでもらう）
-
-	//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
-		//【保留】この引数ってなに？勝手に決めて大丈夫？
+		//日数ごとの減量（ユーザーにプルダウンで選んでもらう）
+		//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
 
 		public boolean decrease(Items pdec) {
 			Connection conn = null;
@@ -150,15 +286,9 @@ public class ItemsDao {
 
 
 
+	//【保留】select
 
-
-
-
-
-
-	//select
-
-	public List<Items> select(String keyWord) {
+		public List<Items> select(String keyWord) {
 		Connection conn = null;
 		List<Items> cardList = new ArrayList<Items>();
 
@@ -230,7 +360,7 @@ public class ItemsDao {
 
 
 	//insert
-	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
+		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean insert(Items card) {
 			Connection conn = null;
 			boolean result = false;
@@ -405,7 +535,7 @@ public class ItemsDao {
 			return result;
 		}
 
-//delete
+	//delete
 		// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
 		public boolean delete(int number) {
 			Connection conn = null;
@@ -451,6 +581,92 @@ public class ItemsDao {
 			// 結果を返す
 			return result;
 		}
+
+	//selectsub
+		//selectがkeyword用になったので、item用のselect
+
+		public List<Items> selectsub(Items subcord) {
+			Connection conn = null;
+			List<Items> cardList = new ArrayList<Items>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+				// SQL文を準備する。追加する
+				//slectするのは、結果表にコピーする内容。
+				String sql = "select * from Items  WHERE item_name LIKE ? and item_category = ? and user_id = ? ORDER BY item_meter ASC";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる。追加する
+				if (subcord.getItem_name() != null) {
+					pStmt.setString(1, "%" + subcord.getItem_name() + "%");
+				}
+				else {
+					pStmt.setString(1, "%");
+				}
+				if (subcord.getItem_category() != 0) {
+					pStmt.setInt(2, subcord.getItem_category() );
+				}
+				else {
+					pStmt.setString(2, "");
+				}
+
+					pStmt.setString(3, subcord.getUser_id());
+
+
+
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					Items card = new Items(
+					rs.getInt("item_id"),
+					rs.getString("user_id"),
+					rs.getString("item_name"),
+					rs.getString("item_url"),
+					rs.getInt("item_price"),
+					rs.getInt("item_category"),
+					rs.getInt("frequency_purchase"),
+					rs.getInt("item_switch"),
+					rs.getDouble("item_meter")
+					);
+					cardList.add(card);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				cardList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				cardList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						cardList = null;
+					}
+				}
+			}
+
+			// 結果を返す
+			return cardList;
+		}
+
+
+
 
 
 
