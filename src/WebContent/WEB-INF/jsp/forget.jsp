@@ -7,7 +7,7 @@
 	<title>SubsKeeperパスワード再登録</title>
 	<link rel="stylesheet" href="/mecar/css/common.css">
 	<!-- Javascriptの挿入 -->
-	<script src="/mecar/js/login.js"></script>
+	<script src="/mecar/js/forget.js"></script>
 </head>
 <body>
 <main>
@@ -24,6 +24,7 @@
 		<button id ="passview">表示</button><br>
 		<input type="submit" name="DEFINITE" value="確定">
 		<input type="reset" name="reset" value="リセット"><br>
+		<p id="output"></p>
 		<!-- <span id="error_message" class = error></span> -->
 	</form>
 </main>
