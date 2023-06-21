@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/mecar/css/common.css">
 <link rel="stylesheet" href="/mecar/css/inquiry_list.css">
-			<script src="/mecar/js/inquiry_list.js"></script>
+<script src="/mecar/js/inquiry_list.js"></script>
+
 </head>
 <body>
 <!-- リボンメニュー -->
@@ -42,9 +43,9 @@
 					</tr>
 
 
- <c:forEach var="e" items="${cardList2}">
-       			 <tr>
+ 				 <c:forEach var="e" items="${cardList2}">
 
+       			 <tr>
          		 <td>
          	     <c:choose>
        			 <c:when test="${e.inquiry_status == 0}">未対応</c:when>
@@ -58,10 +59,6 @@
         		 <td>${e.inquiry_date}</td>
       			 </tr>
    				 </c:forEach>
-
-
-
-
               	 </table>
             	 </div>
     </main>

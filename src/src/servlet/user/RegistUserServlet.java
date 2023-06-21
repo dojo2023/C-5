@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UsersDao;
+import model.Users;
+
 /**
  * Servlet implementation class RegistUserServlet
  */
@@ -41,20 +44,20 @@ public class RegistUserServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_auto_id = request.getParameter("user_auto_id");
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
-		String user_mail = request.getParameter("user_mail");
-//		// 登録処理を行う
-//		UsersDao bDao = new UsersDao();
-//		if (bDao.insert(new Users(user_id,user_pw,user_mail))) {	// 登録成功
-//			request.setAttribute("result",
-//			new Result("登録成功！", "会員登録しました。","/mecar/RegistServlet"));
-//		}
-//		else {												// 登録失敗
-//			request.setAttribute("result",
-//			new Result("登録失敗！", "会員登録できませんでした。","/mecar/RegistServlet"));
-//		}
+//		String user_auto_id = request.getParameter("user_auto_id");
+		String user_id = request.getParameter("ID");
+		String user_pw = request.getParameter("PW");
+		String user_mail = request.getParameter("MAIL");
+		// 登録処理を行う
+		UsersDao bDao = new UsersDao();
+		if (bDao.insert(new Users(user_id,user_pw,user_mail))) {	// 登録成功
+			request.setAttribute("result",
+			new Users("登録成功！", "会員登録しました。","/mecar/RegistUserServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Users("登録失敗！", "会員登録できませんでした。","/mecar/RegistUserServlet"));
+		}
 
 		// ログインサーブレットにリダイレクトする
 		response.sendRedirect("/mecar/LoginServlet");
