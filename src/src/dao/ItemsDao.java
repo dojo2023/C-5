@@ -88,6 +88,7 @@ public class ItemsDao {
 
 	//decreaseALL
 		//一斉減量
+		//これは１日分減らす処理なので、サーブレットで日数分繰り返してほしい
 		//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean decreaseALL(String user_id) {
 		Connection conn = null;
@@ -171,15 +172,18 @@ public class ItemsDao {
 				//最後にwhere USER_ID = ? and ITEM_SWITCH = 0で、ログインユーザーの商品かつ減量停止OFFの商品を出す
 
 
-							String sql = "UPDATE ITEMS "
-									+ "	SET ITEMS.ITEM_METER = ITEMS.ITEM_METER - cast(100 as REAL)/cast(? as REAL) "
-									+ "	where USER_ID = ? and ITEM_SWITCH = 0;";
+				String sql = "UPDATE ITEMS "
+						+ "SET ITEMS.ITEM_METER = ITEMS.ITEM_METER - ( "
+						+ "    SELECT  cast(100 as REAL)/cast(FREQUENCY_DAYS  as REAL) "
+						+ "    FROM FREQUENCY "
+						+ "    WHERE ITEMS.FREQUENCY_PURCHASE = FREQUENCY.FREQUENCY_PURCHASE) "
+						+ "where  USER_ID  = ?  and ITEM_SWITCH = 0 ";
 							PreparedStatement pStmt = conn.prepareStatement(sql);
 
 
 				// SQL文を完成させる
-
 							pStmt.setString(1,user_id);
+							pStmt.setString(2,user_id);
 
 
 				// SQL文を実行する
@@ -507,7 +511,51 @@ public class ItemsDao {
 			return result;
 		}
 
+	//updateMater
+	//リンク先で購入ボタンを押したときに、メーターに100を足すやつ
+		public boolean updateMater(int item_id) {
+			Connection conn = null;
+			boolean result = false;
 
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+				// SQL文を準備する
+							String sql = "update Items set item_meter = item_meter + 100 where item_id=?";
+							PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+							pStmt.setInt(1, item_id);
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
 
 
 	//delete

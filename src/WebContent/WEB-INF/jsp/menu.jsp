@@ -27,13 +27,12 @@
 
 	<!-- 一斉減量ボタン -->
 	<form method="POST" action="/mecar/DecreaseServlet">
-		<select name="frequency" size="1">
+		<select name="pullNumber" size="1">
 			<option value=0 selected>自動減量</option>
-			<option value=1>1週間</option>
-			<option value=2>2週間</option>
-			<option value=3>1か月</option>
-			<option value=4>2か月</option>
-			<option value=5>3か月</option>
+			<option value=1>1日</option>
+			<option value=2>2日</option>
+			<option value=3>3日</option>
+			<option value=4>1週間</option>
 		</select>
 		<input type="submit" name="submit" value="一斉減量">
 	</form>
