@@ -11,6 +11,7 @@ public class Inquiries implements Serializable {
 	  private int inquiry_status;	//対応ステータス
 	  private Date inquiry_date;	//お問い合わせの日付
 
+  // 全部
   public Inquiries(int inquiry_id, String user_id, String user_mail, String inquiry_subject, String inquiry_content,
 			int inquiry_status, Date inquiry_date) {
 		super();
@@ -22,6 +23,13 @@ public class Inquiries implements Serializable {
 		this.inquiry_status = inquiry_status;
 		this.inquiry_date = inquiry_date;
 	}
+
+  // 登録
+  public Inquiries(String user_id,String inquiry_subject, String inquiry_content) {
+		this.user_id = user_id;
+		this.inquiry_subject = inquiry_subject;
+		this.inquiry_content = inquiry_content;
+  }
 
   // 初期値を設定する
   public Inquiries() {
