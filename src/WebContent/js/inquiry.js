@@ -11,7 +11,7 @@ var errorMessageObj = document.getElementById('error_message');
 
 function MoveCheck(){
   // もし件名が空欄ならエラーメッセージを表示する
-  if(!formObj.Title.value){
+  if(!formObj.inquiry_subject.value){
     event.preventDefault();
     errorMessageObj.textContent = '件名は必須入力項目です';
     return false;
