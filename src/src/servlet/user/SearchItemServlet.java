@@ -15,7 +15,7 @@ import dao.ItemsDao;
 import model.Items;
 import model.LoginUsers;
 
-//担当：羽田
+
 /**
  * Servlet implementation class SearchItemServlet
  */

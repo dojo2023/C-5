@@ -1,11 +1,26 @@
 package servlet.user;
 
 //担当：羽田
+
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.ItemsDao;
+import model.LoginUsers;
+
+
 /**
  * Servlet implementation class DecreaseServlet
 */
 
-/*
+
 
 @WebServlet("/DecreaseServlet")
 public class DecreaseServlet extends HttpServlet {
@@ -35,7 +50,7 @@ public class DecreaseServlet extends HttpServlet {
 				int pull = Integer.parseInt(pullStr);
 
 				//現在日時を取得
-				date nowdate =
+				 Date nowdate = new Date();
 
 
 				// 減量システム処理を行う
@@ -43,10 +58,8 @@ public class DecreaseServlet extends HttpServlet {
 				//もしサブミットで一斉減量が選択されたら
 				if (request.getParameter("submit").equals("一斉減量")) {
 
-					//どこが動いていないかテスト
-					bDao.decrease(user_id);
 
-/*
+
 					//プルダウンで自動が選択されていたら
 					if(pull == 0) {bDao.decreaseALL(user_id);
 					}
@@ -83,15 +96,16 @@ public class DecreaseServlet extends HttpServlet {
 
 
 					}
+
 				}
 
 				// メニューサーブレットにリダイレクト
 				response.sendRedirect("/mecar/MenuServlet");
 
 
-	}
-}
 
 }
 
-*/
+}
+
+
