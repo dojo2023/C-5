@@ -85,7 +85,8 @@ ALTER TABLE items
 
 ALTER TABLE items
     ADD FOREIGN KEY (user_id)
-    REFERENCES  users(user_id); 
+    REFERENCES  users(user_id)
+    ON DELETE CASCADE; 
 
 //usersテーブルのユーザIDを外部キーとして登録
 //itemsが子テーブル、usersが親テーブル
@@ -189,7 +190,8 @@ history_date date not null
 
 ALTER TABLE history 
     ADD FOREIGN KEY (item_id)
-    REFERENCES  items(item_id); 
+    REFERENCES  items(item_id)
+    ON DELETE CASCADE; 
 
 //historyテーブルの商品IDを外部キーとして登録
 //historyが子テーブル、itemsが親テーブル
@@ -224,7 +226,8 @@ inquiry_date date not null
 
 ALTER TABLE inquiries 
     ADD FOREIGN KEY (user_id)
-    REFERENCES  users(user_id); 
+    REFERENCES  users(user_id)
+    ON DELETE CASCADE; 
 
 //inquiriesテーブルのユーザIDを外部キーとして登録
 //inquiriesが子テーブル、usersが親テーブル
