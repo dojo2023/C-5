@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 		if (iDao.isLoginOK(new Users(user_id, user_pw))) {	// ログイン成功
 
 			//UsersDaoにユーザーidを指定してメールアドレスを取得するメソッドを呼び出す。
-			String user_mail = "";
+			String user_mail = iDao.getMail(user_id) ;
 
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();

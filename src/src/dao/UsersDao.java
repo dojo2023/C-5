@@ -11,28 +11,55 @@ import java.util.List;
 import model.Users;
 public class UsersDao {
 
-//	public string select(Users users) {
-//
-//	Connection conn = null;
-//	try {
-//		// JDBCドライバを読み込む
-//		Class.forName("org.h2.Driver");
-//
-//		// データベースに接続する
-//		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
-//
-//		// SELECT文を準備する
-//		String sql2 = "select USER_MAIL from Users where USER_ID = ?";
-//
-//		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
-//		pStmt2.setString(1, users.getUser_id());
-//
-//		ResultSet rs2 = pStmt2.executeQuery();
-//
-//		rs2.next()
-//		rs2.getString("user_mail");
-//
-//	}
+
+	public String getMail(String user_id) {
+
+//	List<Users> data = new ArrayList<Users>();
+	Connection conn = null;
+	String user_mail = "";
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+		// SELECT文を準備する
+		String sql2 = "select USER_MAIL from Users where USER_ID = ?";
+		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+
+		//SQL文を完成させる。
+		pStmt2.setString(1, user_id);
+
+		//SQL文を実行する
+		ResultSet rs2 = pStmt2.executeQuery();
+
+		rs2.next();
+		user_mail = rs2.getString("user_mail");
+//		data.add((Users) rs2);
+	}
+
+	  // 全ての例外を受け取る
+    catch(Exception e){
+			e.printStackTrace();
+//			data = null;
+    }
+
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+//				data = null;
+			}
+		}
+	}
+	// 結果を返す
+	return user_mail;
+}
 
 
 	// ログインできるならtrueを返す
@@ -312,7 +339,9 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "delete from Users where user_id =?";
+				String sql = "DELETE users,items,inquiries FROM users LEFT JOIN items ON"
+						+ " users.user_id = items.user_id LEFT JOIN inquiries ON"
+						+ " users.user_id = inquiries.user_id WHERE Users.UserId = ? ";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
