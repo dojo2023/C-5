@@ -78,11 +78,11 @@ public class UsersDao {
 				String sql = "select count(*) from Users where USER_ID = ? and USER_PW = ?";
 				String sql2 = "select USER_MAIL from Users where USER_ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				pStmt.setString(1, users.getUser_id());
+				pStmt.setString(1,users.getUser_id());
 				pStmt.setString(2,users.getUser_pw());
 
 				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
-				pStmt2.setString(1, users.getUser_id());
+				pStmt2.setString(1,users.getUser_id());
 
 				// SELECT文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
@@ -339,18 +339,19 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "DELETE users,items,inquiries FROM users LEFT JOIN items ON"
-						+ " users.user_id = items.user_id LEFT JOIN inquiries ON"
-						+ " users.user_id = inquiries.user_id WHERE Users.UserId = ? ";
+				String sql = "DELETE FROM users WHERE user_id = ?";
+//				String sql = "DELETE FROM users WHERE user_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
 				pStmt.setString(1,user_id);
+//				pStmt.setString(3,user_id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
 				}
+
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
@@ -370,7 +371,7 @@ public class UsersDao {
 				}
 			}
 
-			// 結果を返す
+// 結果を返す
 			return result;
 		}
 
