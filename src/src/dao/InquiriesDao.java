@@ -11,9 +11,6 @@ import model.Inquiries;
 
 public class InquiriesDao {
 
-/*
-*/
-
 //		キーワード検索
 	public List<Inquiries> select(String keyWord) {
 		//[0]
