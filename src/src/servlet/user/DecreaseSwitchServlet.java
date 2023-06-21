@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.LoginUsers;
+import dao.ItemsDao;
 
 //担当：羽田
 /**
@@ -27,13 +27,6 @@ public class DecreaseSwitchServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -45,11 +38,22 @@ public class DecreaseSwitchServlet extends HttpServlet {
 			response.sendRedirect("/mecar/LoginServlet");
 			return;
 			}
-		//インスタンスを取り出す
-		LoginUsers sessionuser_id = (LoginUsers) session.getAttribute("user_id");
-		//中身のuser_idを取得する
-		String user_id = (String)sessionuser_id.getUser_id();
+		//商品IDを取得する
+		request.setCharacterEncoding("UTF-8");
+		String itemStr = request.getParameter("item_id");
+		int item_id = Integer.parseInt(itemStr);
 
+		String switchStr = request.getParameter("item_switch");
+		int item_switch = Integer.parseInt(switchStr);
+
+
+
+		// 減量停止のswitch切り替え処理を行う
+		ItemsDao bDao = new ItemsDao();
+		bDao.updateSwitch(item_id,item_switch);
+
+		// メニューサーブレットにフォワードする
+		response.sendRedirect("/mecar/MenuServlet");
 
 	}
 

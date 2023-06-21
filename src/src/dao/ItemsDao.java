@@ -41,10 +41,6 @@ public class ItemsDao {
 					pStmt.setInt(1, item_category );
 					pStmt.setString(2, user_id);
 
-
-
-
-
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
 
@@ -88,79 +84,12 @@ public class ItemsDao {
 			// 結果を返す
 			return cardList;
 		}
-
-	//selectList
-		//一覧表示用
-		public List<Items> selectList(Items Listcord) {
-			Connection conn = null;
-			List<Items> cardList = new ArrayList<Items>();
-
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
-
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
-
-				// SQL文を準備する。追加する
-				//slectするのは、結果表にコピーする内容。
-				String sql = "select * from Items  WHERE  user_id = ? ORDER BY item_meter ASC";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
-
-				// SQL文を完成させる。追加する
-				pStmt.setString(1, Listcord.getUser_id());
-
-
-				// SQL文を実行し、結果表を取得する
-				ResultSet rs = pStmt.executeQuery();
-
-				// 結果表をコレクションにコピーする
-				while (rs.next()) {
-					Items card = new Items(
-					rs.getInt("item_id"),
-					rs.getString("user_id"),
-					rs.getString("item_name"),
-					rs.getString("item_url"),
-					rs.getInt("item_price"),
-					rs.getInt("item_category"),
-					rs.getInt("frequency_purchase"),
-					rs.getInt("item_switch"),
-					rs.getDouble("item_meter")
-					);
-					cardList.add(card);
-				}
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-				cardList = null;
-			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-				cardList = null;
-			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-						cardList = null;
-					}
-				}
-			}
-
-			// 結果を返す
-			return cardList;
-		}
-
 
 
 	//decreaseALL
 		//一斉減量
 		//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
-		public boolean decreaseALL(Items pdec) {
+		public boolean decreaseALL(String user_id) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -188,7 +117,7 @@ public class ItemsDao {
 
 			// SQL文を完成させる
 
-						pStmt.setString(1, pdec.getUser_id());
+						pStmt.setString(1, user_id);
 
 
 
@@ -226,7 +155,7 @@ public class ItemsDao {
 		//日数ごとの減量（ユーザーにプルダウンで選んでもらう）
 		//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
 
-		public boolean decrease(Items pdec) {
+		public boolean decrease(String user_id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -250,12 +179,7 @@ public class ItemsDao {
 
 				// SQL文を完成させる
 
-							pStmt.setString(1, pdec.getUser_id());
-				//【保留】javabeans追加？
-						/*
-							pStmt.setString(2, pdec.getUser_id());
-						*/
-
+							pStmt.setString(1,user_id);
 
 
 				// SQL文を実行する
@@ -308,11 +232,6 @@ public class ItemsDao {
 
 				pStmt.setString(1, "%" + keyWord + "%");
 				pStmt.setString(2, user_id);
-
-	//【保留】user_idを指定しないと、他ユーザーの商品も見れてしまう
-				//pStmt.setString(2, param.getUser_id() );
-
-
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -536,6 +455,61 @@ public class ItemsDao {
 			return result;
 		}
 
+
+	//updateSwitch
+	//減量停止ボタン
+		public boolean updateSwitch(int item_id,int item_switch) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+				// SQL文を準備する
+							String sql = "update Items set item_switch =? where item_id=?";
+							PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+
+					if(item_switch == 1) {
+							pStmt.setInt(1, 0);}
+					else if(item_switch == 0){
+						pStmt.setInt(1, 1);}
+							pStmt.setInt(2, item_id);
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
+
+
+
+
 	//delete
 		// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
 		public boolean delete(int number) {
@@ -600,7 +574,7 @@ public class ItemsDao {
 
 				// SQL文を準備する。追加する
 				//slectするのは、結果表にコピーする内容。
-				String sql = "select * from Items  WHERE item_name LIKE ? and item_category = ? and user_id = ? ORDER BY item_meter ASC";
+				String sql = "select * from Items  WHERE item_name LIKE ?  and user_id = ? ORDER BY item_meter ASC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる。追加する
@@ -610,14 +584,8 @@ public class ItemsDao {
 				else {
 					pStmt.setString(1, "%");
 				}
-				if (subcord.getItem_category() != 0) {
-					pStmt.setInt(2, subcord.getItem_category() );
-				}
-				else {
-					pStmt.setString(2, "");
-				}
 
-					pStmt.setString(3, subcord.getUser_id());
+					pStmt.setString(2, subcord.getUser_id());
 
 
 

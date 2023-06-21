@@ -1,5 +1,8 @@
 package test;
+import java.util.List;
+
 import dao.ItemsDao;
+import model.Items;
 
 
 public class ItemsDaotest {
@@ -7,12 +10,43 @@ public class ItemsDaotest {
 		ItemsDao dao = new ItemsDao();
 
 
-		/*
+
+
+		//updateSwitch()のテスト
+
+		  System.out.println("---------- updateSwitch()のテスト ----------");
+		  //商品ID 2の化粧水のみ対象とする
+		  //int item_id,int item_switch
+		  if (dao.updateSwitch(2,0)) {
+			System.out.println("切り替え成功！");
+			}
+		  else {
+			  System.out.println("切り替え失敗！");}
+
+
+		  System.out.println("---------- switchの確認 ----------");
+			List<Items> cardList13 = dao.selectsub(new Items(0, "yamada", "化粧水", "",0,0,0,0,0.0));
+			for (Items card : cardList13) {
+				System.out.println("商品ID：" + card.getItem_id());
+				System.out.println("ユーザID：" + card.getUser_id());
+				System.out.println("商品名：" + card.getItem_name());
+				System.out.println("商品URL：" + card.getItem_url());
+				System.out.println("商品価格：" + card.getItem_price());
+				System.out.println("カテゴリー：" + card.getItem_category());
+				System.out.println("頻度：" + card.getFrequency_purchase());
+				System.out.println("スイッチ：" + card.getItem_switch());
+				System.out.println("メーター：" + card.getItem_meter());
+
+			}
+
+
+
 
 	// selectCate()のカテゴリー別テスト。
+	//int item_category, String user_id
 
 			System.out.println("---------- selectCate()のカテゴリー別テスト ----------");
-			List<Items> cardList2 = dao.selectCate(new Items(0, "yamada", "", "",0,1,0,0,0.0));
+			List<Items> cardList2 = dao.selectCate(1, "yamada");
 			for (Items card : cardList2) {
 				System.out.println("商品ID：" + card.getItem_id());
 				System.out.println("ユーザID：" + card.getUser_id());
@@ -26,9 +60,13 @@ public class ItemsDaotest {
 
 			}
 
-			System.out.println("---------- selectsub()のカテゴリー別テスト ----------");
-			List<Items> cardList10 = dao.selectCate(new Items(0, "yamada", "", "",0,2,0,0,0.0));
-			for (Items card : cardList10) {
+
+		//selectのkeywordテスト
+		//String keyWord, String user_id
+
+			System.out.println("---------- selectのkeywordテスト ----------");
+			List<Items> cardList12 = dao.select("水", "yamada");
+			for (Items card : cardList12) {
 				System.out.println("商品ID：" + card.getItem_id());
 				System.out.println("ユーザID：" + card.getUser_id());
 				System.out.println("商品名：" + card.getItem_name());
@@ -41,7 +79,9 @@ public class ItemsDaotest {
 
 			}
 
-			// selectsub()の一覧テスト。
+
+/*
+			// selectsub()のテスト。
 			System.out.println("---------- selectList()の一覧テスト ----------");
 			List<Items> cardList13 = dao.selectList(new Items(0, "yamada", "", "",0,0,0,0,0.0));
 			for (Items card : cardList13) {
@@ -156,4 +196,4 @@ public class ItemsDaotest {
 
 }
 
-}
+	}
