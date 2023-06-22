@@ -42,22 +42,36 @@ public class UsersDaoTest {
 
 
 		// update()のテスト
-		System.out.println("---------- update()のテスト ----------");
-		Users upRec = new Users("ya","pw","MEADO5@meado.jp");
-		if (dao.update(upRec)) {
-			System.out.println("更新成功！");
-			List<Users> member3 = dao.select("");
-			for (Users member : member3) {
-				System.out.println("User_auto_id：" + member.getUser_auto_id());
-				System.out.println("User_id：" + member.getUser_id());
-				System.out.println("User_pw：" + member.getUser_pw());
-				System.out.println("User_mail：" + member.getUser_mail());
-				System.out.println();
-			}
-		}
-		else {
-			System.out.println("更新失敗！");
-		}
+//		System.out.println("---------- update()のテスト ----------");
+//		Users upRec = new Users("ya","pw","MEADO5@meado.jp");
+//		if (dao.update(upRec)) {
+//			System.out.println("更新成功！");
+//			List<Users> member3 = dao.select("");
+//			for (Users member : member3) {
+//				System.out.println("User_auto_id：" + member.getUser_auto_id());
+//				System.out.println("User_id：" + member.getUser_id());
+//				System.out.println("User_pw：" + member.getUser_pw());
+//				System.out.println("User_mail：" + member.getUser_mail());
+//				System.out.println();
+//			}
+//		}
+//		else {
+//			System.out.println("更新失敗！");
+//		}
+
+		// update_pw()のテスト
+				System.out.println("---------- update_pw()のテスト ----------");
+				String user_id = "ya";
+				String user_mail = "MEADO6@meado.jp";
+				String user_pw = "ya";
+
+				if (dao.update_pw(user_id,user_mail,user_pw)) {
+					System.out.println("更新成功！");
+				}
+				else {
+					System.out.println("更新失敗！");
+				}
+
 
 
 		// delete()のテスト

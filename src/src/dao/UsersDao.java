@@ -426,7 +426,7 @@ public class UsersDao {
 
 
 
-		public boolean update_pw(String user_id,String user_mail,String user_pw) {
+		public boolean update_pw(String user_pw,String user_id,String user_mail) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -443,9 +443,11 @@ public class UsersDao {
 
 				// SQL文を完成させる
 
-					//pStmt.setDate(1, );
+				pStmt.setString(1, user_pw);
 
-					//pStmt.setString(2, user_id);
+				pStmt.setString(2, user_id);
+
+				pStmt.setString(3, user_mail);
 
 
 				// SQL文を実行する
