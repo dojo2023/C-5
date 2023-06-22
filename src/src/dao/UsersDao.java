@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import model.Users;
@@ -375,7 +376,7 @@ public class UsersDao {
 		}
 
 		// 引数memberで指定されたレコードを更新し、成功したらtrueを返す
-		public boolean update_date(Users member) {
+		public boolean update_date(Date sqlDate,String user_id ) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -391,14 +392,10 @@ public class UsersDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (member.getUser_date() != null ) {
-//					pStmt.setDate(1, member.getUser_date());
-				}
-				else {
-					pStmt.setDate(1, null);
-				}
 
-				pStmt.setString(2, member.getUser_id());
+					//pStmt.setDate(1, (java.sql.Date) sqlDate);
+
+					//pStmt.setString(2, user_id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
@@ -426,6 +423,58 @@ public class UsersDao {
 			// 結果を返す
 			return result;
 		}
+
+
+
+		public boolean update_pw(String user_id,String user_mail,String user_pw) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+				// SQL文を準備する
+				String sql = "update Users set user_pw=? where user_id=? and user_mail = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+
+					//pStmt.setDate(1, );
+
+					//pStmt.setString(2, user_id);
+
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
+
 
 
 		// 引数memberで指定されたレコードを削除し、成功したらtrueを返す

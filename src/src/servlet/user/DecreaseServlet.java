@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ItemsDao;
+import dao.UsersDao;
 import model.LoginUsers;
 
 
@@ -127,7 +128,15 @@ public class DecreaseServlet extends HttpServlet {
 
 				}
 
-				//user_dateを現在の日付でアップデート
+
+				// java.util.Dateを取得
+			    java.util.Date javaDate = new java.util.Date();
+
+			    // java.util.Dateをjava.sql.Dateに変換
+			    Date sqlDate = new Date(javaDate.getTime());
+
+			  //user_dateを現在の日付でアップデート
+			    UsersDao upDao = new UsersDao();
 
 				// メニューサーブレットにリダイレクト
 				response.sendRedirect("/mecar/MenuServlet");
