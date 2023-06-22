@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.InquiriesDao;
 import model.Inquiries;
@@ -32,6 +33,7 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		//空文字でデータを入力する。カードリスト2とか
 		InquiriesDao aInquiries = new InquiriesDao();
 
@@ -51,6 +53,12 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/mecar/LoginAdminServlet");
+			return;
+		}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.AdminDao;
 import model.Admin;
@@ -47,8 +48,8 @@ public class LoginAdminServlet extends HttpServlet {
 		AdminDao iDao = new AdminDao();
 		if (iDao.isLoginOK(new Admin(DOJO, pass))) {	// ログイン成功
 			// セッションスコープにIDを格納する
-			//	HttpSession session = request.getSession();
-			//	session.setAttribute("id", new Admin(DOJO, pass));
+				HttpSession session = request.getSession();
+				session.setAttribute("id", new Admin(DOJO, pass));
 
 			// インクエリリストサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/InquiryListServlet");
