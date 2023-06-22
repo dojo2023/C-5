@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,20 +51,82 @@
 	<div class="list_wrapper">
 		<!-- カテゴリ部分 -->
 		<div class="categories_container">
-			<div class="category"></div>
-			<div class="category"></div>
-			<div class="category"></div>
-			<div class="category"></div>
-			<div class="category"></div>
+			<form method="POST" action="/mecar/CategoryServlet">
+				<div class="category"><input type="image"
+				src="/mecar/img/一覧_ベージュ.png" name="submit" value="一覧"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/食料品_ベージュ.png" name="submit" value="食料品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/日用品_ベージュ.png" name="submit" value="日用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/ケア用品_ベージュ.png" name="submit" value="ケア用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/その他_ベージュ.png" name="submit" value="その他"></div>
+			</form>
+			<form method="POST" action="/mecar/CategoryServlet">
+				<div class="category"><input type="image"
+				src="/mecar/img/一覧_ピンク.png" name="submit" value="一覧"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/食料品_ピンク.png" name="submit" value="食料品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/日用品_ピンク.png" name="submit" value="日用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/ケア用品_ピンク.png" name="submit" value="ケア用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/その他_ピンク.png" name="submit" value="その他"></div>
+			</form>
+			<form method="POST" action="/mecar/CategoryServlet">
+				<div class="category"><input type="image"
+				src="/mecar/img/一覧_水色.png" name="submit" value="一覧"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/食料品_水色.png" name="submit" value="食料品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/日用品_水色.png" name="submit" value="日用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/ケア用品_水色.png" name="submit" value="ケア用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/その他_水色.png" name="submit" value="その他"></div>
+			</form>
+			<form method="POST" action="/mecar/CategoryServlet">
+				<div class="category"><input type="image"
+				src="/mecar/img/一覧_紺.png" name="submit" value="一覧"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/食料品_紺.png" name="submit" value="食料品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/日用品_紺.png" name="submit" value="日用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/ケア用品_紺.png" name="submit" value="ケア用品"></div>
+				<div class="category"><input type="image"
+				src="/mecar/img/その他_紺.png" name="submit" value="その他"></div>
+			</form>
 		</div>
 
 		<!-- 商品部分 -->
 		<div class="items_container">
-			<div class="item">プロテイン<input type="range"></div>
-			<div class="item">水<input type="range"></div>
-			<div class="item">フェイスマスク<input type="range"></div>
+			<c:forEach var="e" items="${cardList2}">
+				<form method="POST" action="/mecar/DecreaseSwitchServlet">
+					${e.item_name}
+					<meter min="0" max="100" value="${e.item_meter}" high="50" low="20" optimum="80"></meter>
+					<input type="hidden" name="item_id" value="${e.item_id}">
+					<c:choose>
+						<c:when test="${e.item_switch == 0}">
+							<input type="submit" name="item_switch" value="OFF">
+						</c:when>
+						<c:when test="${e.item_switch == 1}">
+							<input type="submit" name="item_switch" value="ON">
+						</c:when>
+					</c:choose>
+				</form>
+				<br>
+			</c:forEach>
 		</div>
 	</div>
+
+	<!-- 商品登録ポップアップを開くボタン -->
+	<img src="/mecar/img/プラスのアイコン素材グレー.png" alt="商品登録ポップアップを開くボタン">
+	<img src="/mecar/img/プラスのアイコン素材ピンク.png" alt="商品登録ポップアップを開くボタン">
+	<img src="/mecar/img/プラスのアイコン素材ブルー.png" alt="商品登録ポップアップを開くボタン">
+	<img src="/mecar/img/プラスのアイコン素材紺.png" alt="商品登録ポップアップを開くボタン">
 
 </main>
 
