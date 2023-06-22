@@ -38,7 +38,8 @@ html {
 .btn,
 a.btn,d
 label.btn,
-button.btn {
+button.btn,
+.name {
   font-size: 1.6rem;	/* サイズ（全体）変えるならここ */
   font-weight: 700;
   line-height: 1.5;		/* サイズ(高さのみ)変えるならここ */
@@ -135,3 +136,24 @@ label.btn-gradient:hover:after {
   opacity: 0;
 }
 
+
+.name {
+	color: #fff;
+
+	  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#23454d),
+    color-stop(#668c95),
+    to(#d4acaa)
+  );
+
+  background-image: -webkit-linear-gradient(left, #23454d, #668c95, #d4acaa);
+
+  padding: 0.5rem 2rem;
+}
+
+#space {
+	height:10px;
+}

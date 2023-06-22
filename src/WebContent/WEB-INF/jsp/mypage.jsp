@@ -29,8 +29,18 @@
 			<form method="POST" action="/mecar/ChangeServlet">
 				<table align="center">
 					<tr>
-						<td colspan="2">${user_id.user_id}　さん</td>
+						<td class="name">
+							${user_id.user_id}　さん
+						</td>
+						<td>
+							<a href="/mecar/img/ryuse.jpg">　</a>
+							<a href="/mecar/img/yakiniku.jpg">　</a>
+							<a href="/mecar/img/sode.jpg">　</a>
+							<a href="/mecar/img/ぼでぃさー.MP4">　</a>
+							<a href="/mecar/img/mejiji.jpg">　</a>
+						</td>
 					</tr>
+					<tr><td id="space"></td></tr>
 					<tr>
 						<td class="td">
 							<label for="button" class="btn btn-gradient button_label">
