@@ -1,1 +1,83 @@
 @charset "UTF-8";
+
+/* フォームを中央にそろえる */
+form{
+    width: fit-content;
+    margin: auto;
+}
+
+/* ボタンを中央に配置する */
+.input_wrap{
+  text-align: center;
+}
+
+/* パスワードの表示・非表示 */
+
+/* チェックボックスを非表示にする */
+#checkPassword {
+  display: none;
+}
+
+/*入力欄のデフォルト枠は隠す*/
+.hideText, .showText {
+  border: none;
+  outline: none;
+}
+
+/*新しく入力欄の枠を表示*/
+.togglePassword {
+  border: 1px solid;
+  border-radius: 2px;
+  width: 205px;
+}
+/*テキストは非表示*/
+.showText {
+  display: none;
+}
+/*伏字の黒丸を表示*/
+.hideText {
+  display: inline;
+}
+/* 開いてる目を表示*/
+.fa-eye:before {
+  display: inline;
+  margin-left: 5px;
+}
+/* 閉じてる目は非表示*/
+.fa-eye-slash:before {
+  display: none;
+}
+/*ボタンが押されたとき(チェックボックスにチェックしたとき)開いてる目は非表示*/
+#checkPassword:checked + .togglePassword >
+.fa-eye:before {
+  display: none;
+}
+/*ボタンが押されたとき(チェックボックスにチェックしたとき) 閉じてる目を表示*/
+#checkPassword:checked + .togglePassword >
+.fa-eye-slash:before {
+  display: inline-block;
+}
+/*ボタンが押されたとき(チェックボックスにチェックしたとき)伏字を非表示*/
+#checkPassword:checked + .togglePassword >
+.hideText {
+  display: none;
+}
+/*ボタンが押されたとき(チェックボックスにチェックしたとき)テキストを表示*/
+#checkPassword:checked + .togglePassword >
+.showText {
+  display: inline-block;
+}
+
+
+/* 新規会員登録ボタン */
+.regist{
+	  margin: 10px auto;
+  background: #668c95;
+  padding:0.3em 1em;
+  border:#23454d 1px solid;
+  text-decoration:none;
+  color: white;
+  font-size:1em;
+  transition: 0.3s ease-in-out;
+}
+
