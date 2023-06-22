@@ -48,8 +48,8 @@ public class LoginAdminServlet extends HttpServlet {
 		AdminDao iDao = new AdminDao();
 		if (iDao.isLoginOK(new Admin(DOJO, pass))) {	// ログイン成功
 			// セッションスコープにIDを格納する
-				HttpSession session = request.getSession();
-				session.setAttribute("id", new Admin(DOJO, pass));
+			HttpSession session = request.getSession();
+			session.setAttribute("id", new Admin(DOJO, pass));
 
 			// インクエリリストサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/InquiryListServlet");
@@ -66,10 +66,10 @@ public class LoginAdminServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  // 管理者ログインにフォワードする。
-  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login_admin.jsp");
-  dispatcher.forward(request, response);
+	 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 // 管理者ログインにフォワードする。
+		 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login_admin.jsp");
+		 dispatcher.forward(request, response);
 	}
 
 	/**
