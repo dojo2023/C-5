@@ -32,16 +32,16 @@
       <table class="table">
         <tr>
           <td>
-            <label>ユーザーID</label><br>
-            <input type="text" name="user_id" id="user_id" size=40 readonly value="${user_id.user_id}">
+            <span class="auto"><label>ユーザーID</label></span><br>
+            <input type="text" class="idmail" name="user_id" id="user_id" size=40 readonly value="${user_id.user_id}">
           </td>
           <td>
-            <label>メールアドレス</label><br>
-            <input type="text" name="user_mail" id="user_mail"size=40 readonly value="${user_id.user_mail}"><br>
+            <span class="auto"><label>メールアドレス</label></span><br>
+            <input type="text" class="idmail" name="user_mail" id="user_mail"size=40 readonly value="${user_id.user_mail}"><br>
           </td>
         </tr>
        </table>
-      件名(※必須)    <span class= "center" id="error_message"></span><br>
+      <span class="required"><label class="center">件名</label></span>    <span class= "center" id="error_message"></span><br>
       <input type="text" class="title" name="inquiry_subject" id="inquiry_subject"><br>
       お問い合わせ内容<br>
       <textarea class="textarea" name="inquiry_content" id="inquiry_content"></textarea><br>
