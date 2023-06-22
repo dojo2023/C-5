@@ -9,9 +9,6 @@ public class ItemsDaotest {
 	public static void main(String[] args) {
 		ItemsDao dao = new ItemsDao();
 
-
-
-
 		//updateSwitch()のテスト
 
 		  System.out.println("---------- updateSwitch()のテスト ----------");
@@ -197,8 +194,15 @@ public class ItemsDaotest {
 				System.out.println("一回分減量失敗！");
 			}
 
+			// updateMaterのテスト
+			System.out.println("---------- updateMater() ----------");
+			int item_id = 3;
+			if(dao.updateMater(item_id)) {
+				System.out.println("メーター＋100成功！");
+			}
+			else {
+				System.out.println("メーター＋100失敗！");
+			}
 
-
+    }
 }
-
-	}
