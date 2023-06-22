@@ -7,7 +7,7 @@
 
 var formObj = document.getElementById('delete_form');
 function MoveCheck(){
-event.preventDefault();
+//event.preventDefault();
 
 
   // 削除を押した時に送信確認のダイアログボックスを表示する
@@ -15,9 +15,10 @@ event.preventDefault();
      if(res === true){
         // OKなら送信してページ遷移
        alert("削除しました。");
-       window.location.href = "/mecar/UsersListServlet";
+       //window.location.href = "/mecar/UsersListServlet";
      }
      else{
+     event.preventDefault();
         // キャンセルならアラートボックスを表示
        alert("キャンセルしました");
 }
