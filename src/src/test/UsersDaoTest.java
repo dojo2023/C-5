@@ -61,11 +61,11 @@ public class UsersDaoTest {
 
 		// update_pw()のテスト
 				System.out.println("---------- update_pw()のテスト ----------");
-				String user_id = "ya";
-				String user_mail = "MEADO6@meado.jp";
-				String user_pw = "ya";
+				String user_id = "satou";
+				String user_mail = "dojosatou@pmail.com";
+				String user_pw = "pa";
 
-				if (dao.update_pw(user_id,user_mail,user_pw)) {
+				if (dao.update_pw(user_pw,user_id,user_mail)) {
 					System.out.println("更新成功！");
 				}
 				else {

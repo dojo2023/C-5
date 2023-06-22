@@ -39,6 +39,8 @@ public class ItemsDaotest {
 
 
 
+
+
 	// selectCate()のカテゴリー別テスト。
 	//int item_category, String user_id
 

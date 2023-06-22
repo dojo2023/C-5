@@ -438,7 +438,7 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "update Users set user_pw=? where user_id=? and user_mail = ?";
+				String sql = "update Users set user_pw = ? where user_id = ? and user_mail = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる

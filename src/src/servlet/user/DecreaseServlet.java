@@ -3,10 +3,6 @@ package servlet.user;
 //担当：羽田
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dao.ItemsDao;
-import dao.UsersDao;
-import model.LoginUsers;
 
 
 /**
@@ -43,7 +35,7 @@ public class DecreaseServlet extends HttpServlet {
 			throws ServletException, IOException {
 				HttpSession session = request.getSession();
 
-
+/*
 				//インスタンスを取り出す
 				LoginUsers sessionuser_id = (LoginUsers) session.getAttribute("user_id");
 				//中身のuser_idを取得する
@@ -52,21 +44,17 @@ public class DecreaseServlet extends HttpServlet {
 				//【保留】プルダウンのvalueを取得。ここでは仮名"pullNumberを使用した
 				String pullStr =request.getParameter("pullNumber");
 				int pull = Integer.parseInt(pullStr);
-
+				/*
 				//自動減量用
 				//現在日時を取得
 
 						LocalDate currentDate = LocalDate.now();
 
 					/*
-					// 指定の形式にフォーマット
-						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-						String formattedDate = currentDate.format(formatter);
 
-						*/
 
 						//【保留】usersからselectしてuser_dateを出す
-						Date user_date = null;
+						Date user_date =  null;
 
 						//user_idはdata型なのでlocalDateに変換
 				         LocalDate logDate = LocalDate.ofInstant(user_date.toInstant(), ZoneId.systemDefault());
@@ -77,20 +65,20 @@ public class DecreaseServlet extends HttpServlet {
 						int decDay = (int)daysLong;
 
 
-			        /*DAO用
+			        DAO用
 			    	pStmt.setInt(1, decDay);
 					pStmt.setString(2, user_id);
-					*/
 
 
 
-				// 減量システム処理を行う
+
+				//減量システム処理を行う
 				ItemsDao bDao = new ItemsDao();
 				//もしサブミットで一斉減量が選択されたら
 				if (request.getParameter("submit").equals("一斉減量")) {
 
 					//プルダウンで自動選択
-					if(pull == 0) {bDao.decreaseALL(decDay,user_id);
+					if(pull == 0) {//bDao.decreaseALL(decDay,user_id);
 					}
 
 					//プルダウンで日数選択
@@ -137,6 +125,10 @@ public class DecreaseServlet extends HttpServlet {
 
 			  //user_dateを現在の日付でアップデート
 			    UsersDao upDao = new UsersDao();
+			    upDao.update_date(sqlDate,user_id);
+
+
+			   */
 
 				// メニューサーブレットにリダイレクト
 				response.sendRedirect("/mecar/MenuServlet");
