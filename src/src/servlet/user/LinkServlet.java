@@ -66,7 +66,7 @@ public class LinkServlet extends HttpServlet {
 		ItemsDao bDao = new ItemsDao();
 		bDao.updateMater(item_id);
 
-		// リンク先に飛ぶ(jsp)
+		// リンク先に飛ぶ(jspでやる)
 
 	}
 }
