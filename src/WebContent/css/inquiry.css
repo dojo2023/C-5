@@ -32,15 +32,52 @@ form{
 	width:100%
 }
 
+/* ID・メールアドレスのスタイル */
+.idmail{
+	border: 1px solid #668c95;
+	height: 20px;
+}
+
 /* 件名のテキストエリアの大きさ */
 .title{
     width:100%;
+    border: 1px solid #668c95;
+    height: 20px;
 }
 
 /* お問い合わせ内容のテキストエリアの大きさ */
 .textarea{
   width:100%;
-  height:100px;
+  height:130px;
+  border: 1px solid #668c95;
+  resize:none;
+}
+
+/* 「自動」「必須」の表示 */
+.auto::after {
+  content: "自動";
+  color: #ffffff;
+  background: #d1d2d3;
+  font-size: 0.8em;
+  padding: 0em 0.5em;
+  border-radius: 0em;
+  margin-left:0.2em;
+  align-items: center
+}
+
+.required::after {
+  content: "必須";
+  color: #ffffff;
+  background: #cc0000;
+  font-size: 0.8em;
+  padding: 0em 0.5em;
+  border-radius: 0em;
+  margin-left:0.2em;
+  align-items: center
+}
+
+.center{
+	  align-items: center
 }
 
 /* エラーメッセージ */
