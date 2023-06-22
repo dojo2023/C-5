@@ -31,6 +31,7 @@ public class WithdrawalServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		// テスト用変数
 		String del = "出来ないなあ";
 
@@ -45,13 +46,16 @@ public class WithdrawalServlet extends HttpServlet {
 
 		//削除する
 		UsersDao uDao = new UsersDao();
-		if (uDao.delete(user_id.getUser_id())) {	// 削除成功
+
+		//削除できているかテスト用
+		// 削除成功
+		if (uDao.delete(user_id.getUser_id())) {
 			del = "削除成功！";
 		}
-		else {						// 削除失敗
+		// 削除失敗
+		else {
 			del = "削除失敗！";
 		}
-
 		// テスト用出力
 		System.out.println(del);
 		System.out.println(user_id.getUser_id());

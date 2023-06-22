@@ -90,6 +90,7 @@ ALTER TABLE items
 
 //usersテーブルのユーザIDを外部キーとして登録
 //itemsが子テーブル、usersが親テーブル
+//ON DELETE CASCADE; →親テーブルが削除された時、子テーブルも削除される外部キー制約
 
 
 

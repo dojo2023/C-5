@@ -40,11 +40,12 @@ public class UsersListServlet extends HttpServlet {
 
 
 				// 検索結果をリクエストスコープに格納する。
-				request.setAttribute("cardList2" , cardList2);
+		request.setAttribute("cardList2" , cardList2);
 	// ユーザー一覧画面にフォワードする。
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/users_list.jsp");
 	dispatcher.forward(request, response);
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -67,4 +68,4 @@ public class UsersListServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/users_result.jsp");
 		dispatcher.forward(request, response);
 	}
-}
+	}

@@ -1,0 +1,104 @@
+C5_yamada 退会後復旧用SQL
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/pleiades/workspace/data/EM
+
+※データベース作成のエラーが表示された場合は、
+https://sukkiri.jp/technologies/ides/eclipse/h2-createdb.html
+を参照してください。
+
+
+【ユーザー名】	【パスワード】
+C5		mecar
+
+INSERT INTO users (user_id,user_pw,user_mail) 
+VALUES ('yamada','pass','dojoyamda@pmail.com'
+);
+
+【yamada関連のサンプルデータ登録（復旧）】
+insert into items (
+user_id,
+item_name,
+item_url,
+item_price,
+item_category,
+frequency_purchase,
+item_switch,
+item_meter
+)
+values(
+'yamada',
+'水',
+'https://www.amazon.co.jp/Amazon%E9%99%90%E5%AE%9A%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89-CCL-%E3%81%84%E3%83%BB%E3%82%8D%E3%83%BB%E3%81%AF%E3%83%BB%E3%81%99-2LPET-%C3%978%E6%9C%AC/dp/B08TV9Y72N/ref=asc_df_B08TV9Y72N/?tag=jpgo-22&linkCode=df0&hvadid=342476803675&hvpos=&hvnetw=g&hvrand=9607039760965487196&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009306&hvtargid=pla-1168323873260&psc=1&th=1&psc=1&tag=&ref=&adgrpid=68580708403&hvpone=&hvptwo=&hvadid=342476803675&hvpos=&hvnetw=g&hvrand=9607039760965487196&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009306&hvtargid=pla-1168323873260',
+1000,
+'1',
+'3',
+'1',
+100
+);
+
+insert into items (
+user_id,
+item_name,
+item_url,
+item_price,
+item_category,
+frequency_purchase,
+item_switch,
+item_meter
+)
+values(
+'yamada',
+'化粧水',
+'https://dojo-teraco.seplus.jp/login',
+2000,
+'3',
+'4',
+'1',
+80
+);
+
+insert into items (
+user_id,
+item_name,
+item_url,
+item_price,
+item_category,
+frequency_purchase,
+item_switch,
+item_meter
+)
+values(
+'yamada',
+'クイックルワイパー',
+'https://dojo-teraco.seplus.jp/login',
+700,
+'2',
+'2',
+'1',
+50
+);
+
+INSERT INTO history (
+item_id,
+history_date
+)
+VALUES ('(itemsに合わせて)','2023-6-13'
+);
+
+INSERT INTO inquiries (
+user_id,
+inquiry_subject,
+inquiry_content,
+inquiry_status,
+inquiry_date
+)
+VALUES (
+'yamada',
+'バグについての連絡',
+'特になし',
+'0',
+'2023-6-10'
+);

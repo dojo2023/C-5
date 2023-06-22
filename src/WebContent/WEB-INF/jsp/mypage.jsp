@@ -63,14 +63,6 @@
 						</td>
 					</tr>
 				</table>
-
-
-
-
-
-
-
-
 			</form>
 		</main>
 		<footer>
