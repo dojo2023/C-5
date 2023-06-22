@@ -41,9 +41,9 @@
           			<td>${e.user_id}</td>
            			<td>${e.user_mail}</td>
            			<td>
-           			<form method="POST" action="/mecar/DeleteUserServlet">
+           			<form id = "delete_form" method="POST" action="/mecar/DeleteUserServlet">
                		<input type="hidden" name="userId" value="${e.user_id}">
-                	<input type="submit" value="削除">
+                	<input type="submit" id="delete_button"  name="submit" value="削除" onclick="MoveCheck();">
            			</form>
            			</td>
       				</tr>
@@ -54,5 +54,6 @@
 <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
+<script src = "/mecar/js/users_result.js"></script>
 </body>
 </html>

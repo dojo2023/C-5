@@ -7,7 +7,6 @@
 
 var formObj = document.getElementById('delete_form');
 function MoveCheck(){
-//event.preventDefault();
 
 
   // 削除を押した時に送信確認のダイアログボックスを表示する
