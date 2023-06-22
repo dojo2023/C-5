@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<header>
+<!-- リボンメニュー -->
 			<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
 			<nav>
 			<ul>
@@ -22,12 +23,39 @@
 		</header>
 		<main>
 			<h1>メールアドレス変更</h1>
-			<form method="POST" action="/mecar/ChangeServlet">
+<!-- メールアドレス変更 -->
+			<form method="POST" action="/mecar/ChangeMailServlet">
 				<table>
-					<tr><td>ユーザーID</td><td><input type="text"></td></tr>
-					<tr><td>パスワード</td><td><input type="text"></td></tr>
-					<tr><td>メールアドレス</td><td><input type="text"></td></tr>
-					<tr><td colspan="2"><input type="button" value="変更" id="mail" onclick="MoveCheck();"><input type="reset" value="リセット"></td></tr>
+					<tr>
+						<td>
+							ユーザーID
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							パスワード
+						</td>
+						<td>
+							<input type="password" id = "input_pass">
+							<button id ="passview">表示</button>
+						</td>
+					</tr>
+					<tr>
+							<td>メールアドレス
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" value="変更" id="mail" onclick="MoveCheck();">
+							<input type="reset" value="リセット">
+						</td>
+					</tr>
 				</table>
 			</form>
 		</main>

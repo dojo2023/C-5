@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<header>
+<!-- リボンメニュー -->
 			<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
 			<nav>
 				<ul>
@@ -22,12 +23,41 @@
 		</header>
 		<main>
 			<h1>パスワード変更</h1>
-			<form method="POST" action="/mecar/ChangeServlet">
+<!-- パスワード変更 -->
+			<form method="POST" action="/mecar/ChangePasswordServlet">
 				<table>
-					<tr><td>ユーザーID</td><td><input type="text" name="USER_ID" class = "Users"></td></tr>
-					<tr><td>現在のパスワード</td><td><input type="password" name="USER_PW" id = "input_pass" class= "Users"><button id ="passview">表示</button></td></tr>
-					<tr><td>新しいパスワード</td><td><input type="text"></td></tr>
-					<tr><td colspan="2"><input type="button" value="変更" onclick="MoveCheck();"><input type="reset" value="リセット"></td></tr>
+					<tr>
+						<td>
+							ユーザーID
+						</td>
+						<td>
+							<input type="text" name="USER_ID">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							現在のパスワード
+						</td>
+						<td>
+							<input type="password" name="USER_PW" id = "input_pass">
+							<button id ="passview">表示</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							新しいパスワード
+						</td>
+						<td>
+							<input type="password" name="USER_NEWPW" id = "new_input_pass">
+							<button id ="new_passview">表示</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" value="変更" onclick="MoveCheck();">
+							<input type="reset" value="リセット">
+						</td>
+					</tr>
 				</table>
 			</form>
 		</main>

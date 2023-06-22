@@ -30,8 +30,8 @@
 			<section class="accordion">
 
 <!-- ログインページ -->
-				<input id="block-01" type="checkbox" class="toggle">
-				<label class="Label Label1" for="block-01">ログインページ</label>
+				<input id="block-login-01" type="checkbox" class="toggle">
+				<label class="Label Label1" for="block-login-01">ログインページ</label>
 				<div class="content">
 					<table>
 						<tr>
@@ -39,8 +39,8 @@
 								<img src="/mecar/img/ログインページ（サンプル）.png" id="login_img">
 							</td>
 							<td>
-								<input id="block-02" type="checkbox" class="toggle">
-								<label class="Label Label2" for="block-02">①ログイン</label>
+								<input id="block-login-02" type="checkbox" class="toggle">
+								<label class="Label Label2" for="block-login-02">①ログイン</label>
 								<div class="content">
 									<p>ログインできます。</p>
 								</div>
@@ -48,8 +48,8 @@
 						</tr>
 						<tr>
 							<td>
-								<input id="block-03" type="checkbox" class="toggle">
-								<label class="Label Label3" for="block-03">②リセット</label>
+								<input id="block-login-03" type="checkbox" class="toggle">
+								<label class="Label Label3" for="block-login-03">②リセット</label>
 								<div class="content">
 									<p>リセットできます。</p>
 								</div>
@@ -57,8 +57,8 @@
 						</tr>
 						<tr>
 							<td>
-								<input id="block-04" type="checkbox" class="toggle">
-								<label class="Label Label4" for="block-04">③パスワードを忘れた方</label>
+								<input id="block-login-04" type="checkbox" class="toggle">
+								<label class="Label Label4" for="block-login-04">③パスワードを忘れた方</label>
 								<div class="content">
 									<p>パスワード変更ができます。</p>
 								</div>
@@ -101,6 +101,54 @@
 						<p>パスワード変更ができます。</p>
 					</div>
 				</div>
+
+<!-- お問い合わせページ -->
+				<input id="block-inq" type="checkbox" class="toggle">
+				<label class="Label Label1" for="block-inq">お問い合わせページ</label>
+				<div class="content">
+					<table>
+						<tr>
+							<td rowspan="4" class="img">
+								<img src="/mecar/img/お問い合わせページ.png" id="login_img">
+							</td>
+							<td>
+								<input id="block-inq-1" type="checkbox" class="toggle">
+								<label class="Label Label2" for="block-inq-1">①ユーザーID　/　メールアドレス </label>
+								<div class="content">
+									<p>自動で記述されます。書き換えることはできません。<br>このメールアドレスにお問い合わせのご返答を致します。</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-inq-2" type="checkbox" class="toggle">
+								<label class="Label Label3" for="block-inq-2">②件名</label>
+								<div class="content">
+									<p>お問い合わせの概要をお知らせください。<br>必須入力項目となります。</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-inq-3" type="checkbox" class="toggle">
+								<label class="Label Label4" for="block-inq-3">③お問い合わせ内容</label>
+								<div class="content">
+									<p>お問い合わせの詳細をお知らせください。</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-inq-4" type="checkbox" class="toggle">
+								<label class="Label Label5" for="block-inq-4">④送信ボタン</label>
+								<div class="content">
+									<p>クリックすることで上記の内容を送信します。<br>お間違えの無いようご確認の上、送信ボタンをクリックしてください。</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+
 
 			</section>
 		</main>
