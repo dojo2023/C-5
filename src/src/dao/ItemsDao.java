@@ -326,335 +326,366 @@ public class ItemsDao {
 	}
 
 	//update
-		public boolean update(Items card) {
-			Connection conn = null;
-			boolean result = false;
+	public boolean update(Items card) {
+		Connection conn = null;
+		boolean result = false;
 
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
-				// SQL文を準備する
-							String sql = "update Items set   item_name =?, item_url =?, item_price =?, item_category =?, frequency_purchase =?, item_switch =?, item_meter =? where item_id=?";
-							PreparedStatement pStmt = conn.prepareStatement(sql);
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
-				// SQL文を完成させる
+			// SQL文を準備する
+			String sql = "update Items set   item_name =?, item_url =?, item_price =?, item_category =?, "
+					+ "frequency_purchase =?, item_switch =?, item_meter =? where item_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-
-							if (card.getItem_name() != null && !card.getItem_name().equals("")) {
-								pStmt.setString(1, card.getItem_name());
-							}
-							else {
-								pStmt.setString(1, null);
-							}
-
-
-							if (card.getItem_url() != null && !card.getItem_url().equals("")) {
-								pStmt.setString(2, card.getItem_url());
-							}
-							else {
-								pStmt.setString(2, null);
-							}
-
-
-							if (card.getItem_price() != 0 ) {
-								pStmt.setInt(3, card.getItem_price());
-							}
-							else {
-								pStmt.setInt(3, 0);
-							}
-
-
-							if (card.getItem_category() != 0) {
-								pStmt.setInt(4, card.getItem_category());
-							}
-							else {
-								pStmt.setInt(4, 0);
-							}
-
-
-							if (card.getFrequency_purchase() != 0) {
-								pStmt.setInt(5, card.getFrequency_purchase());
-							}
-							else {
-								pStmt.setInt(5, 3);
-							}
-
-
-							if (card.getItem_switch() != 0) {
-								pStmt.setInt(6, card.getItem_switch());
-							}
-							else {
-								pStmt.setInt(6, 0);
-							}
-
-
-							if (card.getItem_meter() != 0) {
-								pStmt.setDouble(7, card.getItem_meter());
-							}
-							else {
-								pStmt.setDouble(7, 0);
-							}
-							pStmt.setInt(8, card.getItem_id());
-
-
-
-				// SQL文を実行する
-				if (pStmt.executeUpdate() == 1) {
-					result = true;
-				}
+			// SQL文を完成させる
+			if (card.getItem_name() != null && !card.getItem_name().equals("")) {
+				pStmt.setString(1, card.getItem_name());
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				pStmt.setString(1, null);
 			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
+			if (card.getItem_url() != null && !card.getItem_url().equals("")) {
+				pStmt.setString(2, card.getItem_url());
 			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
+			else {
+				pStmt.setString(2, null);
 			}
+			if (card.getItem_price() != 0 ) {
+				pStmt.setInt(3, card.getItem_price());
+			}
+			else {
+				pStmt.setInt(3, 0);
+			}
+			if (card.getItem_category() != 0) {
+				pStmt.setInt(4, card.getItem_category());
+			}
+			else {
+				pStmt.setInt(4, 0);
+			}
+			if (card.getFrequency_purchase() != 0) {
+				pStmt.setInt(5, card.getFrequency_purchase());
+			}
+			else {
+				pStmt.setInt(5, 3);
+			}
+			if (card.getItem_switch() != 0) {
+				pStmt.setInt(6, card.getItem_switch());
+			}
+			else {
+				pStmt.setInt(6, 0);
+			}
+			if (card.getItem_meter() != 0) {
+				pStmt.setDouble(7, card.getItem_meter());
+			}
+			else {
+				pStmt.setDouble(7, 0);
+			}
+			pStmt.setInt(8, card.getItem_id());
 
-			// 結果を返す
-			return result;
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
 		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 
 
 	//updateSwitch
 	//減量停止ボタン
-		public boolean updateSwitch(int item_id,int item_switch) {
-			Connection conn = null;
-			boolean result = false;
+	public boolean updateSwitch(int item_id,int item_switch) {
+		Connection conn = null;
+		boolean result = false;
 
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
-				// SQL文を準備する
-							String sql = "update Items set item_switch =? where item_id=?";
-							PreparedStatement pStmt = conn.prepareStatement(sql);
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
-				// SQL文を完成させる
+			// SQL文を準備する
+			String sql = "update Items set item_switch =? where item_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-					if(item_switch == 1) {
-							pStmt.setInt(1, 0);}
-					else if(item_switch == 0){
-						pStmt.setInt(1, 1);}
-							pStmt.setInt(2, item_id);
-
-				// SQL文を実行する
-				if (pStmt.executeUpdate() == 1) {
-					result = true;
-				}
+			// SQL文を完成させる
+			if(item_switch == 1) {
+				pStmt.setInt(1, 0);
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
+			else if(item_switch == 0){
+				pStmt.setInt(1, 1);
 			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
+			pStmt.setInt(2, item_id);
 
-			// 結果を返す
-			return result;
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
 		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 
 	//updateMater
 	//リンク先で購入ボタンを押したときに、メーターに100を足すやつ
-		public boolean updateMater(int item_id) {
-			Connection conn = null;
-			boolean result = false;
+	public boolean updateMater(int item_id) {
+		Connection conn = null;
+		boolean result = false;
 
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
-				// SQL文を準備する
-							String sql = "update Items set item_meter = item_meter + 100 where item_id=?";
-							PreparedStatement pStmt = conn.prepareStatement(sql);
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
-				// SQL文を完成させる
-							pStmt.setInt(1, item_id);
+			// SQL文を準備する
+			String sql = "update Items set item_meter = item_meter + 100 where item_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				// SQL文を実行する
-				if (pStmt.executeUpdate() == 1) {
-					result = true;
+			// SQL文を完成させる
+			pStmt.setInt(1, item_id);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
 				}
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-			// 結果を返す
-			return result;
 		}
 
+		// 結果を返す
+		return result;
+	}
 
 	//delete
-		// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-		public boolean delete(int number) {
-			Connection conn = null;
-			boolean result = false;
+	// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
+	public boolean delete(int number) {
+		Connection conn = null;
+		boolean result = false;
 
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
-				// SQL文を準備する
-				String sql = "delete from Items where item_id=?";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を準備する
+			String sql = "delete from Items where item_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				// SQL文を完成させる
-				pStmt.setInt(1, number);
+			// SQL文を完成させる
+			pStmt.setInt(1, number);
 
-				// SQL文を実行する
-				if (pStmt.executeUpdate() == 1) {
-					result = true;
-				}
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-			// 結果を返す
-			return result;
 		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
+
+
+	//getItemId
+	//このメソッドに引数としてユーザーID、商品名、URLを渡すと、対応する商品IDを返す
+	public int getItemId(String user_id, String name, String url) {
+		Connection conn = null;
+		int item_id = 0;
+
+		try {
+			//JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			//データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+			//SQL文を準備する
+			String sql = "select item_id from items WHERE user_id = ? AND item_name = ? AND item_url = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			//SQL文を完成させる
+			pStmt.setString(1, user_id);
+			pStmt.setString(2, name);
+			pStmt.setString(3, url);
+
+			//SQL文を実行する
+			ResultSet rs = pStmt.executeQuery();
+
+			//結果表から値を取得する
+			rs.next();
+			item_id = rs.getInt("item_id");
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		//結果を返す
+		return item_id;
+	}
 
 
 	//selectsub
-		//selectがkeyword用になったので、item用のselect
+	//selectがkeyword用になったので、item用のselect
+	public List<Items> selectsub(Items subcord) {
+		Connection conn = null;
+		List<Items> cardList = new ArrayList<Items>();
 
-		public List<Items> selectsub(Items subcord) {
-			Connection conn = null;
-			List<Items> cardList = new ArrayList<Items>();
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+			// SQL文を準備する。追加する
+			//slectするのは、結果表にコピーする内容。
+			String sql = "select * from Items  WHERE item_name LIKE ?  and user_id = ? ORDER BY item_meter ASC";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				// SQL文を準備する。追加する
-				//slectするのは、結果表にコピーする内容。
-				String sql = "select * from Items  WHERE item_name LIKE ?  and user_id = ? ORDER BY item_meter ASC";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
-
-				// SQL文を完成させる。追加する
-				if (subcord.getItem_name() != null) {
-					pStmt.setString(1, "%" + subcord.getItem_name() + "%");
-				}
-				else {
-					pStmt.setString(1, "%");
-				}
-
-					pStmt.setString(2, subcord.getUser_id());
-
-
-
-
-
-				// SQL文を実行し、結果表を取得する
-				ResultSet rs = pStmt.executeQuery();
-
-				// 結果表をコレクションにコピーする
-				while (rs.next()) {
-					Items card = new Items(
-					rs.getInt("item_id"),
-					rs.getString("user_id"),
-					rs.getString("item_name"),
-					rs.getString("item_url"),
-					rs.getInt("item_price"),
-					rs.getInt("item_category"),
-					rs.getInt("frequency_purchase"),
-					rs.getInt("item_switch"),
-					rs.getDouble("item_meter")
-					);
-					cardList.add(card);
-				}
+			// SQL文を完成させる。追加する
+			if (subcord.getItem_name() != null) {
+				pStmt.setString(1, "%" + subcord.getItem_name() + "%");
 			}
-			catch (SQLException e) {
-				e.printStackTrace();
-				cardList = null;
+			else {
+				pStmt.setString(1, "%");
 			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-				cardList = null;
+			pStmt.setString(2, subcord.getUser_id());
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Items card = new Items(
+				rs.getInt("item_id"),
+				rs.getString("user_id"),
+				rs.getString("item_name"),
+				rs.getString("item_url"),
+				rs.getInt("item_price"),
+				rs.getInt("item_category"),
+				rs.getInt("frequency_purchase"),
+				rs.getInt("item_switch"),
+				rs.getDouble("item_meter")
+				);
+				cardList.add(card);
 			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-						cardList = null;
-					}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			cardList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cardList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					cardList = null;
 				}
 			}
-
-			// 結果を返す
-			return cardList;
 		}
 
-
-
-
+		// 結果を返す
+		return cardList;
+	}
 
 
 }

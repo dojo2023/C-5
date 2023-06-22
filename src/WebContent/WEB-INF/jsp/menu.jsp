@@ -32,7 +32,10 @@
 			<option value=1>1日</option>
 			<option value=2>2日</option>
 			<option value=3>3日</option>
-			<option value=4>1週間</option>
+			<option value=4>4日</option>
+			<option value=5>5日</option>
+			<option value=6>6日</option>
+			<option value=7>7日</option>
 		</select>
 		<input type="submit" name="submit" value="一斉減量">
 	</form>

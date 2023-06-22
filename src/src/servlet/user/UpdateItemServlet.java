@@ -42,7 +42,6 @@ public class UpdateItemServlet extends HttpServlet {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 		int price = Integer.parseInt(request.getParameter("price"));
@@ -50,13 +49,23 @@ public class UpdateItemServlet extends HttpServlet {
 		int frequency = Integer.parseInt(request.getParameter("frezuency"));
 		int dSwitch = Integer.parseInt(request.getParameter("switch"));
 		double meter = Double.parseDouble(request.getParameter("meter"));
+		//hiddenで隠れているリクエストパラメータを取得する
+		String hName = request.getParameter("hName");
+		String hUrl = request.getParameter("hUrl");
 
 		//セッションスコープからインスタンスを取得する（ユーザーIDを取得する準備）
 		LoginUsers user_id = (LoginUsers) session.getAttribute("user_id");
 
-		//更新処理を行う
+		//ItemsDaoのメソッドを呼び出し、item_idを取得する
 		ItemsDao iDao = new ItemsDao();
-		iDao.update(new Items());
+		int item_id = iDao.getItemId((String)user_id.getUser_id(), hName, hUrl);
+
+		//更新処理を行う
+		iDao.update(new Items(item_id, (String)user_id.getUser_id(), name, url, price, category,
+				frequency, dSwitch, meter));
+
+		//メニューサーブレットにリダイレクトする
+		response.sendRedirect("/mecar/MenuServlet");
 	}
 
 }
