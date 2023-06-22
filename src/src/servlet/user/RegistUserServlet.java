@@ -53,16 +53,14 @@ public class RegistUserServlet extends HttpServlet {
 		if (bDao.insert(new Users(user_id,user_pw,user_mail))) {	// 登録成功
 			request.setAttribute("result",
 			new Users("登録成功！", "会員登録しました。","/mecar/RegistUserServlet"));
-
-			// ログインサーブレットにリダイレクトする
-			response.sendRedirect("/mecar/LoginServlet");
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
 			new Users("登録失敗！", "会員登録できませんでした。","/mecar/RegistUserServlet"));
 		}
 
-
+		// ログインサーブレットにリダイレクトする
+		response.sendRedirect("/mecar/LoginServlet");
 	}
 
 }

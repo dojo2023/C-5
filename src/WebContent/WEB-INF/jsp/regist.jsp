@@ -23,7 +23,7 @@
 			パスワード<input type="password" name="PW" id = "input_pass" class= "idpw">
 			<button id ="passview">表示</button><br>
 			メールアドレス<input type="text" name="MAIL"><br>
-			<input type="submit" name="REGIST" id="regist" value="確定">
+			<input type="submit" name="REGIST" id="regist" value="確定" onclick="MoveCheck();">
 			<input type="reset" name="reset" value="リセット"><br>
 			<p id="output"></p>
 			<!--  <span id="error_message" class = error></span> -->

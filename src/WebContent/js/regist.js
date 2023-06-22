@@ -41,18 +41,31 @@
 		}
 	};
 
-	// 新規登録確認のダイアログボックス表示
-	function submitClick(){
+	//新規登録確認のダイアログボックス表示
+	/*function submitClick(){
 		const id = document.getElementById('idregist').ID.value;
 		const pw = document.getElementById('idregist').PW.value;
 		const mail = document.getElementById('idregist').MAIL.value;
 
-		if (id !== "" && pw !== "" && mail !== "" ){
-	    alert('新規登録完了しました！');
-	    window.location.href = "/mecar/oginServlet";
-	}
 
-	let submit = document.getElementById('regist');
-	submit.addEventListener('click', submitClick);
+
+		if (id !== "" && pw !== "" && mail !== "" ){
+			event.preventDefault();
+	    	alert('新規登録完了しました！');
+	    	window.location.href = "/mecar/loginServlet";
+	    }
+	    let submit = document.getElementById('regist');
+		submit.addEventListener('click', submitClick);
+	}*/
+
+	// 登録時の確認ダイアログボックス表示
+	/*function MoveCheck() {
+		if( confirm("登録しますか。") ) {
+        	window.location.href = "/mecar/LoginServlet";
+    	}
+    	else {
+        	alert("登録を取り消しました。");
+    	}
+	}*/
 
 })
