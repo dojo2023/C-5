@@ -82,7 +82,7 @@ public class ItemsDao {
 	//一斉減量
 	//これは１日分減らす処理なので、サーブレットで日数分繰り返してほしい
 	//引数pdecで指定されたレコードを登録し、成功したらtrueを返す
-	public boolean decreaseALL(String user_id) {
+	public boolean decreaseALL(int decDay,String user_id) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -100,7 +100,7 @@ public class ItemsDao {
 			//最後にwhere USER_ID = ? and ITEM_SWITCH = 0で、ログインユーザーの商品かつ減量停止OFFの商品を出す
 
 			String sql = "UPDATE ITEMS "
-					+ "SET ITEMS.ITEM_METER = ITEMS.ITEM_METER - ( "
+					+ "SET ITEMS.ITEM_METER = ITEMS.ITEM_METER - ?*( "
 					+ "    SELECT  cast(100 as REAL)/cast(FREQUENCY_DAYS  as REAL) "
 					+ "    FROM FREQUENCY "
 					+ "    WHERE ITEMS.FREQUENCY_PURCHASE = FREQUENCY.FREQUENCY_PURCHASE) "
@@ -108,7 +108,8 @@ public class ItemsDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1, user_id);
+			pStmt.setInt(1, decDay);
+			pStmt.setString(2, user_id);
 
 			// SQL文を実行する
 //			if (pStmt.executeUpdate() == 1) {
