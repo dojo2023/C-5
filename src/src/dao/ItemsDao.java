@@ -170,7 +170,7 @@ public class ItemsDao {
 
 			// SQL文を完成させる
 			pStmt.setString(1,user_id);
-			pStmt.setString(2,user_id);
+
 
 			// SQL文を実行する
 			pStmt.executeUpdate();

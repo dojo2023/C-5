@@ -127,6 +127,8 @@ public class DecreaseServlet extends HttpServlet {
 
 				}
 
+				//user_dateを現在の日付でアップデート
+
 				// メニューサーブレットにリダイレクト
 				response.sendRedirect("/mecar/MenuServlet");
 
