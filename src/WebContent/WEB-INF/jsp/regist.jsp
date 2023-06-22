@@ -19,14 +19,15 @@
 		<h1>新規登録</h1>
 		<hr>
 		<form method="POST" action="/mecar/RegistUserServlet" id="idregist">
-			ユーザーID<input type="text" name="ID" class = "idpw"><br>
+			ユーザーID<input type="text" name="ID" id="input_id" class = "idpw"><br>
 			パスワード<input type="password" name="PW" id = "input_pass" class= "idpw">
 			<button id ="passview">表示</button><br>
 			メールアドレス<input type="text" name="MAIL"><br>
-			<input type="submit" name="REGIST" value="確定">
+			<input type="submit" name="REGIST" id="regist" value="確定">
 			<input type="reset" name="reset" value="リセット"><br>
 			<p id="output"></p>
 			<!--  <span id="error_message" class = error></span> -->
+
 		</form>
 	</main>
 <footer>

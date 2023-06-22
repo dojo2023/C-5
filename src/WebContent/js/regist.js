@@ -4,6 +4,7 @@
 
   window.addEventListener('DOMContentLoaded', function(){
 
+	//パスワードを表示、非表示切り替える
 	// (1)パスワード入力欄とボタンのHTMLを取得
 	let passview = document.getElementById("passview");
 	let input_pass = document.getElementById("input_pass");
@@ -28,7 +29,7 @@
 			passview.textContent = '表示';
 		}
 	});
-
+	//全入力を促す文言
 	document.getElementById('idregist').onsubmit = function(event) {
 		const id = document.getElementById('idregist').ID.value;
 		const pw = document.getElementById('idregist').PW.value;
@@ -39,5 +40,19 @@
 	 		document.getElementById('output').textContent = 'ID、パスワード、メールアドレス全て入力してください！';
 		}
 	};
+
+	// 新規登録確認のダイアログボックス表示
+	function submitClick(){
+		const id = document.getElementById('idregist').ID.value;
+		const pw = document.getElementById('idregist').PW.value;
+		const mail = document.getElementById('idregist').MAIL.value;
+
+		if (id !== "" && pw !== "" && mail !== "" ){
+	    alert('新規登録完了しました！');
+	    window.location.href = "/mecar/oginServlet";
+	}
+
+	let submit = document.getElementById('regist');
+	submit.addEventListener('click', submitClick);
 
 })
