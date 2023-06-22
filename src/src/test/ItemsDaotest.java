@@ -158,6 +158,7 @@ public class ItemsDaotest {
 
 
 
+
 			// delete()のテスト
 			System.out.println("---------- delete()のテスト ----------");
 			if (dao.delete(10)) {
@@ -166,33 +167,37 @@ public class ItemsDaotest {
 			else {
 				System.out.println("削除失敗！");
 			}
-
+*/
 
 
 			//decreaseALL()
 			System.out.println("---------- decreaseALL() ----------");
-			Items decall = new Items(1, "yamada", "", "",0,0,0,0,0.0);
-			if (dao.decreaseALL(decall)) {
-				System.out.println("一斉減量成功！");
-				List<Items> cardList5 = dao.selectsub(decall);
-				for (Items card : cardList5) {
-					System.out.println("商品ID：" + card.getItem_id());
-					System.out.println("ユーザID：" + card.getUser_id());
-					System.out.println("商品名：" + card.getItem_name());
-					System.out.println("商品URL：" + card.getItem_url());
-					System.out.println("商品価格：" + card.getItem_price());
-					System.out.println("カテゴリー：" + card.getItem_category());
-					System.out.println("頻度：" + card.getFrequency_purchase());
-					System.out.println("スイッチ：" + card.getItem_switch());
-					System.out.println("メーター：" + card.getItem_meter());
 
-				}
-			}
-			else {
+			int decDay = 2;
+			String user_id =  "yamada";
+			if (dao.decreaseALL(decDay,user_id)) {
+				System.out.println("一斉減量成功！");
+
+
+		}else {
 				System.out.println("一斉減量失敗！");
 			}
 
-*/
+
+			//decreaseL()
+			System.out.println("---------- decreaseL() ----------");
+
+
+			//String user_id =  "yamada";
+			if (dao.decrease(user_id)) {
+				System.out.println("一回減量成功！");
+
+
+		}else {
+				System.out.println("一回分減量失敗！");
+			}
+
+
 
 }
 

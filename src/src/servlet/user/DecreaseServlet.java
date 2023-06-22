@@ -3,6 +3,9 @@ package servlet.user;
 //担当：羽田
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -49,8 +52,35 @@ public class DecreaseServlet extends HttpServlet {
 				String pullStr =request.getParameter("pullNumber");
 				int pull = Integer.parseInt(pullStr);
 
+				//自動減量用
 				//現在日時を取得
-				 Date nowdate = new Date();
+
+						LocalDate currentDate = LocalDate.now();
+
+					/*
+					// 指定の形式にフォーマット
+						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+						String formattedDate = currentDate.format(formatter);
+
+						*/
+
+						//【保留】usersからselectしてuser_dateを出す
+						Date user_date = null;
+
+						//user_idはdata型なのでlocalDateに変換
+				         LocalDate logDate = LocalDate.ofInstant(user_date.toInstant(), ZoneId.systemDefault());
+
+
+						// 経過日数の計算
+						long daysLong = ChronoUnit.DAYS.between(logDate,currentDate);
+						int decDay = (int)daysLong;
+
+
+			        /*DAO用
+			    	pStmt.setInt(1, decDay);
+					pStmt.setString(2, user_id);
+					*/
+
 
 
 				// 減量システム処理を行う
@@ -58,13 +88,11 @@ public class DecreaseServlet extends HttpServlet {
 				//もしサブミットで一斉減量が選択されたら
 				if (request.getParameter("submit").equals("一斉減量")) {
 
-
-
-					//プルダウンで自動が選択されていたら
-					if(pull == 0) {bDao.decreaseALL(user_id);
+					//プルダウンで自動選択
+					if(pull == 0) {bDao.decreaseALL(decDay,user_id);
 					}
 
-
+					//プルダウンで日数選択
 					else if(pull == 1) {
 						//1日
 						int num = 0;
@@ -98,6 +126,8 @@ public class DecreaseServlet extends HttpServlet {
 					}
 
 				}
+
+				//user_dateを現在の日付でアップデート
 
 				// メニューサーブレットにリダイレクト
 				response.sendRedirect("/mecar/MenuServlet");
