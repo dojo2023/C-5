@@ -62,6 +62,54 @@ public class UsersDao {
 }
 
 
+	public String getDate(String user_id) {
+
+		Connection conn = null;
+		String user_date = "";
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+			// SELECT文を準備する
+			String sql3 = "select USER_DATE from Users where USER_ID = ?";
+			PreparedStatement pStmt3 = conn.prepareStatement(sql3);
+
+			//SQL文を完成させる。
+			pStmt3.setString(1, user_id);
+
+			//SQL文を実行する
+			ResultSet rs3 = pStmt3.executeQuery();
+
+			rs3.next();
+			user_date = rs3.getString("user_date");
+		}
+
+		  // 全ての例外を受け取る
+	    catch(Exception e){
+				e.printStackTrace();
+//				data = null;
+	    }
+
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+//					data = null;
+				}
+			}
+		}
+		// 結果を返す
+		return user_date;
+	}
+
+
 	// ログインできるならtrueを返す
 		public boolean isLoginOK(Users users) {
 			Connection conn = null;
@@ -325,6 +373,60 @@ public class UsersDao {
 			// 結果を返す
 			return result;
 		}
+
+		// 引数memberで指定されたレコードを更新し、成功したらtrueを返す
+		public boolean update_date(Users member) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+				// SQL文を準備する
+				String sql = "update Users set user_date=? where user_id=?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				if (member.getUser_date() != null ) {
+//					pStmt.setDate(1, member.getUser_date());
+				}
+				else {
+					pStmt.setDate(1, null);
+				}
+
+				pStmt.setString(2, member.getUser_id());
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
+
 
 		// 引数memberで指定されたレコードを削除し、成功したらtrueを返す
 		public boolean delete(String user_id) {
