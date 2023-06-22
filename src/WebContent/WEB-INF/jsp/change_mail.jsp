@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
-		<script src="/mecar/js/change_mail.js"></script>
+<!-- 		<script src="/mecar/js/change_mail.js"></script> -->
 	</head>
 	<body>
 		<header>
@@ -31,7 +31,7 @@
 							ユーザーID
 						</td>
 						<td>
-							<input type="text">
+							<input type="text" name="USER_ID">
 						</td>
 					</tr>
 					<tr>
@@ -39,7 +39,7 @@
 							パスワード
 						</td>
 						<td>
-							<input type="password" id = "input_pass">
+							<input type="password" id = "input_pass" name="USER_PW">
 							<button id ="passview">表示</button>
 						</td>
 					</tr>
@@ -47,12 +47,12 @@
 							<td>メールアドレス
 						</td>
 						<td>
-							<input type="text">
+							<input type="text" name="USER_MAIL">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="button" value="変更" id="mail" onclick="MoveCheck();">
+							<input type="submit" value="変更" id="mail" onclick="MoveCheck();">
 							<input type="reset" value="リセット">
 						</td>
 					</tr>
