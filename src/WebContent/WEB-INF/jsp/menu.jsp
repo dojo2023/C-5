@@ -75,6 +75,41 @@
 					<meter min="0" max="100" value="${e.item_meter}" high="50" low="20" optimum="80"></meter>
 					<!-- 隠して商品IDを渡す -->
 					<input type="hidden" name="item_id" value="${e.item_id}">
+					<!-- ポップアップに表示したい内容を隠して送る -->
+					<input type="hidden" name="item_name" value="${e.item_name}">
+					<input type="hidden" name="item_price" value="${e.item_price}">
+					<c:choose>
+						<c:when test="${e.frequency_purchase == 1}">
+							<input type="hidden" name="item_frequency" value="１週間">
+						</c:when>
+						<c:when test="${e.frequency_purchase == 2}">
+							<input type="hidden" name="item_frequency" value="２週間">
+						</c:when>
+						<c:when test="${e.frequency_purchase == 3}">
+							<input type="hidden" name="item_frequency" value="１か月">
+						</c:when>
+						<c:when test="${e.frequency_purchase == 4}">
+							<input type="hidden" name="item_frequency" value="２か月">
+						</c:when>
+						<c:when test="${e.frequency_purchase == 5}">
+							<input type="hidden" name="item_frequency" value="３か月">
+						</c:when>
+					</c:choose>
+					<c:choose>
+						<c:when test="${e.item_category == 1}">
+							<input type="hidden" name="item_category" value="食料品">
+						</c:when>
+						<c:when test="${e.item_category == 2}">
+							<input type="hidden" name="item_category" value="日用品">
+						</c:when>
+						<c:when test="${e.item_category == 3}">
+							<input type="hidden" name="item_category" value="ケア用品">
+						</c:when>
+						<c:when test="${e.item_category == 4}">
+							<input type="hidden" name="item_category" value="その他">
+						</c:when>
+					</c:choose>
+					<input type="hidden" name="item_url" value="${e.item_url}">
 					<c:choose>
 						<c:when test="${e.item_switch == 0}">
 							<input type="submit" name="item_switch" value="OFF">
@@ -83,13 +118,6 @@
 							<input type="submit" name="item_switch" value="ON">
 						</c:when>
 					</c:choose>
-					<!-- ポップアップに表示したい内容を隠して送る -->
-					<input type="hidden" name="item_name" value="${e.item_name}">
-					<input type="hidden" name="item_price" value="${e.item_price}">
-					<input type="hidden" name="item_frequency" value="${e.frequency_purchase}">
-					<input type="hidden" name="item_category" value="${e.item_category}">
-					<input type="hidden" name="item_url" value="${e.item_url}">
-					<input type="hidden" name="item_id" value="${e.item_id}">
 				</form>
 				<br>
 			</c:forEach>
@@ -100,26 +128,48 @@
 	<img src="/mecar/img/プラスのアイコン素材ピンク.png" alt="商品登録ポップアップを開くボタン">
 
 	<!-- ここからポップアップ -->
+
 	<!-- 商品内容確認・削除ポップアップ -->
 	<div class="popup-wrapper" id="contents-modal">
 		<div class="popup">
 			<!-- 商品更新のポップアップを開くボタン -->
 			<img src="/mecar/img/太いリロードアイコンブルー.png" alt="商品更新ポップアップを開くボタン">
+			<!-- 商品削除のボタン -->
 			<form method="POST" action="/mecar/DeleteItemServlet">
 				<input type="hidden" name="item_id" value="">
-				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png"
-				name="deleteItem" value="">
+				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png" name="deleteItem">
 			</form>
-
+			<!-- プルダウンを閉じるボタン -->
 			<div id="close-popup">x</div>
 			<div class="contents">
-				<div class="item_name"></div>
-				<div class="item_price"></div>
-				<div class="item_frequency"></div>
-				<div class="item_category"></div>
-				<div class="item_meter"></div>
-				<div class="item_url"></div>
-				<div class="item_url"></div>
+				<div class="item_name">
+					<p>商品名</p>
+					<p></p>
+				</div>
+				<div class="item_price">
+					<p>値段</p>
+					<p></p>
+				</div>
+				<div class="item_frequency">
+					<p>購入頻度</p>
+					<p></p>
+				</div>
+				<div class="item_category">
+					<p>カテゴリ</p>
+					<p></p>
+				</div>
+				<div class="item_meter">
+					<p>残量メーター</p>
+					<meter min="0" max="100" value="" high="50" low="20" optimum="80"></meter>
+				</div>
+				<div class="item_url">
+					<p>リンク先購入</p>
+					<a></a>
+				</div>
+				<div class="item_url">
+					<p>リンク先閲覧</p>
+					<a></a>
+				</div>
 			</div>
 		</div>
 	</div>
