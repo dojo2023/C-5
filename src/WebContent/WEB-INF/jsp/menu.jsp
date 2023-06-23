@@ -69,9 +69,11 @@
 		<!-- 商品部分 -->
 		<div class="items_container">
 			<c:forEach var="e" items="${cardList2}">
-				<form method="POST" action="/mecar/DecreaseSwitchServlet">
+				<!-- この一行をクリックするとモーダルウィンドウが表示される -->
+				<form method="POST" action="/mecar/DecreaseSwitchServlet" class="btn contents-show">
 					${e.item_name}
 					<meter min="0" max="100" value="${e.item_meter}" high="50" low="20" optimum="80"></meter>
+					<!-- 隠して商品IDを渡す -->
 					<input type="hidden" name="item_id" value="${e.item_id}">
 					<c:choose>
 						<c:when test="${e.item_switch == 0}">
@@ -81,6 +83,13 @@
 							<input type="submit" name="item_switch" value="ON">
 						</c:when>
 					</c:choose>
+					<!-- ポップアップに表示したい内容を隠して送る -->
+					<input type="hidden" name="item_name" value="${e.item_name}">
+					<input type="hidden" name="item_price" value="${e.item_price}">
+					<input type="hidden" name="item_frequency" value="${e.item_frequency}">
+					<input type="hidden" name="item_category" value="${e.item_category}">
+					<input type="hidden" name="item_url" value="${e.item_url}">
+					<input type="hidden" name="item_id" value="${e.item_id}">
 				</form>
 				<br>
 			</c:forEach>
@@ -89,6 +98,30 @@
 
 	<!-- 商品登録ポップアップを開くボタン -->
 	<img src="/mecar/img/プラスのアイコン素材ピンク.png" alt="商品登録ポップアップを開くボタン">
+
+	<!-- ここからポップアップ -->
+	<!-- 商品内容確認・削除ポップアップ -->
+	<div class="popup-wrapper" id="contents-modal">
+		<div class="popup">
+			<!-- 商品更新のポップアップを開くボタン -->
+			<img src="/mecar/img/太いリロードアイコンブルー.png" alt="商品更新ポップアップを開くボタン">
+			<form method="POST" action="/mecar/DeleteItemServlet">
+				<input type="hidden" name="item_id" value="">
+				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png"
+				name="deleteItem" value
+			</form>
+			<div id="close-popup">x</div>
+			<div class="contents">
+				<div class="item_name"></div>
+				<div class="item_price"></div>
+				<div class="item_frequency"></div>
+				<div class="item_category"></div>
+				<div class="item_meter"></div>
+				<div class="item_url"></div>
+				<div class="item_url"></div>
+			</div>
+		</div>
+	</div>
 
 </main>
 

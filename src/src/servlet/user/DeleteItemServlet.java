@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ItemsDao;
-import model.LoginUsers;
 
 
 /**
@@ -42,17 +41,10 @@ public class DeleteItemServlet extends HttpServlet {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
-		String url = request.getParameter("url");
-
-		//セッションスコープからインスタンスを取得する（ユーザーIDを取得する準備）
-		LoginUsers user_id = (LoginUsers) session.getAttribute("user_id");
-
-		//ItemsDaoのメソッドを呼び出し、item_idを取得する
-		ItemsDao iDao = new ItemsDao();
-		int item_id = iDao.getItemId((String)user_id.getUser_id(), name, url);
+		int item_id = Integer.parseInt(request.getParameter("item_id"));
 
 		//削除処理を行う
+		ItemsDao iDao = new ItemsDao();
 		iDao.delete(item_id);
 
 		//メニューサーブレットにリダイレクトする
