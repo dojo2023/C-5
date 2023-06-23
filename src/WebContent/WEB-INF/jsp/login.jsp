@@ -11,7 +11,7 @@
     <!-- ↑目のアイコン使うためのやつ -->
 
 	<!-- Javascriptの挿入 -->
-	<script src="/mecar/js/login.js"></script>
+<!--	<script src="/mecar/js/login.js"></script>		-->
 
 </head>
 
@@ -29,12 +29,9 @@
 		<label class="id">ユーザーID</label> <br>
 		<input type="text" name="USER_ID" class = "Users"><br>
 		<label class="pw">パスワード</label> <br>
-		<input type="checkbox" name="USER_PW" id="checkPassword">
-		<div class="togglePassword">
-		  <input type="password" name="USER_PW" id = "input_pass" class= "hideText">
-		  <input type="text" name="USER_PW" id = "input_pass" class= "showText">
-		  <label for="checkPassword" class="fa fa-eye"></label> <!-- 開いてる目 -->
-		  <label for="checkPassword" class="fa fa-eye-slash"></label> <!-- 閉じてる目 -->
+		<div id="inputBox">
+			<input type="password" name="USER_PW" id="textPassword">
+			<span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span>
 		</div><br>
 	<!-- 	<button id ="passview">表示</button><br>	-->
 		<input type="submit" name="LOGIN" class="button" value="ログイン">
@@ -45,13 +42,17 @@
 		<br><br>
 		<div class="input_wrap">
 		<p><a class="regist" href="/mecar/RegistUserServlet">新規会員登録</a></p><br>
-		<p><a class="newPassword" href="/mecar/ForgetPasswordServlet">パスワードお忘れの方はこちら</a></p>
+		<p><a class="newPassword" href="/mecar/ForgetPasswordServlet">パスワードをお忘れの方はこちら</a></p>
 	</div>
+
 </main>
 
 	<footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
+
+<script src="/mecar/js/login.js"></script>
+
 
 </body>
 </html>

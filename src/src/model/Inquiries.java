@@ -56,44 +56,44 @@ public class Inquiries implements Serializable {
   public void setInquiry_id(int inquiry_id) {
 	this.inquiry_id = inquiry_id;
   }
-public String getUser_id() {
+  public String getUser_id() {
 	return user_id;
-}
-public void setUser_id(String user_id) {
+  }
+  public void setUser_id(String user_id) {
 	this.user_id = user_id;
-}
+  }
 
-public String getUser_mail() {
+  public String getUser_mail() {
 	return user_mail;
-}
-
-public void setUser_mail(String user_mail) {
+  }
+  public void setUser_mail(String user_mail) {
 	this.user_mail = user_mail;
-}
+  }
 
-public String getInquiry_subject() {
+  public String getInquiry_subject() {
 	return inquiry_subject;
-}
-public void setInquiry_subject(String inquiry_subject) {
+  }
+  public void setInquiry_subject(String inquiry_subject) {
 	this.inquiry_subject = inquiry_subject;
-}
-public String getInquiry_content() {
+  }
+
+  public String getInquiry_content() {
 	return inquiry_content;
-}
-public void setInquiry_content(String inquiry_content) {
+  }
+  public void setInquiry_content(String inquiry_content) {
 	this.inquiry_content = inquiry_content;
-}
-public int getInquiry_status() {
+  }
+  public int getInquiry_status() {
 	return inquiry_status;
-}
-public void setInquiry_status(int inquiry_status) {
+  }
+  public void setInquiry_status(int inquiry_status) {
 	this.inquiry_status = inquiry_status;
-}
-public Date getInquiry_date() {
+  }
+  public Date getInquiry_date() {
 	return inquiry_date;
-}
-public void setInquiry_date(Date inquiry_date) {
+  }
+  public void setInquiry_date(Date inquiry_date) {
 	this.inquiry_date = inquiry_date;
-}
+  }
 
 }
