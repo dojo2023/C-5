@@ -9,6 +9,38 @@
 <link rel="stylesheet" href="/mecar/css/common.css">
 <link rel="stylesheet" href="/mecar/css/inquiry_list.css">
 <script src="/mecar/js/inquiry_list.js"></script>
+<!-- ここからついか -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery ライブラリの読み込み -->
+
+<script>
+$(document).ready(function() {
+  // 行をクリックした際にモーダルウィンドウを表示する関数
+  function showModal(imageSrc, altText) {
+    $(".modal-block").fadeIn(); // モーダルウィンドウを表示する
+    $("#popup").attr("src", imageSrc); // 画像のパスを設定する
+    $(".caption").text(altText); // altの内容を表示する
+  }
+
+  // モーダルウィンドウを非表示にする関数
+  function hideModal() {
+    $(".modal-block").fadeOut(); // モーダルウィンドウを非表示にする
+  }
+
+  // 行をクリックした際にモーダルウィンドウを制御するイベントハンドラを追加
+  $(".hoge-item").on("click", function() {
+    var imageSrc = $(this).find("img").attr("src"); // クリックされた行内の画像のパスを取得
+    var altText = $(this).find("img").attr("alt"); // クリックされた行内のaltの内容を取得
+    showModal(imageSrc, altText); // モーダルウィンドウを表示する
+  });
+
+  // モーダルウィンドウの閉じるボタンをクリックした際のイベントハンドラを追加
+  $(".modal-block span").on("click", function() {
+    hideModal(); // モーダルウィンドウを非表示にする
+  });
+});
+</script>
+
+<!-- ここまでついか -->
 
 </head>
 <body>
@@ -65,6 +97,18 @@
 <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
+
+<!-- ここからついか -->
+<!-- モーダルウィンドウ -->
+<div class="modal-block">
+  <div class="img-section">
+    <span>Close</span>
+    <img id="popup" src="">
+    <div class="caption"></div>
+  </div>
+</div>
+
+<!-- ここまでついか -->
 
 </body>
 </html>
