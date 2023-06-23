@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
+		<link rel="stylesheet" href="/mecar/css/change.css">
 		<script src="/mecar/js/change_password.js"></script>
 	</head>
 	<body>
@@ -26,11 +27,13 @@
 <!-- パスワード変更 -->
 			<form id="form" method="POST" action="/mecar/ChangePasswordServlet">
 				<input type="hidden" name="USER_MAIL" value="${user_id.user_mail}">
-				<input type="text" name="PW" value="${user_id.user_pw}">
+				<input type="hidden" name="PW" value="${user_id.user_pw}">
 				<table>
 					<tr>
 						<td>
 							ユーザーID
+						</td>
+						<td class="auto">
 						</td>
 						<td>
 							<input type="text" name="USER_ID" value="${user_id.user_id}" readonly>
@@ -39,6 +42,8 @@
 					<tr>
 						<td>
 							現在のパスワード
+						</td>
+						<td class="required">
 						</td>
 						<td>
 							<input type="password" name="USER_PW" id = "input_pass">
@@ -49,15 +54,21 @@
 						<td>
 							新しいパスワード
 						</td>
+						<td class="required">
+						</td>
 						<td>
 							<input type="password" name="USER_NEWPW" id = "new_input_pass">
 							<button id ="new_passview">表示</button>
 						</td>
 					</tr>
+					<tr>
+						<td colspan="3" align="center">
+							<input type="submit" value="変更" class="button">
+							<input type="reset" value="リセット" class="button">
+						</td>
+					</tr>
 				</table>
-				<p id="output">（全て必須入力です。）<p>
-				<input type="submit" value="変更" id="pass">
-				<input type="reset" value="リセット">
+				<p id="output"><p>
 			</form>
 		</main>
 		<footer>

@@ -171,9 +171,6 @@ public class InquiriesDao {
 			pStmt.setInt(2, inquiry_id);
 
 			// SQL文を実行する
-//			if (pStmt.executeUpdate() == 1) {
-//				result = true;
-//			}
 			pStmt.executeUpdate();
 			result = true;
 	    }
@@ -196,5 +193,4 @@ public class InquiriesDao {
 	return result;
 	}
 }
-
 

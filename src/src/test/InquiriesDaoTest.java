@@ -29,16 +29,6 @@ public class InquiriesDaoTest {
 
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
-			List<Inquiries> inquiriesList3 = dao.select("0623");
-			for (Inquiries inquiry : inquiriesList3) {
-				System.out.println("inquiry_id：" + inquiry.getInquiry_id());
-				System.out.println("user_id：" + inquiry.getUser_id());
-				System.out.println("user_mail：" + inquiry.getUser_mail());
-				System.out.println("inquiry_subject：" + inquiry.getInquiry_subject());
-				System.out.println("inquiry_content：" + inquiry.getInquiry_content());
-				System.out.println("inquiry_status：" + inquiry.getInquiry_status());
-				System.out.println("inquiry_date：" + inquiry.getInquiry_date());
-			}
 		}
 		else {
 			System.out.println("登録失敗！");
@@ -51,16 +41,6 @@ public class InquiriesDaoTest {
 
 		if (dao.update(inquiry_status,inquiry_id)) {
 			System.out.println("ステータス更新成功！");
-			List<Inquiries> inquiriesList4 = dao.select("1");
-			for (Inquiries inquiry : inquiriesList4) {
-				System.out.println("inquiry_id：" + inquiry.getInquiry_id());
-				System.out.println("user_id：" + inquiry.getUser_id());
-				System.out.println("user_mail：" + inquiry.getUser_mail());
-				System.out.println("inquiry_subject：" + inquiry.getInquiry_subject());
-				System.out.println("inquiry_content：" + inquiry.getInquiry_content());
-				System.out.println("inquiry_status：" + inquiry.getInquiry_status());
-				System.out.println("inquiry_date：" + inquiry.getInquiry_date());
-			}
 		}
 		else {
 			System.out.println("ステータス更新失敗！");
