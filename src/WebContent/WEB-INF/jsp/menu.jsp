@@ -108,8 +108,9 @@
 			<form method="POST" action="/mecar/DeleteItemServlet">
 				<input type="hidden" name="item_id" value="">
 				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png"
-				name="deleteItem" value
+				name="deleteItem" value="">
 			</form>
+
 			<div id="close-popup">x</div>
 			<div class="contents">
 				<div class="item_name"></div>
