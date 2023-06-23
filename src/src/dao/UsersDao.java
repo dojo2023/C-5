@@ -14,52 +14,104 @@ public class UsersDao {
 
 	public String getMail(String user_id) {
 
-//	List<Users> data = new ArrayList<Users>();
-	Connection conn = null;
-	String user_mail = "";
-	try {
-		// JDBCドライバを読み込む
-		Class.forName("org.h2.Driver");
+//		List<Users> data = new ArrayList<Users>();
+		Connection conn = null;
+		String user_mail = "";
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-		// データベースに接続する
-		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
-		// SELECT文を準備する
-		String sql2 = "select USER_MAIL from Users where USER_ID = ?";
-		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+			// SELECT文を準備する
+			String sql2 = "select USER_MAIL from Users where USER_ID = ?";
+			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
-		//SQL文を完成させる。
-		pStmt2.setString(1, user_id);
+			//SQL文を完成させる。
+			pStmt2.setString(1, user_id);
 
-		//SQL文を実行する
-		ResultSet rs2 = pStmt2.executeQuery();
+			//SQL文を実行する
+			ResultSet rs2 = pStmt2.executeQuery();
 
-		rs2.next();
-		user_mail = rs2.getString("user_mail");
-//		data.add((Users) rs2);
-	}
+			rs2.next();
+			user_mail = rs2.getString("user_mail");
+//			data.add((Users) rs2);
 
-	  // 全ての例外を受け取る
-    catch(Exception e){
-			e.printStackTrace();
-//			data = null;
-    }
+		}
 
-	finally {
-		// データベースを切断
-		if (conn != null) {
-			try {
-				conn.close();
-			}
-			catch (Exception e) {
+		  // 全ての例外を受け取る
+	    catch(Exception e){
 				e.printStackTrace();
 //				data = null;
+	    }
+
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+//					data = null;
+				}
 			}
 		}
+		// 結果を返す
+		return user_mail;
 	}
-	// 結果を返す
-	return user_mail;
-}
+
+	// user_pwの取得
+	public String getPw(String user_id) {
+
+//		List<Users> data = new ArrayList<Users>();
+		Connection conn = null;
+		String user_pw = "";
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+			// SELECT文を準備する
+			String sql3 = "select USER_PW from Users where USER_ID = ?";
+			PreparedStatement pStmt3 = conn.prepareStatement(sql3);
+
+			//SQL文を完成させる。
+			pStmt3.setString(1, user_id);
+
+			//SQL文を実行する
+			ResultSet rs3 = pStmt3.executeQuery();
+
+			rs3.next();
+			user_pw = rs3.getString("user_pw");
+//			data.add((Users) rs2);
+
+		}
+
+		  // 全ての例外を受け取る
+	    catch(Exception e){
+				e.printStackTrace();
+//				data = null;
+	    }
+
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+//					data = null;
+				}
+			}
+		}
+		// 結果を返す
+		return user_pw;
+	}
 
 
 	public String getDate(String user_id) {

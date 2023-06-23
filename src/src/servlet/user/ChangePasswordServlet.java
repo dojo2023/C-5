@@ -55,30 +55,35 @@ public class ChangePasswordServlet extends HttpServlet {
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			user_id = request.getParameter("USER_ID");
-			user_pw = request.getParameter("USER_PW");
-			String user_newpw = request.getParameter("USER_NEWPW");
+			user_pw = request.getParameter("USER_NEWPW");
+			String user_mail = request.getParameter("USER_MAIL");
+			String pw = request.getParameter("PW");
 
 			// 更新
-			if (iDao.update(new Users(user_id, user_newpw))) {	// 更新成功
-				test = "更新成功";
-			}
-			else {												// 更新失敗
-				test = "更新失敗";
-			}
+				// 更新成功
+				if (iDao.update(new Users(user_id, user_pw,user_mail))) {
+					test = "更新成功";
+				}
+				// 更新失敗
+				else {
+					test = "更新失敗";
+				}
 
 			// テスト
 			System.out.println(test);
 			System.out.println(user_id);
 			System.out.println(user_pw);
-			System.out.println(user_newpw);
+			System.out.println(user_mail);
+			System.out.println(pw);
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/MenuServlet");
 		}
+
 		// ID or PASSが違う
 		else {
 			  // 元のページにフォワードする。
-			  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/change_mail.jsp");
+			  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/change_password.jsp");
 			  dispatcher.forward(request, response);
 		}
 	}

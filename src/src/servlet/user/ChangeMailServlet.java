@@ -52,6 +52,9 @@ public class ChangeMailServlet extends HttpServlet {
 		UsersDao iDao = new UsersDao();
 		if (iDao.isLoginOK(new Users(user_id, user_pw))) {	// ログイン成功
 
+
+
+
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			user_id = request.getParameter("USER_ID");
@@ -59,12 +62,14 @@ public class ChangeMailServlet extends HttpServlet {
 			String user_mail = request.getParameter("USER_MAIL");
 
 			// 更新
-			if (iDao.update(new Users(user_id, user_pw, user_mail))) {	// 更新成功
-				test = "更新成功";
-			}
-			else {												// 更新失敗
-				test = "更新失敗";
-			}
+				// 更新成功
+				if (iDao.update(new Users(user_id, user_pw, user_mail))) {
+					test = "更新成功";
+				}
+				// 更新失敗
+				else {
+					test = "更新失敗";
+				}
 
 			// テスト
 			System.out.println(test);
@@ -75,6 +80,7 @@ public class ChangeMailServlet extends HttpServlet {
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/MenuServlet");
 		}
+
 		// ID or PASSが違う
 		else {
 			  // 元のページにフォワードする。

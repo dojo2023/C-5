@@ -2,15 +2,61 @@
  *
  */
 
- // メールアドレス変更時のダイアログボックス表示
-  function MoveCheck() {
-    if( confirm("本当に変更しますか。") ) {
-        window.location.href = "/mecar/MenuServlet";
-    }
-    else {
-        alert("変更を取り消しました。");
-    }
-}
+// 必須項目未記入の場合のエラーメッセージ
+window.addEventListener('DOMContentLoaded', function(){
+
+	// 変更ボタンを押したとき
+	document.getElementById('form').onsubmit = function(event) {
+
+		// データの取得
+		const id = document.getElementById('form').USER_ID.value;
+		const pw = document.getElementById('form').USER_PW.value;
+		const mail = document.getElementById('form').USER_MAIL.value;
+
+		// 未入力があった際の処理
+		if(id === "" && pw === "" && mail === "") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※ユーザーID、パスワード、メールアドレスを入力してください！';
+		}
+		else if(id === "" && pw === "") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※ユーザーID、パスワードを入力してください！';
+		}
+		else if(id === "" && mail === "") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※ユーザーID、メールアドレスを入力してください！';
+		}
+		else if(pw === "" && mail === "") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※パスワード、メールアドレスを入力してください！';
+		}
+		else if(id === "") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※IDを入力してください！';
+		}
+		else if(pw ==="") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※パスワードを入力してください！';
+		}
+		else if(mail ==="") {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※メールアドレスを入力してください！';
+		}
+
+
+		// メールアドレス変更可能時のダイアログボックス表示
+		else {
+			if( confirm("本当に変更しますか。") ) {
+				window.location.href = "/mecar/MenuServlet";
+			}
+			else {
+				alert("変更を取り消しました。");
+				event.preventDefault();
+			}
+		}
+	};
+})
+
 
  // パスワードの表示・非表示の切り替え
  window.addEventListener('DOMContentLoaded', function(){
@@ -41,3 +87,4 @@
 		}
 	});
 })
+

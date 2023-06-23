@@ -54,10 +54,11 @@ public class LoginServlet extends HttpServlet {
 
 			//UsersDaoにユーザーidを指定してメールアドレスを取得するメソッドを呼び出す。
 			String user_mail = iDao.getMail(user_id) ;
+			user_pw = iDao.getPw(user_id) ;
 
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("user_id", new LoginUsers(user_id, user_mail));
+			session.setAttribute("user_id", new LoginUsers(user_id, user_mail ,user_pw));
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/mecar/MenuServlet");
