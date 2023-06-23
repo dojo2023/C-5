@@ -26,8 +26,8 @@
 		<label>新しいパスワード<br>
 		<input type="password" name="PW" id = "newPass"></label>
 		<button id ="passview">表示</button><br>
-		<input type="submit" name="DEFINITE" value="確定" onclick="MoveCheck();">
-		<input type="reset" name="reset" value="リセット"><br>
+		<input type="submit"class="button" name="DEFINITE" value="確定" onclick="MoveCheck();">
+		<input type="reset" class="button"name="reset" value="リセット"><br>
 		<p id="output"></p>
 
 	</form>

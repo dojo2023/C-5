@@ -27,8 +27,8 @@
 			<button id ="passview">表示</button><br>
 			<label>メールアドレス<br>
 			<input type="text" name="MAIL"><br></label>
-			<input type="submit" name="REGIST" id="regist" value="確定" onclick="MoveCheck();">
-			<input type="reset" name="reset" value="リセット"><br>
+			<input type="submit"class="button" name="REGIST" id="regist" value="確定" onclick="MoveCheck();">
+			<input type="reset" class="button"name="reset" value="リセット"><br>
 			<p id="output"></p>
 
 		</form>
