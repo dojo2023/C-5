@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', function(){
 		const id = document.getElementById('form').USER_ID.value;
 		const pw = document.getElementById('form').USER_PW.value;
 		const newpw = document.getElementById('form').USER_NEWPW.value;
+		const pass = document.getElementById('form').PW.value;
 
 		// 未入力があった際の処理
 		if(id === "" && pw === "" && newpw === "") {
@@ -41,6 +42,12 @@ window.addEventListener('DOMContentLoaded', function(){
 		else if(newpw ==="") {
 			event.preventDefault();
 			document.getElementById('output').textContent = '※新しいパスワードを入力してください！';
+		}
+
+		// パスワードが違うときのエラーメッセージ
+ 		else if (pw !== pass) {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※パスワードが正しくありません';
 		}
 
 

@@ -1,1 +1,26 @@
 @charset "UTF-8";
+
+/* フォームを中央にそろえる */
+form{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+/* ログイン＆リセットボタン */
+.button{
+  margin: 5px auto;
+  background: #668c95;
+  padding:0.15em 0.5em;
+  border:#23454d 1px solid;
+  text-decoration:none;
+  color: white;
+  font-size:0.95em;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover{
+  background: #9cb4ba;
+  color: white;
+}

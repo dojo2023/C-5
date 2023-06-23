@@ -146,4 +146,51 @@ public class InquiriesDao {
 	// 結果を返す
 	return result;
 	}
+
+	// 対応ステータスの更新
+		// 引数inquiryで指定されたレコードを更新し、成功したらtrueを返す
+	public boolean update(int inquiry_status,int inquiry_id) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
+
+			// SQL文を準備する
+			String sql = "update Inquiries "
+					+ "set inquiry_status=? "
+					+ "where inquiry_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, inquiry_status);
+			pStmt.setInt(2, inquiry_id);
+
+			// SQL文を実行する
+			pStmt.executeUpdate();
+			result = true;
+	    }
+		// 全ての例外を受け取る
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	// 結果を返す
+	return result;
+	}
 }
+

@@ -44,6 +44,13 @@ window.addEventListener('DOMContentLoaded', function(){
 		}
 
 
+		// パスワードが違うときのエラーメッセージ
+ 		else if (pw !== pass) {
+			event.preventDefault();
+			document.getElementById('output').textContent = '※パスワードが正しくありません';
+		}
+
+
 		// メールアドレス変更可能時のダイアログボックス表示
 		else {
 			if( confirm("本当に変更しますか。") ) {
@@ -73,6 +80,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 		// (4)パスワード入力欄のtype属性を確認
 		if( input_pass.type === 'password' ) {
+
 
 			// (5)パスワードを表示する
 			input_pass.type = 'text';
