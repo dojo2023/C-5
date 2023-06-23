@@ -86,7 +86,7 @@
 					<!-- ポップアップに表示したい内容を隠して送る -->
 					<input type="hidden" name="item_name" value="${e.item_name}">
 					<input type="hidden" name="item_price" value="${e.item_price}">
-					<input type="hidden" name="item_frequency" value="${e.item_frequency}">
+					<input type="hidden" name="item_frequency" value="${e.frequency_purchase}">
 					<input type="hidden" name="item_category" value="${e.item_category}">
 					<input type="hidden" name="item_url" value="${e.item_url}">
 					<input type="hidden" name="item_id" value="${e.item_id}">
