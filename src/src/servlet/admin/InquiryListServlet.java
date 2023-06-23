@@ -33,7 +33,12 @@ public class InquiryListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		//もしもログインしていなかったらログインサーブレットにリダイレクトする
+			HttpSession session = request.getSession();
+			if (session.getAttribute("id") == null) {
+				response.sendRedirect("/mecar/LoginAdminServlet");
+				return;
+			}
 		//空文字でデータを入力する。カードリスト2とか
 		InquiriesDao aInquiries = new InquiriesDao();
 
