@@ -6,7 +6,30 @@ form{
     margin: auto;
 }
 
-/* ボタンを中央に配置する */
+
+/* フォームの中身を中央にそろえる */
+.id{
+	  text-align: center;
+}
+
+/* ログイン＆リセットボタン */
+.button{
+  margin: 5px auto;
+  background: #668c95;
+  padding:0.15em 0.5em;
+  border:#23454d 1px solid;
+  text-decoration:none;
+  color: white;
+  font-size:0.95em;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover{
+  background: #9cb4ba;
+  color: white;
+}
+
+/* 会員登録ボタンを中央に配置する */
 .input_wrap{
   text-align: center;
 }
@@ -77,8 +100,10 @@ form{
   border:#23454d 1px solid;
   text-decoration:none;
   color: white;
-  font-size:1em;
+  font-size:1.2em;
   transition: 0.3s ease-in-out;
+font-weight: bold;
+
 }
 
 /* パスワード再設定ボタン */
@@ -98,4 +123,12 @@ a:hover {
   color: #d1d2d3;
 }
 
+.regist:hover{
+  background: #9cb4ba;
+  color: white;
+}
 
+/* パスワードをお忘れの方は「こちら」 */
+a{
+
+}
