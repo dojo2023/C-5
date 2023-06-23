@@ -3,6 +3,10 @@ package servlet.user;
 //担当：羽田
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -53,14 +57,10 @@ public class DecreaseServlet extends HttpServlet {
 				//自動減量用
 				//現在日時を取得
 
-				UsersDao aDao = new UsersDao();
+						//LocalDate currentDate = LocalDate.now();
 						Date nowDate = new Date();
-						Date userDate = aDao.getDate(user_id);
-
-
-
-
-						long daysLong = (nowDate.getTime() - userDate.getTime()) * (24 * 60 * 60 * 1000);
+						Date userDate = getDate(user_id);
+						long daysLong = (nowDate.getTime() - userDate.getTime()) /(24 * 60 * 60 * 1000);
 						int decDay = (int)daysLong;
 						System.out.println("日数：" + decDay);
 
@@ -77,55 +77,32 @@ public class DecreaseServlet extends HttpServlet {
 				//減量システム処理を行う
 				ItemsDao bDao = new ItemsDao();
 				//もしサブミットで一斉減量が選択されたら
-				if (request.getParameter("submit").equals("一斉減量")) {
+				//if (request.getParameter("submit").equals("一斉減量")) {
 
 					//プルダウンで自動選択
 					if(pull == 0) {
 						bDao.decreaseALL(decDay,user_id);
+						System.out.println("一斉減量" );
 					}
 
 					//プルダウンで日数選択
-					else if(pull == 1) {
+					else  {
 						//1日
 						int num = 0;
-						while (num < 1){
+						while (num < pull){
 							bDao.decrease(user_id);
 							num++;
 						}
-					}else if(pull== 2) {
-						//2日
-						int num = 0;
-						while (num < 2){
-							bDao.decrease(user_id);
-							num++;
-								}
-					}else if(pull== 3) {
-						//3日
-						int num = 0;
-						while (num < 3){
-							bDao.decrease(user_id);
-							num++;
-								}
-					}else if(pull== 4) {
-						//1週間
-						int num = 0;
-						while (num < 7){
-							bDao.decrease(user_id);
-							num++;
-								}
+						System.out.println("日数：" + pull);}
 
 
-					}
-
-				}
 
 
 				// java.util.Dateを取得
-			    java.util.Date javaDate = new java.util.Date();
+			    	    // java.util.Dateをjava.sql.Dateに変換
+			    //Fri Jun 23 00:23:06 JST 2023になっているので、形を変える。
 
-			    // java.util.Dateをjava.sql.Dateに変換
-			    Date sqlDate = new Date(javaDate.getTime());
-
+			    java.sql.Date sqlDate = new java.sql.Date(nowDate.getTime());
 			  //user_dateを現在の日付でアップデート
 			    UsersDao upDao = new UsersDao();
 			    upDao.update_date(sqlDate,user_id);
@@ -140,7 +117,7 @@ public class DecreaseServlet extends HttpServlet {
 
 }
 
-/*
+
 	private Date getDate(String user_id) {
 
 
@@ -188,7 +165,8 @@ public class DecreaseServlet extends HttpServlet {
 		// 結果を返す
 		return user_date;
 	}
-*/
+
+
 
 
 }
