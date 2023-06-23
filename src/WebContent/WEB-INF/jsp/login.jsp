@@ -12,7 +12,9 @@
 
 	<!-- Javascriptの挿入 -->
 	<script src="/mecar/js/login.js"></script>
+
 </head>
+
 <body>
 <!-- リボンメニュー -->
 <header>
@@ -37,8 +39,8 @@
 	<!-- 	<button id ="passview">表示</button><br>	-->
 		<input type="submit" name="LOGIN" value="ログイン">
 		<input type="reset" name="RESET" value="リセット"><br>
-			</form>
 		<p id="output"></p>
+			</form>
 		<!--  <span id="error_message" class = error></span> -->
 		<br><br>
 		<div class="input_wrap">
@@ -46,6 +48,7 @@
 		<p>パスワードお忘れの方は<a href="/mecar/ForgetPasswordServlet">こちら</a></p>
 	</div>
 </main>
+
 	<footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
