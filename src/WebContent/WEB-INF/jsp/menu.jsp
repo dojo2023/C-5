@@ -53,51 +53,51 @@
 		<div class="categories_container">
 			<form method="POST" action="/mecar/CategoryServlet">
 				<div class="category"><input type="image"
-				src="/mecar/img/一覧_ベージュ.png" name="submit" value="一覧"></div>
+				src="/mecar/img/一覧_ベージュ.png" name="submit1" value="一覧"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/食料品_ベージュ.png" name="submit" value="食料品"></div>
+				src="/mecar/img/食料品_ベージュ.png" name="submit2" value="食料品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/日用品_ベージュ.png" name="submit" value="日用品"></div>
+				src="/mecar/img/日用品_ベージュ.png" name="submit3" value="日用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/ケア用品_ベージュ.png" name="submit" value="ケア用品"></div>
+				src="/mecar/img/ケア用品_ベージュ.png" name="submit4" value="ケア用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/その他_ベージュ.png" name="submit" value="その他"></div>
+				src="/mecar/img/その他_ベージュ.png" name="submit5" value="その他"></div>
 			</form>
 			<form method="POST" action="/mecar/CategoryServlet">
 				<div class="category"><input type="image"
-				src="/mecar/img/一覧_ピンク.png" name="submit" value="一覧"></div>
+				src="/mecar/img/一覧_ピンク.png" name="submit1" value="一覧"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/食料品_ピンク.png" name="submit" value="食料品"></div>
+				src="/mecar/img/食料品_ピンク.png" name="submit2" value="食料品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/日用品_ピンク.png" name="submit" value="日用品"></div>
+				src="/mecar/img/日用品_ピンク.png" name="submit3" value="日用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/ケア用品_ピンク.png" name="submit" value="ケア用品"></div>
+				src="/mecar/img/ケア用品_ピンク.png" name="submit4" value="ケア用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/その他_ピンク.png" name="submit" value="その他"></div>
+				src="/mecar/img/その他_ピンク.png" name="submit5" value="その他"></div>
 			</form>
 			<form method="POST" action="/mecar/CategoryServlet">
 				<div class="category"><input type="image"
-				src="/mecar/img/一覧_水色.png" name="submit" value="一覧"></div>
+				src="/mecar/img/一覧_水色.png" name="submit1" value="一覧"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/食料品_水色.png" name="submit" value="食料品"></div>
+				src="/mecar/img/食料品_水色.png" name="submit2" value="食料品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/日用品_水色.png" name="submit" value="日用品"></div>
+				src="/mecar/img/日用品_水色.png" name="submit3" value="日用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/ケア用品_水色.png" name="submit" value="ケア用品"></div>
+				src="/mecar/img/ケア用品_水色.png" name="submit4" value="ケア用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/その他_水色.png" name="submit" value="その他"></div>
+				src="/mecar/img/その他_水色.png" name="submit5" value="その他"></div>
 			</form>
 			<form method="POST" action="/mecar/CategoryServlet">
 				<div class="category"><input type="image"
-				src="/mecar/img/一覧_紺.png" name="submit" value="一覧"></div>
+				src="/mecar/img/一覧_紺.png" name="submit1" value="一覧"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/食料品_紺.png" name="submit" value="食料品"></div>
+				src="/mecar/img/食料品_紺.png" name="submit2" value="食料品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/日用品_紺.png" name="submit" value="日用品"></div>
+				src="/mecar/img/日用品_紺.png" name="submit3" value="日用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/ケア用品_紺.png" name="submit" value="ケア用品"></div>
+				src="/mecar/img/ケア用品_紺.png" name="submit4" value="ケア用品"></div>
 				<div class="category"><input type="image"
-				src="/mecar/img/その他_紺.png" name="submit" value="その他"></div>
+				src="/mecar/img/その他_紺.png" name="submit5" value="その他"></div>
 			</form>
 		</div>
 

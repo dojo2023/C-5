@@ -46,26 +46,26 @@ public class CategoryServlet extends HttpServlet {
 
 		//選択されたカテゴリ別にselectCateメソッドを起動する
 		ItemsDao iDao = new ItemsDao();
-		if (request.getParameter("submit").equals("一覧")) {
+		if (request.getParameter("submit1.x") != null) {
 			//検索処理を行う
 			List<Items> cardList3 = iDao.select("", user_id.getUser_id());
 
 			//検索結果をリクエストスコープに格納する
 			request.setAttribute("cardList3", cardList3);
 		}
-		else if (request.getParameter("submit").equals("食料品")) {
+		else if (request.getParameter("submit2.x") != null) {
 			List<Items> cardList3 = iDao.selectCate(1, user_id.getUser_id());
 			request.setAttribute("cardList3", cardList3);
 		}
-		else if (request.getParameter("submit").equals("日用品")) {
+		else if (request.getParameter("submit3.x") != null) {
 			List<Items> cardList3 = iDao.selectCate(2, user_id.getUser_id());
 			request.setAttribute("cardList3", cardList3);
 		}
-		else if (request.getParameter("submit").equals("ケア用品")) {
+		else if (request.getParameter("submit4.x") != null) {
 			List<Items> cardList3 = iDao.selectCate(3, user_id.getUser_id());
 			request.setAttribute("cardList3", cardList3);
 		}
-		else if (request.getParameter("submit").equals("その他")) {
+		else if (request.getParameter("submit5.x") != null) {
 			List<Items> cardList3 = iDao.selectCate(4, user_id.getUser_id());
 			request.setAttribute("cardList3", cardList3);
 		}
