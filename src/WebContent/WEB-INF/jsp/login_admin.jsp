@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
+        <h1 class="logo"><a href="/mecar/InquiryListServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
     </header>
 <main>
 <h1>管理者ログイン</h1>

@@ -12,7 +12,7 @@
 <body>
 <!-- リボンメニュー -->
 <header>
-	<h1 class="logo"><a href="/mecar/MenuServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
+	<h1 class="logo"><a href="/mecar/InquiryListServlet"><img src="/mecar/img/ロゴ.png" alt="logo"></a></h1>
 	<nav>
 		<ul>
 			<li><a href="/mecar/LoginAdminServlet">ログアウト</a></li>
@@ -33,18 +33,18 @@
           <div class="table-container">
             	<table border="1">
 					<tr>
-					<td>ユーザーID</td>
-					<td>メールアドレス</td>
-					<td>削除</td>
+					  <td>ユーザーID</td>
+					  <td>メールアドレス</td>
+					  <td>削除</td>
 					</tr>
 					<c:forEach var="e" items="${cardList2}">
        				<tr>
-          			<td>${e.user_id}</td>
-           			<td>${e.user_mail}</td>
-           			<td>
-           			<form id = "delete_form" method="POST" action="/mecar/DeleteUserServlet">
-               		<input type="hidden" name="userId" value="${e.user_id}">
-                	<input type="submit" id="delete_button" name="submit" value="削除" onclick="MoveCheck();">
+          			  <td>${e.user_id}</td>
+           			  <td>${e.user_mail}</td>
+           			  <td>
+           			  <form id = "delete_form" method="POST" action="/mecar/DeleteUserServlet">
+               		    <input type="hidden" name="userId" value="${e.user_id}">
+                	    <input type="submit" id="delete_button" name="submit" value="削除" onclick="MoveCheck();">
            			</form>
            			</td>
       				</tr>
