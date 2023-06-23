@@ -26,21 +26,21 @@
 
 	<hr>
 	<form method="POST" action="/mecar/LoginServlet" id="login_form">
-		ユーザーID<br>
+		<label class="id">ユーザーID</label> <br>
 		<input type="text" name="USER_ID" class = "Users"><br>
-		パスワード<br>
+		<label class="pw">パスワード</label> <br>
 		<input type="checkbox" name="USER_PW" id="checkPassword">
 		<div class="togglePassword">
 		  <input type="password" name="USER_PW" id = "input_pass" class= "hideText">
 		  <input type="text" name="USER_PW" id = "input_pass" class= "showText">
 		  <label for="checkPassword" class="fa fa-eye"></label> <!-- 開いてる目 -->
 		  <label for="checkPassword" class="fa fa-eye-slash"></label> <!-- 閉じてる目 -->
-		</div>
+		</div><br>
 	<!-- 	<button id ="passview">表示</button><br>	-->
-		<input type="submit" name="LOGIN" value="ログイン">
-		<input type="reset" name="RESET" value="リセット"><br>
+		<input type="submit" name="LOGIN" class="button" value="ログイン">
+		<input type="reset" name="RESET" class="button" value="リセット"><br>
 		<p id="output"></p>
-			</form>
+	</form>
 		<!--  <span id="error_message" class = error></span> -->
 		<br><br>
 		<div class="input_wrap">

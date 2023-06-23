@@ -31,6 +31,12 @@ public class Inquiries implements Serializable {
 		this.inquiry_content = inquiry_content;
   }
 
+  // 対応ステータスの更新
+  public Inquiries(int inquiry_id,int inquiry_status) {
+	    this.inquiry_id = inquiry_id;
+		this.inquiry_status = inquiry_status;
+  }
+
   // 初期値を設定する
   public Inquiries() {
 	super();
