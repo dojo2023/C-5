@@ -15,16 +15,16 @@
 		e.preventDefault();
 
 		// (4)パスワード入力欄のtype属性を確認
-		if( newPass.type === 'password' ) {
+		if( input_pass.type === 'password' ) {
 
 			// (5)パスワードを表示する
-			newPass.type = 'text';
+			input_pass.type = 'text';
 			passview.textContent = '非表示';
 
 		} else {
 
 			// (6)パスワードを非表示にする
-			newPass.type = 'password';
+			input_pass.type = 'password';
 			passview.textContent = '表示';
 		}
 	});
@@ -39,5 +39,18 @@
 	 		document.getElementById('output').textContent = 'ID、メールアドレス、新パスワード全て入力してください！';
 		}
 	};
+
+	window.MoveCheck = function() {
+    	var userID = document.getElementById("pid").value;
+    	var email = document.getElementsByName("pmail").value;
+    	var password = document.getElementById("newPass").value;
+
+	    if (userID === "" || password === "" || email === "") {
+	    	 // 何かが入力されていない場合はフォームを送信しない
+    	    return false;
+    	} else {
+        	alert("パスワード再設定完了しました！");
+    	}
+	}
 
 })
