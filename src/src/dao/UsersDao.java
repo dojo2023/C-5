@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import model.Users;
@@ -376,7 +375,7 @@ public class UsersDao {
 		}
 
 		// 引数memberで指定されたレコードを更新し、成功したらtrueを返す
-		public boolean update_date(Date sqlDate,String user_id ) {
+		public boolean update_date(java.sql.Date sqlDate,String user_id ) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -393,9 +392,9 @@ public class UsersDao {
 
 				// SQL文を完成させる
 
-					//pStmt.setDate(1, (java.sql.Date) sqlDate);
+					pStmt.setDate(1,  sqlDate);
 
-					//pStmt.setString(2, user_id);
+					pStmt.setString(2, user_id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
