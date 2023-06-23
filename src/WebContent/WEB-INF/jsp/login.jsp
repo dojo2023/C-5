@@ -40,12 +40,11 @@
 		<input type="submit" name="LOGIN" value="ログイン">
 		<input type="reset" name="RESET" value="リセット"><br>
 		<p id="output"></p>
-			</form>
-		<!--  <span id="error_message" class = error></span> -->
-		<br><br>
-		<div class="input_wrap">
+	</form>
+	<br><br>
+	<div class="input_wrap">
 		<p><a class="regist" href="/mecar/RegistUserServlet">新規会員登録</a></p><br>
-		<p>パスワードお忘れの方は<a href="/mecar/ForgetPasswordServlet">こちら</a></p>
+		<p><a class="newPassword" href="/mecar/ForgetPasswordServlet">パスワードお忘れの方はこちら</a></p>
 	</div>
 </main>
 

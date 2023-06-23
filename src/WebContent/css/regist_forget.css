@@ -1,1 +1,8 @@
 @charset "UTF-8";
+
+/* フォームを中央にそろえる */
+form{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}

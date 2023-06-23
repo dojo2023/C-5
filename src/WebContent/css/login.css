@@ -81,3 +81,21 @@ form{
   transition: 0.3s ease-in-out;
 }
 
+/* パスワード再設定ボタン */
+.newPassword{
+  margin: 10px auto;
+  background: #668c95;
+  padding:0.3em 1em;
+  border:#23454d 1px solid;
+  text-decoration:none;
+  color: white;
+  font-size:1em;
+  transition: 0.3s ease-in-out;
+}
+
+/* カーソルを合わせたときのテキスト色 */
+a:hover {
+  color: #d1d2d3;
+}
+
+
