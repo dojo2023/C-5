@@ -2,26 +2,29 @@
 
 /* フォームを中央にそろえる */
 form{
-    width: fit-content;
+    width: 260px;
     margin: auto;
 }
 
-
-/* フォームの中身を中央にそろえる */
-.id{
-	  text-align: center;
+/* フォームの中身をそろえる */
+.Users{
+  width: 250px;
+}
+.Password{
+  width: 250px;
 }
 
 /* ログイン＆リセットボタン */
 .button{
   margin: 5px auto;
   background: #668c95;
-  padding:0.15em 0.5em;
+  padding:0.2em 0.5em;
   border:#23454d 1px solid;
   text-decoration:none;
   color: white;
   font-size:0.95em;
   transition: 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .button:hover{
@@ -35,62 +38,9 @@ form{
 }
 
 /* パスワードの表示・非表示 */
-
-/* チェックボックスを非表示にする */
-#checkPassword {
-  display: none;
+#login_form {
+  border-width: thin;
 }
-
-/*入力欄のデフォルト枠は隠す*/
-.hideText, .showText {
-  border: none;
-  outline: none;
-}
-
-/*新しく入力欄の枠を表示*/
-.togglePassword {
-  border: 1px solid;
-  border-radius: 2px;
-  width: 205px;
-}
-/*テキストは非表示*/
-.showText {
-  display: none;
-}
-/*伏字の黒丸を表示*/
-.hideText {
-  display: inline;
-}
-/* 開いてる目を表示*/
-.fa-eye:before {
-  display: inline;
-  margin-left: 5px;
-}
-/* 閉じてる目は非表示*/
-.fa-eye-slash:before {
-  display: none;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき)開いてる目は非表示*/
-#checkPassword:checked + .togglePassword >
-.fa-eye:before {
-  display: none;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき) 閉じてる目を表示*/
-#checkPassword:checked + .togglePassword >
-.fa-eye-slash:before {
-  display: inline-block;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき)伏字を非表示*/
-#checkPassword:checked + .togglePassword >
-.hideText {
-  display: none;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき)テキストを表示*/
-#checkPassword:checked + .togglePassword >
-.showText {
-  display: inline-block;
-}
-
 
 /* 新規会員登録ボタン */
 .regist{
@@ -102,8 +52,7 @@ form{
   color: white;
   font-size:1.2em;
   transition: 0.3s ease-in-out;
-font-weight: bold;
-
+  font-weight: bold;
 }
 
 /* パスワード再設定ボタン */
@@ -128,7 +77,7 @@ a:hover {
   color: white;
 }
 
-/* パスワードをお忘れの方は「こちら」 */
-a{
-
+/* エラーメッセージ */
+.error{
+  color: red;
 }

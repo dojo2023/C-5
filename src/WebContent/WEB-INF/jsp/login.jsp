@@ -26,23 +26,23 @@
 
 	<hr>
 	<form method="POST" action="/mecar/LoginServlet" id="login_form">
-		<label class="id">ユーザーID</label> <br>
+		<label class="id" id="id">ユーザーID</label> <br>
 		<input type="text" name="USER_ID" class = "Users"><br>
-		<label class="pw">パスワード</label> <br>
-		<div id="inputBox">
-			<input type="password" name="USER_PW" id="textPassword">
-			<span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span>
-		</div><br>
+
+		<label class="pw" id="pw">パスワード </label><span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span> <br>
+		<input type="password" name="USER_PW" id="textPassword" class="Password">
+
+		<br><br>
 	<!-- 	<button id ="passview">表示</button><br>	-->
-		<input type="submit" name="LOGIN" class="button" value="ログイン">
-		<input type="reset" name="RESET" class="button" value="リセット"><br>
-		<p id="output"></p>
+		<input type="submit" name="LOGIN" class="button" value="　  ログイン  　">
+		<input type="reset" name="RESET" class="button" value="　  リセット  　"><br>
+		<p id="output" class="error"></p>
 	</form>
-		<!--  <span id="error_message" class = error></span> -->
+		<span id="error_message" class = "error"></span>
 		<br><br>
 		<div class="input_wrap">
-		<p><a class="regist" href="/mecar/RegistUserServlet">新規会員登録</a></p><br>
-		<p><a class="newPassword" href="/mecar/ForgetPasswordServlet">パスワードをお忘れの方はこちら</a></p>
+		<p><a class="regist" href="/mecar/RegistUserServlet">　　　新規会員登録　　　</a></p><br>
+		<p>パスワードをお忘れの方は<a href="/mecar/ForgetPasswordServlet">こちら</a></p>
 	</div>
 
 </main>

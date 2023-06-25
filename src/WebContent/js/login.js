@@ -3,6 +3,8 @@
 
  *
  */
+
+ /*
  window.addEventListener('DOMContentLoaded', function(){
 
 	// (1)パスワード入力欄とボタンのHTMLを取得
@@ -29,6 +31,7 @@
 			passview.textContent = '表示';
 		}
 	});
+*/
 
 	document.getElementById('login_form').onsubmit = function(event) {
 		const id = document.getElementById('login_form').USER_ID.value;
@@ -36,9 +39,19 @@
 
 		if (id === "" || pw === "") {
 			event.preventDefault();
-	 		document.getElementById('output').textContent = 'IDとPWを入力してください！';
+	 		document.getElementById('output').textContent = 'IDとパスワードを入力してください';
 		}
 	};
+// }
 
-})
-
+      function pushHideButton() {
+        var txtPass = document.getElementById("textPassword");
+        var btnEye = document.getElementById("buttonEye");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          btnEye.className = "fa fa-eye";
+        } else {
+          txtPass.type = "text";
+          btnEye.className = "fa fa-eye-slash";
+        }
+      }
