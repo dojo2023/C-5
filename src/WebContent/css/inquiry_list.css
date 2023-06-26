@@ -9,9 +9,35 @@
   justify-content: center;
   align-items: center;
 }
-#popupRow {
-  display: none;  /* 最初は非表示 */
-  background-color: #F0F0F0;  /* 背景色 */
-  border: 1px solid #CCC;  /* ボーダー */
-  padding: 10px;  /* パディング */
+/* お問い合わせ内容確認ポップアップ */
+.contents_wrapper, .regist_wrapper {
+	/* デフォルトはdisplay: none;で非表示 */
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.6);
+	z-index: 100;
+}
+
+.contents_modal, .regist_modal {
+	position: absolute;
+	top: 20%;
+	left: 34%;
+	background-color: #e6ecf0;
+	padding: 20px 0 40px;
+	border-radius: 10px;
+	width: 450px;
+	height: auto;
+	text-align: center;
+}
+
+.close_contents_modal, .close_regist_modal {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	color: rgba(128,128,128,0.46);
+	cursor: pointer;
 }
