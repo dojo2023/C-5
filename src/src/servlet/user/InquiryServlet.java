@@ -60,14 +60,6 @@ public class InquiryServlet extends HttpServlet {
 		// 登録処理を行う（データベースに保存する）
 		InquiriesDao iDao = new InquiriesDao();
 		iDao.insert(new Inquiries(user_id,inquiry_subject,inquiry_content));
-//		{	// 登録成功
-//			request.setAttribute("result",
-//			new ("登録成功！", "レコードを登録しました。", "/simpleBC/MenuServlet"));
-//		}
-//		else {	// 登録失敗
-//			request.setAttribute("result",
-//			new Inquiries("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
-//		}
 
 		// お問い合わせページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry.jsp");
