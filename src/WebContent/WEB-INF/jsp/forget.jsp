@@ -4,9 +4,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>SubsKeeperパスワード再登録</title>
+	<title>パスワード再登録 | SubsKeeper</title>
 	<link rel="stylesheet" href="/mecar/css/common.css">
 	<link rel="stylesheet" href="/mecar/css/regist_forget.css">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <!-- ↑目のアイコン使うためのやつ -->
 	<!-- Javascriptの挿入 -->
 	<script src="/mecar/js/forget.js"></script>
 </head>
@@ -20,14 +22,15 @@
 	<hr>
 	<form method="POST" action="/mecar/ForgetPasswordServlet" id="newPwSet">
 		<label>ユーザーID<br>
-		<input type="text" name="ID" id="pid"><br></label>
+		<input type="text" name="ID" id="pid" class="id"><br></label>
 		<label>メールアドレス<br>
-		<input type="text" name="MAIL" id ="pmail"><br></label>
-		<label>新しいパスワード<br>
-		<input type="password" name="PW" id = "newPass"></label>
-		<button id ="passview">表示</button><br>
-		<input type="submit"class="button" name="DEFINITE" value="確定" onclick="MoveCheck();">
-		<input type="reset" class="button"name="reset" value="リセット"><br>
+		<input type="text" name="MAIL" id ="pmail" class="mail"><br></label>
+		<label>新しいパスワード <span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span><br>
+		<input type="password" name="PW" id = "newPass" class="pw"></label><br>
+		<br>
+	<!-- 	<button id ="passview">表示</button><br>	-->
+		<input type="submit"class="button" name="DEFINITE" value="　　  登録  　　" onclick="MoveCheck();">
+		<input type="reset" class="button"name="reset" value="　  リセット  　"><br>
 		<p id="output"></p>
 
 	</form>

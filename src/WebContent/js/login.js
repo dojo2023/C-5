@@ -44,6 +44,7 @@
 	};
 // }
 
+// パスワードの表示・非表示切り替え
       function pushHideButton() {
         var txtPass = document.getElementById("textPassword");
         var btnEye = document.getElementById("buttonEye");

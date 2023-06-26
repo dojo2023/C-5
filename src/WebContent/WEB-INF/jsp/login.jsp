@@ -10,9 +10,6 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <!-- ↑目のアイコン使うためのやつ -->
 
-	<!-- Javascriptの挿入 -->
-<!--	<script src="/mecar/js/login.js"></script>		-->
-
 </head>
 
 <body>

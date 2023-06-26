@@ -6,11 +6,15 @@ form{
     margin: auto;
 }
 
-/* フォームの中身をそろえる */
+/* フォームの中身 */
 .Users{
+  border: double #668c95;
+  height: 35px;
   width: 250px;
 }
 .Password{
+  border: double #668c95;
+  height: 35px;
   width: 250px;
 }
 

@@ -35,14 +35,14 @@ form{
 /* ID・メールアドレスのスタイル */
 .idmail{
 	border: 1px solid #668c95;
-	height: 20px;
+	height: 30px;
 }
 
-/* 件名のテキストエリアの大きさ */
+/* 件名のテキストエリアのスタイル */
 .title{
     width:100%;
     border: 1px solid #668c95;
-    height: 20px;
+    height: 30px;
 }
 
 /* お問い合わせ内容のテキストエリアの大きさ */
@@ -59,7 +59,7 @@ form{
   color: #ffffff;
   background: #d1d2d3;
   font-size: 0.8em;
-  padding: 0em 0.5em;
+  padding: 0em 0.4em;
   border-radius: 0em;
   margin-left:0.2em;
   align-items: center
@@ -70,7 +70,7 @@ form{
   color: #ffffff;
   background: #cc0000;
   font-size: 0.8em;
-  padding: 0em 0.5em;
+  padding: 0em 0.4em;
   border-radius: 0em;
   margin-left:0.2em;
   align-items: center
