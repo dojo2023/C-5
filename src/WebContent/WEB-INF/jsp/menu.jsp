@@ -70,8 +70,8 @@
 		<div class="items_container">
 			<c:forEach var="e" items="${cardList2}">
 				<!-- この一行をクリックするとモーダルウィンドウが表示される -->
-				<form method="POST" action="/mecar/DecreaseSwitchServlet" class="btn contents-show">
-					${e.item_name}
+				<form method="POST" action="/mecar/DecreaseSwitchServlet" class="contents_show">
+					<nobr>${e.item_name}</nobr>
 					<meter min="0" max="100" value="${e.item_meter}" high="50" low="20" optimum="80"></meter>
 					<!-- 隠して商品IDを渡す -->
 					<input type="hidden" name="item_id" value="${e.item_id}">
@@ -110,6 +110,7 @@
 						</c:when>
 					</c:choose>
 					<input type="hidden" name="item_url" value="${e.item_url}">
+					<!-- 減量停止・再開スイッチ -->
 					<c:choose>
 						<c:when test="${e.item_switch == 0}">
 							<input type="submit" name="item_switch" value="OFF">
@@ -125,13 +126,14 @@
 	</div>
 
 	<!-- 商品登録ポップアップを開くボタン -->
-	<img src="/mecar/img/プラスのアイコン素材ピンク.png" alt="商品登録ポップアップを開くボタン">
+	<img src="/mecar/img/プラスのアイコン素材ピンク.png" alt="商品登録ポップアップを開くボタン" class="regist_show">
+
 
 	<!-- ここからポップアップ -->
 
 	<!-- 商品内容確認・削除ポップアップ -->
-	<div class="popup-wrapper" id="contents-modal">
-		<div class="popup">
+	<div class="contents_wrapper">
+		<div class="contents_modal">
 			<!-- 商品更新のポップアップを開くボタン -->
 			<img src="/mecar/img/太いリロードアイコンブルー.png" alt="商品更新ポップアップを開くボタン">
 			<!-- 商品削除のボタン -->
@@ -140,37 +142,86 @@
 				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png" name="deleteItem">
 			</form>
 			<!-- プルダウンを閉じるボタン -->
-			<div id="close-popup">x</div>
+			<div class="close_contents_modal">x</div>
 			<div class="contents">
-				<div class="item_name">
+				<div class="content">
 					<p>商品名</p>
-					<p></p>
+					<p class="item_name"></p>
 				</div>
-				<div class="item_price">
+				<div class="content">
 					<p>値段</p>
-					<p></p>
+					<p class="item_price"></p>
 				</div>
-				<div class="item_frequency">
+				<div class="content">
 					<p>購入頻度</p>
-					<p></p>
+					<p class="item_frequency"></p>
 				</div>
-				<div class="item_category">
+				<div class="content">
 					<p>カテゴリ</p>
-					<p></p>
+					<p class="item_category"></p>
 				</div>
-				<div class="item_meter">
+				<div class="content">
 					<p>残量メーター</p>
 					<meter min="0" max="100" value="" high="50" low="20" optimum="80"></meter>
 				</div>
-				<div class="item_url">
+				<div class="content">
 					<p>リンク先購入</p>
-					<a></a>
+					<a class="item_url"></a>
 				</div>
-				<div class="item_url">
+				<div class="content">
 					<p>リンク先閲覧</p>
-					<a></a>
+					<a class="item_url"></a>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<!-- 商品登録ポップアップ -->
+	<div class="regist_wrapper">
+		<div class="regist_modal">
+			<!-- プルダウンを閉じるボタン -->
+			<div class="close_regist_modal">x</div>
+			<form method="POST" action="/mecar/RegistItemServlet">
+				<div class="regists">
+					<div class="regist">
+						<p>商品名</p>
+						<input type="text" name="name" placeholder="商品名">
+					</div>
+					<div class="regist">
+						<p>値段</p>
+						<input type="text" name="price" placeholder="値段">
+					</div>
+					<div class="regist">
+						<p>購入頻度</p>
+						<select name="frequency" size="1">
+							<option value="1">1週間</option>
+							<option value="2">2週間</option>
+							<option value="3" selected>1か月</option>
+							<option value="4">2か月</option>
+							<option value="5">3か月</option>
+						</select>
+					</div>
+					<div class="regist">
+						<p>カテゴリ</p>
+						<select name="category" size="1">
+							<option value="1">食料品</option>
+							<option value="2">日用品</option>
+							<option value="3">ケア用品</option>
+							<option value="4">その他</option>
+						</select>
+					</div>
+					<div class="regist">
+						<p>残量メーター</p>
+						<input type="range" name="meter" class="meter_input">
+						<p><output class="meter_output"></output>%</p>
+					</div>
+					<div class="regist">
+						<p>リンク</p>
+						<input type="url" name="url" placeholder="リンク">
+					</div>
+					<input type="submit" name="submit">
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -180,5 +231,6 @@
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
 
+<script src="/mecar/js/menu.js"></script>
 </body>
 </html>
