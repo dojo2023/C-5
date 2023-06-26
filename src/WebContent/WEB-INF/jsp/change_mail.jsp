@@ -7,6 +7,8 @@
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
 		<link rel="stylesheet" href="/mecar/css/change.css">
+		<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+		<!-- ↑目のアイコン使うためのやつ -->
  		<script src="/mecar/js/change_mail.js"></script>
 	</head>
 	<body>
@@ -46,8 +48,8 @@
 						<td class="required">
 						</td>
 						<td>
-							<input type="password" name="USER_PW" id = "input_pass">
-							<button id ="passview">表示</button>
+							<input type="password" name="USER_PW" id = "textPassword">
+							<span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span>
 						</td>
 					</tr>
 					<tr>

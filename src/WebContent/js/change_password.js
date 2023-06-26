@@ -2,7 +2,7 @@
  *
  */
 
-// 必須項目未記入の場合のエラーメッセージ
+// 必須項目未記入・パスワード不一致の場合のエラーメッセージ、変更可能時のダイアログボックス表示
 window.addEventListener('DOMContentLoaded', function(){
 
 	// 変更ボタンを押したとき
@@ -65,62 +65,43 @@ window.addEventListener('DOMContentLoaded', function(){
 })
 
 
- // パスワードの表示・非表示の切り替え
- window.addEventListener('DOMContentLoaded', function(){
 
-	// (1)パスワード入力欄とボタンのHTMLを取得
-	let passview = document.getElementById("passview");
-	let input_pass = document.getElementById("input_pass");
+// 変更前のパスワードの表示・非表示の切り替え（目）
+function pushHideButton() {
 
-	// (2)ボタンのイベントリスナーを設定
-	passview.addEventListener("click", (e)=>{
+	// データの取得
+	var txtPass = document.getElementById("textPassword");
+	var btnEye = document.getElementById("buttonEye");
 
-		// (3)ボタンの通常の動作をキャンセル（フォーム送信をキャンセル）
-		e.preventDefault();
+	// 表示・非表示の切り替え
+	// 非表示にする
+	if (txtPass.type === "text") {
+		txtPass.type = "password";
+		btnEye.className = "fa fa-eye";
+	}
+	// 表示する
+	else {
+		txtPass.type = "text";
+		btnEye.className = "fa fa-eye-slash";
+	}
+}
 
-		// (4)パスワード入力欄のtype属性を確認
-		if( input_pass.type === 'password' ) {
+// 変更後のパスワードの表示・非表示の切り替え（目）
+function new_pushHideButton() {
 
-			// (5)パスワードを表示する
-			input_pass.type = 'text';
-			passview.textContent = '非表示';
+	// データの取得
+	var new_txtPass = document.getElementById("new_textPassword");
+	var new_btnEye = document.getElementById("new_buttonEye");
 
-		}
-		else {
-
-			// (6)パスワードを非表示にする
-			input_pass.type = 'password';
-			passview.textContent = '表示';
-		}
-	});
-})
-
-  // 変更後のパスワードの表示・非表示の切り替え
- window.addEventListener('DOMContentLoaded', function(){
-
-	// (1)パスワード入力欄とボタンのHTMLを取得
-	let passview = document.getElementById("new_passview");
-	let input_pass = document.getElementById("new_input_pass");
-
-	// (2)ボタンのイベントリスナーを設定
-	passview.addEventListener("click", (e)=>{
-
-		// (3)ボタンの通常の動作をキャンセル（フォーム送信をキャンセル）
-		e.preventDefault();
-
-		// (4)パスワード入力欄のtype属性を確認
-		if( new_input_pass.type === 'password' ) {
-
-			// (5)パスワードを表示する
-			new_input_pass.type = 'text';
-			new_passview.textContent = '非表示';
-
-		}
-		else {
-
-			// (6)パスワードを非表示にする
-			new_input_pass.type = 'password';
-			new_passview.textContent = '表示';
-		}
-	});
-})
+	// 表示・非表示の切り替え
+	// 非表示にする
+	if (new_txtPass.type === "text") {
+		new_txtPass.type = "password";
+		new_btnEye.className = "fa fa-eye";
+	}
+	// 表示する
+	else {
+		new_txtPass.type = "text";
+		new_btnEye.className = "fa fa-eye-slash";
+	}
+}
