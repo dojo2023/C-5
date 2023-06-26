@@ -76,12 +76,13 @@
 	transition: all .3s;
 }
 
+/* 開いているときの矢印 */
 .toggle:checked + .Label::before {
 	transform: rotate(-45deg) !important;
 }
 
 /* 画像サイズ */
-#login_img {
+.img {
 	height: 280px;
 }
 /* 画像を上に固定 */
@@ -90,108 +91,21 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ONOFFスイッチの作成 */
-
-
-
-/* ボタンを押したときのベースの設定 */
-input:checked ~ .base {
-  background-color: rgb(219, 234, 254);
-  transition: 0.5s;
+.login:checked ~ #login_img {
+	height: 0px;
+	width: 0px;
+	display: none;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	transition: all 0.3s;
 }
 
-/* ボタンを押したときのボールの設定 */
-input:checked ~ .circle {
-  transform: translateX(100%);
-  background-color: blue;
+.next_img {
+	margin-right: 16px;
+	flex: 1 1 auto;
 }
-
-/* ベースの設定 */
-.base {
-  width: 56px;
-  border-radius: 16px;
-  height: 32px;
-  background-color: #ddd;
+.next{
+	flex: 0 0 336px;
 }
-
-/* ボールの設定 */
-.circle {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
-  background-color: gray;
-  transition: 0.5s;
-}
-
-
-/*  */
-
-/* チェックボックスの設定（画面上で見えない） */
-input[type='checkbox'] {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
-/* スイッチの場所設定 */
-.switch_label {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/* 場所の設定 */
-#switch {
-  position: relative;
-}
-
-/* 文字の設定(カテゴリ) */
-.title {
-  margin-left: 4px;
-}
-
-/* 文字の設定(機能名) */
-.login {
-  margin-left: 8px;
-}
-
-
-
-
-
-
-
 
