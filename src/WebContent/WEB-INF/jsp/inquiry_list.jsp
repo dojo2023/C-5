@@ -8,40 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/mecar/css/common.css">
 <link rel="stylesheet" href="/mecar/css/inquiry_list.css">
-<script src="/mecar/js/inquiry_list.js"></script>
-<!-- ここからついか -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery ライブラリの読み込み -->
-
-<script>
-$(document).ready(function() {
-  // 行をクリックした際にモーダルウィンドウを表示する関数
-  function showModal(imageSrc, altText) {
-    $(".modal-block").fadeIn(); // モーダルウィンドウを表示する
-    $("#popup").attr("src", imageSrc); // 画像のパスを設定する
-    $(".caption").text(altText); // altの内容を表示する
-  }
-
-  // モーダルウィンドウを非表示にする関数
-  function hideModal() {
-    $(".modal-block").fadeOut(); // モーダルウィンドウを非表示にする
-  }
-
-  // 行をクリックした際にモーダルウィンドウを制御するイベントハンドラを追加
-  $(".hoge-item").on("click", function() {
-    var imageSrc = $(this).find("img").attr("src"); // クリックされた行内の画像のパスを取得
-    var altText = $(this).find("img").attr("alt"); // クリックされた行内のaltの内容を取得
-    showModal(imageSrc, altText); // モーダルウィンドウを表示する
-  });
-
-  // モーダルウィンドウの閉じるボタンをクリックした際のイベントハンドラを追加
-  $(".modal-block span").on("click", function() {
-    hideModal(); // モーダルウィンドウを非表示にする
-  });
-});
-</script>
-
-<!-- ここまでついか -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
 <!-- リボンメニュー -->
@@ -74,10 +41,12 @@ $(document).ready(function() {
 					<td>日付</td>
 					</tr>
 
-
  				 <c:forEach var="e" items="${cardList2}">
-
+				 <!-- この一行をクリックするとモーダルウィンドウが表示される -->
+				 <form method="POST" action="/mecar/InquiryListServlet" class="contents_show">
+            	 <table border="1">
        			 <tr>
+       			 <div class="contents_show">
          		 <td>
          	     <c:choose>
        			 <c:when test="${e.inquiry_status == 0}">未対応</c:when>
@@ -89,26 +58,56 @@ $(document).ready(function() {
            		 <td>${e.user_mail}</td>
           	     <td>${e.inquiry_subject}</td>
         		 <td>${e.inquiry_date}</td>
+        		 </div>
       			 </tr>
+      			 </table>
+				 </form>
    				 </c:forEach>
               	 </table>
             	 </div>
+
+            	 <!-- ここからポップアップ -->
+            	 <!-- プルダウンを閉じるボタン -->
+
+
+    <div class="contents_wrapper">
+		<div class="contents_modal">
+			<div class="close_contents_modal">x</div>
+			<div class="contents">
+				<div class="content">
+					<p>お問い合わせ詳細</p>
+				</div>
+				<div class="content">
+					<p>ユーザーID</p>
+					<p class="user_id"></p>
+				</div>
+				<div class="content">
+					<p>メールアドレス</p>
+					<p class="user_mail"></p>
+				</div>
+				<p>件名</p>
+					<p class="inquiry_subject"></p>
+				</div>
+				<div class="content">
+					<p>お問い合わせ内容</p>
+					<p class="inquiry_content"></p>
+				</div>
+				<div class="regist">
+						<p>対応ステータス</p>
+						<select name="inquiry_status" size="1">
+							<option value="0">未対応</option>
+							<option value="1">対応中</option>
+							<option value="2">対応済み</option>
+						</select>
+					</div>
+					<input type="submit" name="submit">
+		</div>
+	</div>
+
     </main>
 <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
-
-<!-- ここからついか -->
-<!-- モーダルウィンドウ -->
-<div class="modal-block">
-  <div class="img-section">
-    <span>Close</span>
-    <img id="popup" src="">
-    <div class="caption"></div>
-  </div>
-</div>
-
-<!-- ここまでついか -->
-
+<script src="/mecar/js/inquiry_list.js"></script>
 </body>
 </html>

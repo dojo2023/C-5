@@ -1,22 +1,15 @@
-// 行をクリックした際にポップアップを表示する関数
-function showPopup() {
-  var popupRow = document.getElementById("popupRow");
-  popupRow.style.display = "block";
-}
+'use strict';
 
-// 行をクリックした際にポップアップを非表示にする関数
-function hidePopup() {
-  var popupRow = document.getElementById("popupRow");
-  popupRow.style.display = "none";
-}
-
-// 行をクリックした際にポップアップを制御するイベントハンドラを追加
-var row = document.getElementById("popupRow");
-row.addEventListener("click", function() {
-  var popupVisible = (row.style.display === "block");
-  if (popupVisible) {
-    hidePopup();
-  } else {
-    showPopup();
-  }
+$(function() {
+	/* お問い合わせ内容確認ポップアップ */
+	$('.contents_show').click(
+		function() {
+			$('.contents_wrapper').fadeIn();
+		}
+	);$('.close_contents_modal').click(
+		function() {
+			//モーダルを閉じるボタンがクリックされた場合にモーダルを閉じる
+			$('.contents_wrapper').fadeOut();
+		}
+	);
 });
