@@ -40,12 +40,16 @@ public class DeleteUserServlet extends HttpServlet {
         if (success) {
             // 削除成功の場合の処理
             response.sendRedirect("/mecar/UsersListServlet");
+            System.out.println("削除成功！");
         } else {
             // 削除失敗の場合の処理
+        	response.sendRedirect("/mecar/UsersListServlet");
+            System.out.println("削除失敗！");
             // エラーメッセージなどを設定し、エラーページにフォワードするなどの処理を行う
             // 例: request.setAttribute("errorMessage", "削除に失敗しました。");
             //     RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
             //     dispatcher.forward(request, response);
         }
+
     }
 }

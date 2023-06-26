@@ -46,7 +46,7 @@ public class RegistItemServlet extends HttpServlet {
 		int price = Integer.parseInt(request.getParameter("price"));
 		int category = Integer.parseInt(request.getParameter("category"));
 		int frequency = Integer.parseInt(request.getParameter("frequency"));
-		int dSwitch = Integer.parseInt(request.getParameter("switch"));
+		int dSwitch = 0;
 		double meter = Double.parseDouble(request.getParameter("meter"));
 
 		//セッションスコープからインスタンスを取得する（ユーザーIDを取得する準備）
@@ -55,7 +55,7 @@ public class RegistItemServlet extends HttpServlet {
 		//登録処理を行う
 		ItemsDao iDao = new ItemsDao();
 		iDao.insert(new Items(0, (String)user_id.getUser_id(), name, url, price, category,
-				frequency, dSwitch, meter));
+				frequency, 0, meter));
 
 		//メニューサーブレットにリダイレクトする
 		response.sendRedirect("/mecar/MenuServlet");
