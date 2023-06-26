@@ -6,12 +6,12 @@
 	background-color: #668c95;
 }
 
-.contents_show {
+nobr, .contents_show, .update_show, .regist_show {
 	cursor: pointer;
 }
 
-/* 商品内容確認・削除ポップアップ */
-.contents_wrapper, .regist_wrapper {
+/* ポップアップ全体 */
+.contents_wrapper, .regist_wrapper, .update_wrapper {
 	/* デフォルトはdisplay: none;で非表示 */
 	display: none;
 	position: fixed;
@@ -23,7 +23,7 @@
 	z-index: 100;
 }
 
-.contents_modal, .regist_modal {
+.contents_modal, .regist_modal, .update_modal {
 	position: absolute;
 	top: 20%;
 	left: 34%;
@@ -35,7 +35,7 @@
 	text-align: center;
 }
 
-.close_contents_modal, .close_regist_modal {
+.close_modal {
 	position: absolute;
 	top: 12px;
 	right: 12px;
