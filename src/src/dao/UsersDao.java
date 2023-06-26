@@ -305,7 +305,7 @@ public class UsersDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 				// SQL文を準備する
-				String sql = "insert into USERS values (null, ?, ?, ?, null)";
+				String sql = "insert into USERS values (null, ?, ?, ?, CURRENT_DATE)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
