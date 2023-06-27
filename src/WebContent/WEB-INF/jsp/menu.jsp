@@ -150,7 +150,7 @@
 			<input type="hidden" value="" class="content_meter">
 			<input type="hidden" value="" class="content_url">
 			<!-- 商品削除のボタン -->
-			<form method="POST" action="/mecar/DeleteItemServlet">
+			<form method="POST" action="/mecar/DeleteItemServlet" onSubmit="return check()">
 				<input type="hidden" name="item_id" value="" class="item_id">
 				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png" name="deleteItem">
 			</form>

@@ -97,26 +97,25 @@ $(function() {
 
 
 /* 商品を削除するときのダイアログボックス */
-/* htmlの書き方
-							<a onclick="MoveCheck();" class="任意のクラス">
-								<label for="(任意のラベル)" class="（任意のクラス）">
-									<span>削除</span>
-								</label>
-							</a>
-*/
-/*
-function MoveCheck() {
-	if( confirm("削除しますか") ) {
-        window.location.href = "/mecar/UpdateItemServlet";
-    }
-    else {
-        alert("削除を取り消しました。");
-    }
+function check(){
+
+	if(window.confirm('削除してよろしいですか？')){ // 確認ダイアログを表示
+
+		return true; // 「OK」時は送信を実行
+
+	}
+	else{ // 「キャンセル」時の処理
+
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		return false; // 送信を中止
+
+	}
+
 }
-*/
 
 /* 商品登録時の空欄防止 */
 document.getElementById('Registitem_form').onsubmit = function(event) {
+
     const name_i = document.getElementById('Registitem_form').name.value;
     const url_i = document.getElementById('Registitem_form').url.value;
     const frequency_i =document.getElementById('Registitem_form').frequency.value;
