@@ -35,6 +35,23 @@
 	background:#23454d;
 	opacity: 0.6;
 }
+.Label11 {
+	background:#668c95;
+	opacity: 1;
+}
+.Label12 {
+	background:#668c95;
+	opacity:0.9;
+}
+.Label13 {
+	background:#668c95;
+	opacity: 0.8;
+}
+.Label14 {
+	background:#668c95;
+	opacity: 0.7;
+}
+
 
 
 
@@ -83,7 +100,7 @@
 
 /* 画像サイズ */
 .img {
-	height: 280px;
+	width: 300px;
 }
 /* 画像を上に固定 */
 .img {
@@ -91,7 +108,7 @@
 }
 
 
-.login:checked ~ #login_img {
+.login:checked #login_img {
 	height: 0px;
 	width: 0px;
 	display: none;
@@ -102,10 +119,9 @@
 }
 
 .next_img {
-	margin-right: 16px;
-	flex: 1 1 auto;
+	float: left;
 }
 .next{
-	flex: 0 0 336px;
+	float: left;
 }
 

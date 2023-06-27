@@ -30,7 +30,7 @@
 			<form id="form" method="POST" action="/mecar/ChangePasswordServlet">
 				<input type="hidden" name="USER_MAIL" value="${user_id.user_mail}">
 				<input type="hidden" name="PW" value="${user_id.user_pw}">
-				<table>
+				<table align="center">
 					<tr>
 						<td>
 							ユーザーID
