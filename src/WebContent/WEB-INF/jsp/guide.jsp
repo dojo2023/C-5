@@ -390,6 +390,18 @@
 				</div>
 
 
+<!-- ログアウト -->
+				<input id="block-logout" type="checkbox" class="toggle">
+				<label class="Label Label1" for="block-logout">ログアウト</label>
+				<div class="content">
+					<p>
+						画面右上にあるログアウトボタンからログアウトすることができます。<br>
+						セキュリティ上使い終わったらログアウトをお勧めします。<br>
+						※一定時間で自動的にログアウトされます。
+					</p>
+				</div>
+
+
 			</section>
 		</main>
 		<footer>
