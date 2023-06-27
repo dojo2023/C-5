@@ -159,29 +159,151 @@
 				</div>
 
 <!-- メニューページ -->
-				<input id="block-06" type="checkbox" class="toggle">
-				<label class="Label Label1" for="block-06">メニューページ</label>
+				<input id="block-menu-01" type="checkbox" class="toggle">
+				<label class="Label Label1" for="block-menu-01">メニューページ</label>
 				<div class="content">
-					<input id="block-07" type="checkbox" class="toggle">
-					<label class="Label Label2" for="block-07">ログイン</label>
-					<div class="content">
-						<p>ログインできます。</p>
-					</div>
-					<input id="block-08" type="checkbox" class="toggle">
-					<label class="Label Label3" for="block-08">リセット</label>
-					<div class="content">
-						<p>リセットできます。</p>
-					</div>
-					<input id="block-09" type="checkbox" class="toggle">
-					<label class="Label Label4" for="block-09">新規登録</label>
-					<div class="content">
-						<p>新規登録フォームに遷移します。</p>
-					</div>
-					<input id="block-10" type="checkbox" class="toggle">
-					<label class="Label Label5" for="block-10">パスワードを忘れた方</label>
-					<div class="content">
-						<p>パスワード変更ができます。</p>
-					</div>
+					<table>
+						<tr>
+							<td rowspan="6" class="img">
+								<img src="/mecar/img/ryuse.jpg" class="img" id="login_img" style="">
+							</td>
+							<td>
+								<input id="block-menu-02" type="checkbox" class="toggle">
+								<label class="Label Label1" for="block-menu-02">①減量日数選択</label>
+								<div class="content">
+									<p>
+										一斉減量する日数を選択するプルダウンメニューです。<br>
+										前回減量した日からの日数を選択するには自動減量を押してください。<br>
+										手動で日数を選ぶ際は1日～7日を選択することができます。
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-menu-03" type="checkbox" class="toggle">
+								<label class="Label Label2" for="block-menu-03">②一斉減量ボタン</label>
+								<div class="content">
+									<p>
+										クリックすることで各商品から、①で選択した日数分の割合を減量します。<br>
+										毎日一回押すことをお勧めします。
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-menu-04" type="checkbox" class="toggle">
+								<label class="Label Label3" for="block-menu-04">③商品検索</label>
+								<div class="content">
+									<p>
+										登録した商品を探すことができます。<br>
+										商品名を入力し、虫眼鏡マークをクリックまたはEnterキーを押してください。<br>
+										入力した文字が含まれる商品を表示します。
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-menu-05" type="checkbox" class="toggle login">
+								<label class="Label Label4" for="block-menu-05">④カテゴリ</label>
+								<div class="content">
+									<p>
+										クリックすることで選択したカテゴリの商品一覧を表示します。<br>
+										左から、全て、食料品、日用品、ケア用品、その他のカテゴリです。<br>
+										各商品は、登録の際に選択したカテゴリに分類されます。
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-menu-06" type="checkbox" class="toggle login">
+								<label class="Label Label5 login" for="block-menu-06">⑤商品一覧</label>
+								<div class="content">
+									<p>
+										残量メーターの少ない順に表示します。<br>
+										商品名、残量メーター、ON/OFFスイッチが表示されています。<br>
+										クリックすることで商品の詳細を確認することができます。<br>
+										スイッチをOFFにすることで、一斉減量ボタンを押しても、<br>
+										その商品が減量しなくなります。
+									</p>
+									<br>
+									<div  class="next_img">
+										<img src="/mecar/img/mejiji.jpg" class="img">
+									</div>
+									<div class="next">
+										<input id="block-forget-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-forget-01">①入力フォーム</label>
+										<div class="content">
+											<p>
+												ユーザーID、メールアドレス、パスワードの入力フォームです。<br>
+												ご自身のユーザーID、メールアドレス、新しいパスワードを入力し、<br>
+												②登録ボタンを押してください。
+											</p>
+										</div>
+										<input id="block-forget-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-forget-02">②登録</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力内容の確認を行います。<br>
+												入力情報が正しいと、パスワード変更をすることができます。
+											</p>
+										</div>
+										<input id="block-forget-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-forget-03">③リセット</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力フォームの内容をリセットできます。
+											</p>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-menu-07" type="checkbox" class="toggle">
+								<label class="Label Label6" for="block-menu-07">⑥商品登録</label>
+								<div class="content">
+									<p>
+										クリックすることで、商品登録ポップアップを表示します<br>
+									</p>
+									<br>
+									<div  class="next_img">
+										<img src="/mecar/img/yakiniku.jpg" class="img">
+									</div>
+									<div class="next">
+										<input id="block-forget-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-forget-01">①入力フォーム</label>
+										<div class="content">
+											<p>
+												ユーザーID、メールアドレス、パスワードの入力フォームです。<br>
+												ご自身のユーザーID、メールアドレス、新しいパスワードを入力し、<br>
+												②登録ボタンを押してください。
+											</p>
+										</div>
+										<input id="block-forget-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-forget-02">②登録</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力内容の確認を行います。<br>
+												入力情報が正しいと、パスワード変更をすることができます。
+											</p>
+										</div>
+										<input id="block-forget-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-forget-03">③リセット</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力フォームの内容をリセットできます。
+											</p>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
 				</div>
 
 <!-- マイページ -->

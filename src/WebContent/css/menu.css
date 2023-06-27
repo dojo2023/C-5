@@ -195,7 +195,6 @@ main h1 {
 	transition: all 0.5s;
 }
 
-
 /* ポップアップ全体 */
 .contents_wrapper, .regist_wrapper, .update_wrapper {
 	/* デフォルトはdisplay: none;で非表示 */
@@ -212,20 +211,50 @@ main h1 {
 .contents_modal, .regist_modal, .update_modal {
 	position: absolute;
 	top: 20%;
-	left: 34%;
+	left: 25%;
 	background-color: #e6ecf0;
 	padding: 20px 0 40px;
 	border-radius: 10px;
-	width: 450px;
+	width: 650px;
 	height: auto;
 	text-align: center;
 }
 
 .close_modal {
 	position: absolute;
-	top: 12px;
+	top: 6px;
 	right: 12px;
+	font-size: 30px;
 	color: rgba(128,128,128,0.46);
 	cursor: pointer;
+}
+
+/* 商品登録ポップアップ */
+.regist_container {
+	display: flex;
+}
+
+.regist {
+	margin: 15px 0;
+}
+
+.regist p {
+	font-size: 20px;
+}
+
+.regist_container .regist {
+	width: 50%;
+}
+
+.regist input, .regist select {
+	font-size: 20px;
+}
+
+.meter_input2 {
+	width: 350px;
+}
+
+.regist_btn {
+
 }
 
