@@ -8,6 +8,16 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/mecar/css/common.css">
 <link rel="stylesheet" href="/mecar/css/inquiry_list.css">
+
+
+<style>
+  div.table-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
@@ -31,40 +41,48 @@
   	         <input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
   	         </div>
              </form>
-            	<div class="table-container">
+     <div class="table-container">
             	<table border="1">
 					<tr>
-					<td>対応ステータス</td>
-					<td>ユーザーID</td>
-					<td>メールアドレス</td>
-					<td>件名</td>
-					<td>日付</td>
+						<td>対応ステータス</td>
+						<td>ユーザーID</td>
+						<td>メールアドレス</td>
+						<td>件名</td>
+						<td>日付</td>
 					</tr>
 
- 				 <c:forEach var="e" items="${cardList2}">
-				 <!-- この一行をクリックするとモーダルウィンドウが表示される -->
-				 <form method="POST" action="/mecar/InquiryListServlet" class="contents_show">
-            	 <table border="1">
-       			 <tr>
-       			 <div class="contents_show">
-         		 <td>
-         	     <c:choose>
-       			 <c:when test="${e.inquiry_status == 0}">未対応</c:when>
-       			 <c:when test="${e.inquiry_status == 1}">対応中</c:when>
-      			 <c:when test="${e.inquiry_status == 2}">対応済み</c:when>
-    			 </c:choose>
-  				 </td>
-          		 <td>${e.user_id}</td>
-           		 <td>${e.user_mail}</td>
-          	     <td>${e.inquiry_subject}</td>
-        		 <td>${e.inquiry_date}</td>
-        		 </div>
-      			 </tr>
-      			 </table>
-				 </form>
-   				 </c:forEach>
-              	 </table>
-            	 </div>
+
+ 			  	 <c:forEach var="e" items="${cardList2}">
+				 	<!-- この一行をクリックするとモーダルウィンドウが表示される -->
+			<!--  	 	<div  class="contents_show">  -->
+			<tr>
+				<!--   	<form method="POST" action="/mecar/InquiryListServlet" class="contents_show">     -->
+
+
+				<!--  		<table border="1">   -->
+
+
+         		 				<td class="inquiry-status-cell">
+         	     				 <c:choose>
+       			 				    <c:when test="${e.inquiry_status == 0}">未対応</c:when>
+       			 					<c:when test="${e.inquiry_status == 1}">対応中</c:when>
+      			 					<c:when test="${e.inquiry_status == 2}">対応済み</c:when>
+    			 			     </c:choose>
+  				 				</td>
+          		 				<td class="user-id-cell">${e.user_id}</td>
+           		 				<td class="user-mail-cell">${e.user_mail}</td>
+          	     				<td class="inquiry-subject-cell">${e.inquiry_subject}</td>
+        		 				<td class="inquiry-date-cell">${e.inquiry_date}</td>
+
+
+			<!--  			</table>   -->
+			<!--  	 </form>       -->
+				  </tr>
+			<!--  	 </div>  -->
+   			 	 </c:forEach>
+   			</table>
+
+	</div>
 
             	 <!-- ここからポップアップ -->
             	 <!-- プルダウンを閉じるボタン -->
