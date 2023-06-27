@@ -9,14 +9,10 @@
   align-items: center;
 }*/
 .table-container {
-  width: 80%;
+  width: 100%;
 }
 
-table td {
-  width: 33%;
-}
-
-td.inquiry-subject-cell {
+td.inquiry-status-cell {
   /* 対応ステータス列の横幅を調整する */
   width: 20%;
 }
@@ -49,6 +45,8 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: #ffffff;
 }
+
+
 /* お問い合わせ内容確認ポップアップ */
 .contents_wrapper, .regist_wrapper {
 	/* デフォルトはdisplay: none;で非表示 */
