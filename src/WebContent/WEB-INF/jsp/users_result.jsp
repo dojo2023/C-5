@@ -7,7 +7,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/mecar/css/common.css">
-<link rel="stylesheet" href="/mecar/css/inquiry_list.css">
+<link rel="stylesheet" href="/mecar/css/users_list.css">
+
+
+<style>
+  div.table-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+
 </head>
 <body>
 <header>
@@ -34,12 +44,12 @@
 					<tr>
 					<td>ユーザーID</td>
 					<td>メールアドレス</td>
-					<td>削除</td>
+					<td class="delete-cell">削除</td>
 					</tr>
 					<c:forEach var="e" items="${cardList}">
        				<tr>
-          			<td>${e.user_id}</td>
-           			<td>${e.user_mail}</td>
+          			<td class="user-id-cell">${e.user_id}</td>
+           			<td class="user-mail-cell">${e.user_mail}</td>
            			<td>
            			<form id = "delete_form" method="POST" action="/mecar/DeleteUserServlet">
                		<input type="hidden" name="userId" value="${e.user_id}">

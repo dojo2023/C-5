@@ -1,13 +1,53 @@
 @charset "UTF-8";
-
-.right-align {
+/*.right-align {
   float: right;
   margin-right:  100px;
-}
-.table-container {
+}*/
+/*.table-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}*/
+.table-container {
+  width: 80%;
+}
+
+table td {
+  width: 33%;
+}
+
+td.inquiry-subject-cell {
+  /* 対応ステータス列の横幅を調整する */
+  width: 20%;
+}
+
+td.user-id-cell {
+  /* ユーザーID列の横幅を調整する */
+  width: 10%;
+}
+td.user-mail-cell {
+  /* メールアドレス列の横幅を調整する */
+  width: 20%;
+}
+
+td.inquiry-subject-cell {
+  /* 件名列の横幅を調整する */
+  width: 30%;
+}
+td.inquiry-date-cell {
+  /* 日付列の横幅を調整する */
+  width: 20%;
+}
+div.table-container {
+  display: flex;
+  justify-content: center;
+}
+tr:nth-child(even) {
+  background-color: #b0c4de;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 /* お問い合わせ内容確認ポップアップ */
 .contents_wrapper, .regist_wrapper {
