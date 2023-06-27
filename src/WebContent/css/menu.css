@@ -70,6 +70,7 @@ main h1 {
 
 .decrease_input:hover {
 	opacity: 1;
+	transition: all 0.5s;
 }
 
 .decrease_input:active {
@@ -107,6 +108,12 @@ main h1 {
 	background-color: #668c95;
 	border-radius: 15px;
 	margin: 30px 15px;
+	opacity: 0.8;
+}
+
+.category:hover {
+	opacity: 1;
+	transition: all 0.5s;
 }
 
 .category input {
@@ -149,6 +156,7 @@ main h1 {
 
 .item_switch1:hover {
 	opacity: 1;
+	transition: all 0.5s;
 }
 
 .item_switch2 {
@@ -168,6 +176,7 @@ main h1 {
 
 .item_switch2:hover {
 	opacity: 1;
+	transition: all 0.5s;
 }
 
 /* 商品登録ボタン */
@@ -175,6 +184,15 @@ main h1 {
 	position: fixed;
 	bottom: 20px;
 	right: 10px;
+	opacity: 0.7;
+}
+
+.regist_show:hover {
+	opacity: 1;
+	background-color: rgba(211,211,211,0.4);
+	border-radius: 25px;
+	padding: 30px;
+	transition: all 0.5s;
 }
 
 
