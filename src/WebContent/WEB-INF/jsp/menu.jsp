@@ -29,23 +29,25 @@
 	<h1>メニュー</h1>
 
 	<!-- 一斉減量ボタン -->
-	<form method="POST" action="/mecar/DecreaseServlet">
-		<select name="pullNumber" size="1" class="decrease_select">
-			<option value=0 selected>自動減量</option>
-			<option value=1>1日</option>
-			<option value=2>2日</option>
-			<option value=3>3日</option>
-			<option value=4>4日</option>
-			<option value=5>5日</option>
-			<option value=6>6日</option>
-			<option value=7>7日</option>
-		</select>
+	<form method="POST" action="/mecar/DecreaseServlet" class="decrease_wrapper">
+		<label class="decrease_select">
+			<select name="pullNumber" size="1">
+				<option value=0 selected>自動減量</option>
+				<option value=1>1日</option>
+				<option value=2>2日</option>
+				<option value=3>3日</option>
+				<option value=4>4日</option>
+				<option value=5>5日</option>
+				<option value=6>6日</option>
+				<option value=7>7日</option>
+			</select>
+		</label>
 		<input type="submit" name="submit" value="一斉減量" class="decrease_input">
 	</form>
 
 	<!-- キーワード検索 -->
-	<form method="POST" action="/mecar/SearchItemServlet">
-		<input type="search" name="item_name">
+	<form method="POST" action="/mecar/SearchItemServlet" class="keyword_wrapper">
+		<input type="search" name="item_name" class="keyword">
 		<input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
 	</form>
 
