@@ -47,7 +47,7 @@
 
 	<!-- キーワード検索 -->
 	<form method="POST" action="/mecar/SearchItemServlet" class="keyword_wrapper">
-		<input type="search" name="item_name" class="keyword">
+		<input type="search" name="item_name" placeholder="商品検索" class="keyword">
 		<input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
 	</form>
 
@@ -118,10 +118,10 @@
 					<!-- 減量停止・再開スイッチ -->
 					<c:choose>
 						<c:when test="${e.item_switch == 0}">
-							<input type="submit" name="item_switch" value="OFF" class="item_switch">
+							<input type="submit" name="item_switch" value="OFF" class="item_switch1">
 						</c:when>
 						<c:when test="${e.item_switch == 1}">
-							<input type="submit" name="item_switch" value="ON" class="item_switch">
+							<input type="submit" name="item_switch" value="ON" class="item_switch2">
 						</c:when>
 					</c:choose>
 				</form>

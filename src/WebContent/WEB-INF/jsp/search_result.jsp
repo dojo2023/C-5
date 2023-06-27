@@ -29,23 +29,25 @@
 	<h1>検索結果</h1>
 
 	<!-- 一斉減量ボタン -->
-	<form method="POST" action="/mecar/DecreaseServlet">
-		<select name="pullNumber" size="1">
-			<option value=0 selected>自動減量</option>
-			<option value=1>1日</option>
-			<option value=2>2日</option>
-			<option value=3>3日</option>
-			<option value=4>4日</option>
-			<option value=5>5日</option>
-			<option value=6>6日</option>
-			<option value=7>7日</option>
-		</select>
-		<input type="submit" name="submit" value="一斉減量">
+	<form method="POST" action="/mecar/DecreaseServlet" class="decrease_wrapper">
+		<label class="decrease_select">
+			<select name="pullNumber" size="1">
+				<option value=0 selected>自動減量</option>
+				<option value=1>1日</option>
+				<option value=2>2日</option>
+				<option value=3>3日</option>
+				<option value=4>4日</option>
+				<option value=5>5日</option>
+				<option value=6>6日</option>
+				<option value=7>7日</option>
+			</select>
+		</label>
+		<input type="submit" name="submit" value="一斉減量" class="decrease_input">
 	</form>
 
 	<!-- キーワード検索 -->
-	<form method="POST" action="/mecar/SearchItemServlet">
-		<input type="search" name="item_name">
+	<form method="POST" action="/mecar/SearchItemServlet" class="keyword_wrapper">
+		<input type="search" name="item_name" placeholder="商品検索" class="keyword">
 		<input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
 	</form>
 
@@ -116,10 +118,10 @@
 					<!-- 減量停止・再開スイッチ -->
 					<c:choose>
 						<c:when test="${e.item_switch == 0}">
-							<input type="submit" name="item_switch" value="OFF">
+							<input type="submit" name="item_switch" value="OFF" class="item_switch1">
 						</c:when>
 						<c:when test="${e.item_switch == 1}">
-							<input type="submit" name="item_switch" value="ON">
+							<input type="submit" name="item_switch" value="ON" class="item_switch2">
 						</c:when>
 					</c:choose>
 				</form>

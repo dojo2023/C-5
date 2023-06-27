@@ -2,9 +2,6 @@
 
 /* カテゴリ検索 */
 /* とりあえず後で修正 */
-.category input {
-	background-color: #668c95;
-}
 
 nobr, .contents_show, .update_show, .regist_show, .item_switch {
 	cursor: pointer;
@@ -16,7 +13,8 @@ nobr, .contents_show, .update_show, .regist_show, .item_switch {
 
 
 /* タイトル */
-h1 {
+main h1 {
+	padding: 10px 20px;
 	border-bottom: 2px solid #d1d2d3;
 }
 
@@ -67,6 +65,11 @@ h1 {
 	color: #fff;
 	cursor: pointer;
 	appearance: none;
+	opacity: 0.8;
+}
+
+.decrease_input:hover {
+	opacity: 1;
 }
 
 .decrease_input:active {
@@ -78,20 +81,101 @@ h1 {
 /* キーワード検索 */
 .keyword_wrapper {
 	float: right;
+	margin: 30px 10px;
 }
 
 .keyword {
 	border: 1px solid #668c95;
 	border-radius: 20px;
-	padding: 7px ;
+	padding: 7px 14px;
 	font-size: 20px;
+	width: 350px;
 }
 
+/* 商品一覧 */
+.list_wrapper {
+	padding-bottom: 50px;
+}
 
+/* カテゴリ部分 */
+.categories_container form {
+	text-align:center;
+}
 
+.category {
+	display: inline-block;
+	background-color: #668c95;
+	border-radius: 15px;
+	margin: 30px 15px;
+}
 
+.category input {
+	padding: 10px;
+}
 
+/* 商品部分 */
+.items_container form {
+	text-align: center;
+	padding: 20px 0;
+}
 
+.items_container nobr {
+	font-size: 25px;
+	position: absolute;
+	left: 20%;
+}
+
+.items_container meter {
+	height: 25px;
+	width: 350px;
+	position: absolute;
+	left: 42%;
+}
+
+.item_switch1 {
+	position: absolute;
+	left: 78%;
+	padding: 5px 20px;
+	border-radius: 5px;
+	border: none;
+	background-color: #668c95;
+	font-size: 100%;
+	font-weight: normal;
+	color: #fff;
+	cursor: pointer;
+	appearance: none;
+	opacity: 0.8;
+}
+
+.item_switch1:hover {
+	opacity: 1;
+}
+
+.item_switch2 {
+	position: absolute;
+	left: 78%;
+	padding: 5px 20px;
+	border-radius: 5px;
+	border: none;
+	background-color: #d4acaa;
+	font-size: 100%;
+	font-weight: normal;
+	color: #fff;
+	cursor: pointer;
+	appearance: none;
+	opacity: 0.8;
+}
+
+.item_switch2:hover {
+	opacity: 1;
+}
+
+/* 商品登録ボタン */
+.regist_show {
+	position: fixed;
+	bottom: 20px;
+	right: 10px;
+}
 
 
 /* ポップアップ全体 */
