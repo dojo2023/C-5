@@ -246,34 +246,38 @@
 			<div class="close_modal">x</div>
 			<form method="POST" action="/mecar/RegistItemServlet" id = "Registitem_form" >
 				<div class="regists">
-					<div class="regist">
-						<p>商品名</p>
-						<input type="text" name="name" placeholder="商品名">
+					<div class="regist_container">
+						<div class="regist">
+							<p>商品名</p>
+							<input type="text" name="name" placeholder="商品名">
+						</div>
+						<div class="regist">
+							<p>値段</p>
+							<input type="text" name="price" placeholder="値段">
+						</div>
 					</div>
-					<div class="regist">
-						<p>値段</p>
-						<input type="text" name="price" placeholder="値段">
-					</div>
-					<div class="regist">
-						<p>購入頻度</p>
-						<select name="frequency" size="1">
-							<option value="" selected hidden>選択してください</option>
-							<option value="1">１週間</option>
-							<option value="2">２週間</option>
-							<option value="3">１か月</option>
-							<option value="4">２か月</option>
-							<option value="5">３か月</option>
-						</select>
-					</div>
-					<div class="regist">
-						<p>カテゴリ</p>
-						<select name="category" size="1">
-							<option value="" selected hidden>選択してください</option>
-							<option value="1">食料品</option>
-							<option value="2">日用品</option>
-							<option value="3">ケア用品</option>
-							<option value="4">その他</option>
-						</select>
+					<div class="regist_container">
+						<div class="regist">
+							<p>購入頻度</p>
+							<select name="frequency" size="1">
+								<option value="" selected hidden>選択してください</option>
+								<option value="1">１週間</option>
+								<option value="2">２週間</option>
+								<option value="3">１か月</option>
+								<option value="4">２か月</option>
+								<option value="5">３か月</option>
+							</select>
+						</div>
+						<div class="regist">
+							<p>カテゴリ</p>
+							<select name="category" size="1">
+								<option value="" selected hidden>選択してください</option>
+								<option value="1">食料品</option>
+								<option value="2">日用品</option>
+								<option value="3">ケア用品</option>
+								<option value="4">その他</option>
+							</select>
+						</div>
 					</div>
 					<div class="regist">
 						<p>残量メーター</p>
@@ -284,8 +288,8 @@
 						<p>リンク</p>
 						<input type="url" name="url" placeholder="リンク">
 					</div>
-					<input type="submit" name="submit" value="登録">
-					 <p id="output" class="error"></p>
+					<input type="submit" name="submit" value="登録" class="regist_btn">
+					<p id="output" class="error"></p>
                     <span id="regist_message" class = "error_regist"></span>
 				</div>
 			</form>
