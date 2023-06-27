@@ -74,27 +74,29 @@
 						</tr>
 						<tr>
 							<td>
-								<input id="block-05" type="checkbox" class="toggle">
+								<input id="block-05" type="checkbox" class="toggle login">
 								<label class="Label Label4" for="block-05">④新規登録</label>
 								<div class="content">
 									<p>
 										クリックすることで新規登録ページに遷移します。<br>
 									</p>
+									<br>
 									<div  class="next_img">
 										<img src="/mecar/img/新規登録ページ.png" class="img">
 									</div>
 									<div class="next">
 										<input id="block-regist-01" type="checkbox" class="toggle">
-										<label class="Label Label1" for="block-regist-01">①入力フォーム</label>
+										<label class="Label Label11" for="block-regist-01">①入力フォーム</label>
 										<div class="content">
 											<p>
 												ユーザーIDとパスワードの入力フォームです。<br>
-												ご自身のユーザーIDとパスワードを入力し、②登録ボタンを押してください。<br>
+												ご自身のユーザーIDとパスワードを入力し、<br>
+												②登録ボタンを押してください。<br>
 												※既に使用されているユーザーIDは登録できません。
 											</p>
 										</div>
 										<input id="block-regist-02" type="checkbox" class="toggle">
-										<label class="Label Label2" for="block-regist-02">②登録</label>
+										<label class="Label Label12" for="block-regist-02">②登録</label>
 										<div class="content">
 											<p>
 												クリックすることで、入力内容の確認を行います。<br>
@@ -102,7 +104,7 @@
 											</p>
 										</div>
 										<input id="block-regist-03" type="checkbox" class="toggle">
-										<label class="Label Label3" for="block-regist-03">③リセット</label>
+										<label class="Label Label13" for="block-regist-03">③リセット</label>
 										<div class="content">
 											<p>
 												クリックすることで、入力フォームの内容をリセットできます。
@@ -120,6 +122,36 @@
 									<p>
 										クリックすることでパスワード変更ページに遷移します。
 									</p>
+									<br>
+									<div  class="next_img">
+										<img src="/mecar/img/パスワード忘れ.png" class="img">
+									</div>
+									<div class="next">
+										<input id="block-forget-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-forget-01">①入力フォーム</label>
+										<div class="content">
+											<p>
+												ユーザーID、メールアドレス、パスワードの入力フォームです。<br>
+												ご自身のユーザーID、メールアドレス、新しいパスワードを入力し、<br>
+												②登録ボタンを押してください。
+											</p>
+										</div>
+										<input id="block-forget-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-forget-02">②登録</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力内容の確認を行います。<br>
+												入力情報が正しいと、パスワード変更をすることができます。
+											</p>
+										</div>
+										<input id="block-forget-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-forget-03">③リセット</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力フォームの内容をリセットできます。
+											</p>
+										</div>
+									</div>
 								</div>
 							</td>
 						</tr>
@@ -179,17 +211,91 @@
 									<p>
 										パスワード変更ページへ遷移します。
 									</p>
+									<br>
+									<div  class="next_img">
+										<img src="/mecar/img/パスワード変更.png" class="img">
+									</div>
+									<div class="next">
+										<input id="block-changeP-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-changeP-01">①入力フォーム</label>
+										<div class="content">
+											<p>
+												ユーザーIDとパスワードの入力フォームです。<br>
+												ご自身のユーザーID、現在のパスワード、新しいパスワードを入力し、<br>
+												③変更ボタンを押してください。
+											</p>
+										</div>
+										<input id="block-changeP-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-changeP-02">②パスワード表示</label>
+										<div class="content">
+											<p>
+												クリックすることで入力したパスワードの表示・非表示を切り替えます。
+											</p>
+										</div>
+										<input id="block-changeP-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-changeP-03">③変更</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力内容の確認を行います。<br>
+												入力情報が正しいと、パスワード変更をすることができます。
+											</p>
+										</div>
+										<input id="block-changeP-04" type="checkbox" class="toggle">
+										<label class="Label Label14" for="block-changeP-04">④リセット</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力フォームの内容をリセットできます。
+											</p>
+										</div>
+									</div>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input id="block-my-3" type="checkbox" class="toggle">
-								<label class="Label Label4" for="block-my-3">③メールアドレス</label>
+								<label class="Label Label4" for="block-my-3">③メールアドレス変更</label>
 								<div class="content">
 									<p>
 										メールアドレス変更ページへ遷移します。
 									</p>
+									<br>
+									<div  class="next_img">
+										<img src="/mecar/img/メールアドレス変更.png" class="img">
+									</div>
+									<div class="next">
+										<input id="block-changeM-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-changeM-01">①入力フォーム</label>
+										<div class="content">
+											<p>
+												ユーザーID、パスワード、メールアドレスの入力フォームです。<br>
+												ご自身のユーザーID、パスワード、新しいメールアドレスを入力し、<br>
+												③変更ボタンを押してください。
+											</p>
+										</div>
+										<input id="block-changeM-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-changeM-02">②パスワード表示</label>
+										<div class="content">
+											<p>
+												クリックすることで入力したパスワードの表示・非表示を切り替えます。
+											</p>
+										</div>
+										<input id="block-changeM-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-changeM-03">③変更</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力内容の確認を行います。<br>
+												入力情報が正しいと、メールアドレス変更をすることができます。
+											</p>
+										</div>
+										<input id="block-changeM-04" type="checkbox" class="toggle">
+										<label class="Label Label14" for="block-changeM-04">④リセット</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力フォームの内容をリセットできます。
+											</p>
+										</div>
+									</div>
 								</div>
 							</td>
 						</tr>
@@ -198,8 +304,13 @@
 								<input id="block-my-4" type="checkbox" class="toggle">
 								<label class="Label Label5" for="block-my-4">④ご利用ガイド</label>
 								<div class="content">
+									<div  class="next_img">
+										<img src="/mecar/img/ご利用ガイド.png" class="img">
+									</div>
 									<p>
-										当アプリの使い方や見方を説明します。
+										　当アプリの使い方や見方を説明します。<br>
+										　確認したいページを押すとプルダウンメニューが開きます。<br>
+										　詳細機能を押すことで説明を読むことができます。
 									</p>
 								</div>
 							</td>
