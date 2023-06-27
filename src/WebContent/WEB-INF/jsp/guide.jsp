@@ -35,15 +35,16 @@
 				<div class="content">
 					<table>
 						<tr>
-							<td rowspan="4" class="img">
-								<img src="/mecar/img/ログインページ（サンプル）.png" class="img">
+							<td rowspan="5" class="img">
+								<img src="/mecar/img/ログインページ.png" class="img" id="login_img" style="">
 							</td>
 							<td>
 								<input id="block-login-02" type="checkbox" class="toggle">
-								<label class="Label Label2" for="block-login-02">①ログイン</label>
+								<label class="Label Label1" for="block-login-02">①入力フォーム</label>
 								<div class="content">
 									<p>
-										ログインできます。
+										ユーザーIDとパスワードの入力フォームです。<br>
+										ご自身のユーザーIDとパスワードを入力し、②ログインボタンを押してください。
 									</p>
 								</div>
 							</td>
@@ -51,19 +52,22 @@
 						<tr>
 							<td>
 								<input id="block-login-03" type="checkbox" class="toggle">
-								<label class="Label Label3" for="block-login-03">②リセット</label>
+								<label class="Label Label2" for="block-login-03">②ログイン</label>
 								<div class="content">
-									<p>リセットできます。</p>
+									<p>
+										クリックすることで、入力内容の確認を行います。<br>
+										入力情報が正しいとログインすることができます。
+									</p>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input id="block-login-04" type="checkbox" class="toggle">
-								<label class="Label Label4" for="block-login-04">③パスワードを忘れた方</label>
+								<label class="Label Label3" for="block-login-04">③リセット</label>
 								<div class="content">
 									<p>
-										パスワード変更ができます。
+										クリックすることで、入力フォームの内容をリセットできます。
 									</p>
 								</div>
 							</td>
@@ -71,10 +75,50 @@
 						<tr>
 							<td>
 								<input id="block-05" type="checkbox" class="toggle">
-								<label class="Label Label5" for="block-05">④新規登録</label>
+								<label class="Label Label4" for="block-05">④新規登録</label>
 								<div class="content">
 									<p>
-										新規登録フォームに遷移します。
+										クリックすることで新規登録ページに遷移します。<br>
+									</p>
+									<div  class="next_img">
+										<img src="/mecar/img/新規登録ページ.png" class="img">
+									</div>
+									<div class="next">
+										<input id="block-regist-01" type="checkbox" class="toggle">
+										<label class="Label Label1" for="block-regist-01">①入力フォーム</label>
+										<div class="content">
+											<p>
+												ユーザーIDとパスワードの入力フォームです。<br>
+												ご自身のユーザーIDとパスワードを入力し、②登録ボタンを押してください。<br>
+												※既に使用されているユーザーIDは登録できません。
+											</p>
+										</div>
+										<input id="block-regist-02" type="checkbox" class="toggle">
+										<label class="Label Label2" for="block-regist-02">②登録</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力内容の確認を行います。<br>
+												入力情報が正しいと新規登録することができます。
+											</p>
+										</div>
+										<input id="block-regist-03" type="checkbox" class="toggle">
+										<label class="Label Label3" for="block-regist-03">③リセット</label>
+										<div class="content">
+											<p>
+												クリックすることで、入力フォームの内容をリセットできます。
+											</p>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="block-login-06" type="checkbox" class="toggle login">
+								<label class="Label Label5 login" for="block-login-06">⑤パスワードを忘れた方</label>
+								<div class="content">
+									<p>
+										クリックすることでパスワード変更ページに遷移します。
 									</p>
 								</div>
 							</td>
@@ -242,39 +286,3 @@
 		</footer>
 	</body>
 </html>
-<!--
-<!--  				<div class="circle"></div>
-					<div class="base"></div>-->
-
-<!-- ログインページを選択したとき -->
-			<label for="switch" class="switch_label">
-				<div>
-					<input type="checkbox" class="switch" id="switch">
-				</div>
-				<span class="title">ログインページ</span>
-			</label>
-
-<!--
-			<label>
-				<div>
-					<input type="checkbox" class="switch">
-				</div>
-				<span class="title">ログインページ詳細1</span>
-			</label>
--->
-
-<!-- ログインを選択したとき -->
-			<label for="switch1" class="switch_label1">
-				<div>
-					<input type="checkbox" class="switch" id="switch1">
-				</div>
-				<span class="login" id="login"></span>
-			</label>
-			<span class="login" id="login_des"></span>
-
-
-
-			<span class="login" id="reset"></span>
-			<span class="login" id="new_regist"></span>
-			<span class="login" id="forget_pass"></span>
--->
