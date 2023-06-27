@@ -123,10 +123,11 @@ document.getElementById('Registitem_form').onsubmit = function(event) {
     const category_i =document.getElementById('Registitem_form').category.value;
 
     if (name_i === "" || url_i === "" ) {
-    	if(frequency_i === "" || category_i === ""){
         event.preventDefault();
          document.getElementById('output').textContent = '必須事項を入力してください';
          }
-    }
+    if(frequency_i === "" || category_i === ""){
+    event.preventDefault();
+         document.getElementById('output').textContent = '必須事項を入力してください';}
 };
 

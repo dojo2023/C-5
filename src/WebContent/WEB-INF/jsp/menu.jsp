@@ -244,7 +244,7 @@
 		<div class="regist_modal">
 			<!-- プルダウンを閉じるボタン -->
 			<div class="close_modal">x</div>
-			<form method="POST" action="/mecar/RegistItemServlet" id = "Registitem_form" >>
+			<form method="POST" action="/mecar/RegistItemServlet" id = "Registitem_form" >
 				<div class="regists">
 					<div class="regist">
 						<p>商品名</p>
