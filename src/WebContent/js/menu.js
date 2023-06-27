@@ -114,3 +114,19 @@ function MoveCheck() {
     }
 }
 */
+
+/* 商品登録時の空欄防止 */
+document.getElementById('Registitem_form').onsubmit = function(event) {
+    const name_i = document.getElementById('Registitem_form').name.value;
+    const url_i = document.getElementById('Registitem_form').url.value;
+    const frequency_i =document.getElementById('Registitem_form').frequency.value;
+    const category_i =document.getElementById('Registitem_form').category.value;
+
+    if (name_i === "" || url_i === "" ) {
+    	if(frequency_i === "" || category_i === ""){
+        event.preventDefault();
+         document.getElementById('output').textContent = '必須事項を入力してください';
+         }
+    }
+};
+
