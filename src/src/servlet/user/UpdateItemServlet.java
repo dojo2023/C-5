@@ -46,23 +46,17 @@ public class UpdateItemServlet extends HttpServlet {
 		String url = request.getParameter("url");
 		int price = Integer.parseInt(request.getParameter("price"));
 		int category = Integer.parseInt(request.getParameter("category"));
-		int frequency = Integer.parseInt(request.getParameter("frezuency"));
-		int dSwitch = Integer.parseInt(request.getParameter("switch"));
+		int frequency = Integer.parseInt(request.getParameter("frequency"));
 		double meter = Double.parseDouble(request.getParameter("meter"));
-		//hiddenで隠れているリクエストパラメータを取得する
-		String hName = request.getParameter("hName");
-		String hUrl = request.getParameter("hUrl");
+		int item_id = Integer.parseInt(request.getParameter("item_id"));
 
 		//セッションスコープからインスタンスを取得する（ユーザーIDを取得する準備）
 		LoginUsers user_id = (LoginUsers) session.getAttribute("user_id");
 
-		//ItemsDaoのメソッドを呼び出し、item_idを取得する
-		ItemsDao iDao = new ItemsDao();
-		int item_id = iDao.getItemId((String)user_id.getUser_id(), hName, hUrl);
-
 		//更新処理を行う
+		ItemsDao iDao = new ItemsDao();
 		iDao.update(new Items(item_id, (String)user_id.getUser_id(), name, url, price, category,
-				frequency, dSwitch, meter));
+				frequency, 0, meter));
 
 		//メニューサーブレットにリダイレクトする
 		response.sendRedirect("/mecar/MenuServlet");

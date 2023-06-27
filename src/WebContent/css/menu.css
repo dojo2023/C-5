@@ -6,9 +6,15 @@
 	background-color: #668c95;
 }
 
-nobr, .contents_show, .update_show, .regist_show {
+nobr, .contents_show, .update_show, .regist_show, .decrease_select, .decrease_input, .item_switch {
 	cursor: pointer;
 }
+
+
+
+
+
+
 
 /* ポップアップ全体 */
 .contents_wrapper, .regist_wrapper, .update_wrapper {

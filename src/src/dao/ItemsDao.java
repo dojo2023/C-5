@@ -340,7 +340,7 @@ public class ItemsDao {
 
 			// SQL文を準備する
 			String sql = "update Items set   item_name =?, item_url =?, item_price =?, item_category =?, "
-					+ "frequency_purchase =?, item_switch =?, item_meter =? where item_id=?";
+					+ "frequency_purchase =?, item_meter =? where item_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -374,19 +374,13 @@ public class ItemsDao {
 			else {
 				pStmt.setInt(5, 3);
 			}
-			if (card.getItem_switch() != 0) {
-				pStmt.setInt(6, card.getItem_switch());
-			}
-			else {
-				pStmt.setInt(6, 0);
-			}
 			if (card.getItem_meter() != 0) {
-				pStmt.setDouble(7, card.getItem_meter());
+				pStmt.setDouble(6, card.getItem_meter());
 			}
 			else {
-				pStmt.setDouble(7, 0);
+				pStmt.setDouble(6, 0);
 			}
-			pStmt.setInt(8, card.getItem_id());
+			pStmt.setInt(7, card.getItem_id());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

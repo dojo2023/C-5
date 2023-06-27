@@ -17,20 +17,41 @@ $(function() {
 			//取得した商品の情報をポップアップ内に入れ込む
 			$('.contents_modal .item_id').attr('value', id);
 			$('.contents .item_name').text(name);
-			$('.contents .item_price').text(price);
+			$('.contents nobr').text(price);
 			$('.contents .item_frequency').text(frequency);
 			$('.contents .item_category').text(category);
 			$('.contents meter').attr('value', meter);
 			$('.contents .item_url1').attr('href', url);
 			$('.contents .item_url2').attr('href', url);
+			//更新のポップアップに渡したい情報を入れ込む
+			$('.contents_modal .content_id').attr('value',  id);
+			$('.contents_modal .content_name').attr('value', name);
+			$('.contents_modal .content_price').attr('value', price);
+			$('.contents_modal .content_frequency').attr('value', frequency);
+			$('.contents_modal .content_category').attr('value', category);
+			$('.contents_modal .content_meter').attr('value', meter);
+			$('.contents_modal .content_url').attr('value', url);
 		}
 	);
 
 	/* 商品更新ポップアップ表示 */
 	$('.update_show').click(
 		function() {
+			//クリックした商品の情報を取得
+			let id = $(this).nextAll('.content_id').attr('value');
+			let name = $(this).nextAll('.content_name').attr('value');
+			let price = $(this).nextAll('.content_price').attr('value');
+			let meter = $(this).nextAll('.content_meter').attr('value');
+			let url = $(this).nextAll('.content_url').attr('value');
+			//ポップアップ表示
 			$('.contents_wrapper').fadeOut();
 			$('.update_wrapper').fadeIn();
+			//取得した商品の情報をポップアップ内に入れ込む
+			$('.updates .item_id').attr('value', id);
+			$('.update .item_name').attr('value', name);
+			$('.update .item_price').attr('value', price);
+			$('.update .meter_input1').attr('value', meter);
+			$('.update .item_url').attr('value', url);
 			//メーターの％表示の処理
 			let value = document.querySelector(".meter_output1");
 			let input = document.querySelector(".meter_input1");

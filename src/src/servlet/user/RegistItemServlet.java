@@ -46,7 +46,6 @@ public class RegistItemServlet extends HttpServlet {
 		int price = Integer.parseInt(request.getParameter("price"));
 		int category = Integer.parseInt(request.getParameter("category"));
 		int frequency = Integer.parseInt(request.getParameter("frequency"));
-		int dSwitch = 0;
 		double meter = Double.parseDouble(request.getParameter("meter"));
 
 		//セッションスコープからインスタンスを取得する（ユーザーIDを取得する準備）

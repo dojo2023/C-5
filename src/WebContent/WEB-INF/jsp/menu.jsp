@@ -30,7 +30,7 @@
 
 	<!-- 一斉減量ボタン -->
 	<form method="POST" action="/mecar/DecreaseServlet">
-		<select name="pullNumber" size="1">
+		<select name="pullNumber" size="1" class="decrease_select">
 			<option value=0 selected>自動減量</option>
 			<option value=1>1日</option>
 			<option value=2>2日</option>
@@ -40,7 +40,7 @@
 			<option value=6>6日</option>
 			<option value=7>7日</option>
 		</select>
-		<input type="submit" name="submit" value="一斉減量">
+		<input type="submit" name="submit" value="一斉減量" class="decrease_input">
 	</form>
 
 	<!-- キーワード検索 -->
@@ -116,10 +116,10 @@
 					<!-- 減量停止・再開スイッチ -->
 					<c:choose>
 						<c:when test="${e.item_switch == 0}">
-							<input type="submit" name="item_switch" value="OFF">
+							<input type="submit" name="item_switch" value="OFF" class="item_switch">
 						</c:when>
 						<c:when test="${e.item_switch == 1}">
-							<input type="submit" name="item_switch" value="ON">
+							<input type="submit" name="item_switch" value="ON" class="item_switch">
 						</c:when>
 					</c:choose>
 				</form>
@@ -139,6 +139,14 @@
 		<div class="contents_modal">
 			<!-- 商品更新のポップアップを開くボタン -->
 			<img src="/mecar/img/太いリロードアイコンブルー.png" alt="商品更新ポップアップを開くボタン" class="update_show">
+			<!-- 更新のポップアップに渡したい情報 -->
+			<input type="hidden" value="" class="content_id">
+			<input type="hidden" value="" class="content_name">
+			<input type="hidden" value="" class="content_price">
+			<input type="hidden" value="" class="content_frequency">
+			<input type="hidden" value="" class="content_category">
+			<input type="hidden" value="" class="content_meter">
+			<input type="hidden" value="" class="content_url">
 			<!-- 商品削除のボタン -->
 			<form method="POST" action="/mecar/DeleteItemServlet">
 				<input type="hidden" name="item_id" value="" class="item_id">
@@ -153,7 +161,7 @@
 				</div>
 				<div class="content">
 					<p>値段</p>
-					<p class="item_price"></p>
+					<nobr></nobr>円
 				</div>
 				<div class="content">
 					<p>購入頻度</p>
@@ -184,13 +192,14 @@
 			<div class="close_modal">x</div>
 			<form method="POST" action="/mecar/UpdateItemServlet">
 				<div class="updates">
+					<input type="hidden" name="item_id" value="" class="item_id">
 					<div class="update">
 						<p>商品名</p>
-						<input type="text" name="name">
+						<input type="text" name="name" value="" class="item_name">
 					</div>
 					<div class="update">
 						<p>値段</p>
-						<input type="text" name="price">
+						<input type="text" name="price" value="" class="item_price">
 					</div>
 					<div class="update">
 						<p>購入頻度</p>
@@ -215,12 +224,12 @@
 					</div>
 					<div class="update">
 						<p>残量メーター</p>
-						<input type="range" name="meter" class="meter_input1">
+						<input type="range" name="meter" value="" class="meter_input1">
 						<p><output class="meter_output1"></output>%</p>
 					</div>
 					<div class="update">
 						<p>リンク</p>
-						<input type="url" name="url">
+						<input type="url" name="url" value="" class="item_url">
 					</div>
 					<input type="submit" name="submit" value="更新">
 				</div>
