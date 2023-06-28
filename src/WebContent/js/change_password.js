@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', function(){
 		}
 
 
-		// メールアドレス変更可能時のダイアログボックス表示
+		// パスワード変更可能時のダイアログボックス表示
 		else {
 			if( confirm("本当に変更しますか。") ) {
 				window.location.href = "/mecar/MenuServlet";

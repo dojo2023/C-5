@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>ご利用ガイド</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
 		<link rel="stylesheet" href="/mecar/css/guide.css">
 		<script src="/mecar/js/guide.js"></script>
@@ -165,7 +165,7 @@
 					<table>
 						<tr>
 							<td rowspan="6" class="img">
-								<img src="/mecar/img/ryuse.jpg" class="img" id="login_img" style="">
+								<img src="/mecar/img/メニューページ.png" class="img" id="login_img" style="">
 							</td>
 							<td>
 								<input id="block-menu-02" type="checkbox" class="toggle">
@@ -231,7 +231,7 @@
 									</p>
 									<br>
 									<div  class="next_img">
-										<img src="/mecar/img/mejiji.jpg" class="img">
+										<img src="/mecar/img/メニューページ.png" class="img">
 									</div>
 									<div class="next">
 										<input id="block-forget-01" type="checkbox" class="toggle">
