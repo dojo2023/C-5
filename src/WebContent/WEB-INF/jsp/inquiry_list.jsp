@@ -43,7 +43,7 @@
 
 			<c:forEach var="e" items="${cardList2}">
 				<!-- この一行をクリックするとモーダルウィンドウが表示される -->
-				<tr class="inquiries">
+				<tr class="inquiries_show">
 					<td>
 						<c:choose>
 							<c:when test="${e.inquiry_status == 0}">未対応</c:when>
@@ -63,6 +63,7 @@
 				<input type="hidden" value="${e.inquiry_subject}" class="inquiry_subject">
 				<input type="hidden" value="${e.inquiry_date}" class="inquiry_date">
 				<input type="hidden" value="${e.inquiry_content}" class="inquiry_content">
+				<input type="hidden" value="${e.inquiry_id}" class="inquiry_id">
 			</c:forEach>
 		</table>
 	</div>
@@ -74,89 +75,54 @@
 		<div class="inquiries_modal">
 			<!-- ポップアップを閉じるボタン -->
 			<div class="close_modal">x</div>
-			<div class="inquiries">
-				<div class="inquiries_container">
-					<div class="inquiry">
-						<p class="inquiry_title">ID</p>
-						<p class="inquiry_id"></p>
+			<form method="POST" action="/mecar/InquiryListServlet">
+				<div class="inquiries">
+					<div class="inquiries_container">
+						<div class="inquiry">
+							<p class="inquiry_title">ID</p>
+							<p class="inquiry_id"></p>
+						</div>
+						<div class="inquiry">
+							<p class="inquiry_title">メールアドレス</p>
+							<p class="inquiry_mail"></p>
+						</div>
+					</div>
+					<div class="inquiries_container">
+						<div class="inquiry">
+							<p class="inquiry_title">対応ステータス</p>
+							<select name="status" size="1">
+								<option value="" selected hidden>選択してください</option>
+								<option value="0">未対応</option>
+								<option value="1">対応中</option>
+								<option value="2">対応済</option>
+							</select>
+						</div>
+						<div class="inquiry">
+							<p class="inquiry_title">日付</p>
+							<p class="inquiry_date"></p>
+						</div>
 					</div>
 					<div class="inquiry">
-						<p class="inquiry_title">メールアドレス</p>
-						<p class="inquiry_mail"></p>
-					</div>
-				</div>
-				<div class="inquiries_container">
-					<div class="inquiry">
-						<p class="inquiry_title">対応ステータス</p>
-						<select name="status" size="1">
-							<option value="" selected hidden>選択してください</option>
-							<option value="0">未対応</option>
-							<option value="1">対応中</option>
-							<option value="2">対応済</option>
-						</select>
+						<p class="inquiry_title">件名</p>
+						<textarea class="inquiry_subject"></textarea>
 					</div>
 					<div class="inquiry">
-						<p class="inquiry_title">日付</p>
-						<p class="inquiry_date"></p>
+						<p class="inquiry_title">お問い合わせ内容</p>
+						<textarea class="inquiry_content"></textarea>
 					</div>
+					<input type="hidden" name="inquiry_id" value="" class="inquiry_id">
+					<input type="submit" name="submit" value="更新" class="update_btn">
 				</div>
-				<div class="inquiry">
-					<p class="inquiry_title">件名</p>
-					<textarea class="inquiry_subject"></textarea>
-				</div>
-				<div class="inquiry">
-					<p class="inquiry_title">お問い合わせ内容</p>
-					<textarea class="inquiry_content"></textarea>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 
+</main>
 
-
-
-           	 <!-- ここからポップアップ -->
-      	 <!-- プルダウンを閉じるボタン -->
-
-
-  <div class="contents_wrapper">
-<div class="contents_modal">
-	<div class="close_contents_modal">x</div>
-	<div class="contents">
-		<div class="content">
-			<p>お問い合わせ詳細</p>
-		</div>
-		<div class="content">
-			<p>ユーザーID</p>
-			<p class="user_id"></p>
-		</div>
-		<div class="content">
-			<p>メールアドレス</p>
-			<p class="user_mail"></p>
-		</div>
-		<p>件名</p>
-			<p class="inquiry_subject"></p>
-		</div>
-		<div class="content">
-			<p>お問い合わせ内容</p>
-			<p class="inquiry_content"></p>
-		</div>
-		<div class="regist">
-				<p>対応ステータス</p>
-				<select name="inquiry_status" size="1">
-					<option value="0">未対応</option>
-					<option value="1">対応中</option>
-					<option value="2">対応済み</option>
-				</select>
-			</div>
-			<input type="submit" name="submit">
-		</div>
-	</div>
-
-    </main>
 <footer>
 	<p>&copy;Copyright Error Maker. All rights reserved.</p>
 </footer>
+
 <script src="/mecar/js/inquiry_list.js"></script>
 </body>
 </html>

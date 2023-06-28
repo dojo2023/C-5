@@ -28,6 +28,7 @@ function MoveCheck(){
      }
      else{
         // キャンセルならアラートボックスを表示
+		event.preventDefault();
        alert("キャンセルしました");
      }
    }
