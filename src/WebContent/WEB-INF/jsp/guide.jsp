@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>ご利用ガイド</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
 		<link rel="stylesheet" href="/mecar/css/guide.css">
 		<script src="/mecar/js/guide.js"></script>
@@ -165,7 +165,7 @@
 					<table>
 						<tr>
 							<td rowspan="6" class="img">
-								<img src="/mecar/img/ryuse.jpg" class="img" id="login_img" style="">
+								<img src="/mecar/img/メニューページ.png" class="img" id="login_img" style="">
 							</td>
 							<td>
 								<input id="block-menu-02" type="checkbox" class="toggle">
@@ -231,31 +231,47 @@
 									</p>
 									<br>
 									<div  class="next_img">
-										<img src="/mecar/img/mejiji.jpg" class="img">
+										<img src="/mecar/img/商品ポップアップ.png" class="img">
 									</div>
 									<div class="next">
-										<input id="block-forget-01" type="checkbox" class="toggle">
-										<label class="Label Label11" for="block-forget-01">①入力フォーム</label>
+										<input id="block-item-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-item-01">①更新</label>
 										<div class="content">
 											<p>
-												ユーザーID、メールアドレス、パスワードの入力フォームです。<br>
-												ご自身のユーザーID、メールアドレス、新しいパスワードを入力し、<br>
-												②登録ボタンを押してください。
+												クリックすることで更新ポップアップを表示します。<br>
+												登録ポップアップと似た画面になりますので、<br>
+												そちらのご利用ガイドをご覧ください。
 											</p>
 										</div>
-										<input id="block-forget-02" type="checkbox" class="toggle">
-										<label class="Label Label12" for="block-forget-02">②登録</label>
+										<input id="block-item-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-item-02">②削除</label>
 										<div class="content">
 											<p>
-												クリックすることで、入力内容の確認を行います。<br>
-												入力情報が正しいと、パスワード変更をすることができます。
+												クリックすることで、確認ダイアログボックスが表示されます。<br>
+												OKを押すと、商品データを削除します。
 											</p>
 										</div>
-										<input id="block-forget-03" type="checkbox" class="toggle">
-										<label class="Label Label13" for="block-forget-03">③リセット</label>
+										<input id="block-item-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-item-03">③商品詳細</label>
 										<div class="content">
 											<p>
-												クリックすることで、入力フォームの内容をリセットできます。
+												登録したデータを表示します。
+											</p>
+										</div>
+										<input id="block-item-04" type="checkbox" class="toggle">
+										<label class="Label Label14" for="block-item-04">④リンク先購入</label>
+										<div class="content">
+											<p>
+												クリックすることで、登録したリンク先ページに遷移します。<br>
+												また、クリックした段階で、その商品の残量メーターを100％回復します。
+											</p>
+										</div>
+										<input id="block-item-05" type="checkbox" class="toggle">
+										<label class="Label Label15" for="block-item-05">⑤リンク先閲覧</label>
+										<div class="content">
+											<p>
+												クリックすることで、登録したリンク先ページに遷移します。<br>
+												クリックした段階で、その商品の残量メーターを回復することはありません。
 											</p>
 										</div>
 									</div>
@@ -272,31 +288,54 @@
 									</p>
 									<br>
 									<div  class="next_img">
-										<img src="/mecar/img/yakiniku.jpg" class="img">
+										<img src="/mecar/img/商品登録ポップアップ.png" class="img">
 									</div>
 									<div class="next">
-										<input id="block-forget-01" type="checkbox" class="toggle">
-										<label class="Label Label11" for="block-forget-01">①入力フォーム</label>
+										<input id="block-itemR-01" type="checkbox" class="toggle">
+										<label class="Label Label11" for="block-itemR-01">①商品名</label>
 										<div class="content">
 											<p>
-												ユーザーID、メールアドレス、パスワードの入力フォームです。<br>
-												ご自身のユーザーID、メールアドレス、新しいパスワードを入力し、<br>
-												②登録ボタンを押してください。
+												表示したい商品名を入力してください。
 											</p>
 										</div>
-										<input id="block-forget-02" type="checkbox" class="toggle">
-										<label class="Label Label12" for="block-forget-02">②登録</label>
+										<input id="block-itemR-02" type="checkbox" class="toggle">
+										<label class="Label Label12" for="block-itemR-02">②値段</label>
 										<div class="content">
 											<p>
-												クリックすることで、入力内容の確認を行います。<br>
-												入力情報が正しいと、パスワード変更をすることができます。
+												登録する商品の値段を入力してください。
 											</p>
 										</div>
-										<input id="block-forget-03" type="checkbox" class="toggle">
-										<label class="Label Label13" for="block-forget-03">③リセット</label>
+										<input id="block-itemR-03" type="checkbox" class="toggle">
+										<label class="Label Label13" for="block-itemR-03">③購入頻度</label>
 										<div class="content">
 											<p>
-												クリックすることで、入力フォームの内容をリセットできます。
+												登録する商品の購入頻度を選択してください。<br>
+												1週間、2週間、1か月、2か月、3か月から選択できます。<br>
+												この数値が残量メーターの減量割合に影響します。<br>
+												後から変更することも可能です。
+											</p>
+										</div>
+										<input id="block-itemR-04" type="checkbox" class="toggle">
+										<label class="Label Label14" for="block-itemR-04">④カテゴリ</label>
+										<div class="content">
+											<p>
+												登録する商品のカテゴリを選択してください。<br>
+												食料品、日用品、ケア用品、その他から選択できます。<br>
+												メニュー画面のカテゴリ一覧の際にまとめて表示できます。
+											</p>
+										</div>
+										<input id="block-itemR-05" type="checkbox" class="toggle">
+										<label class="Label Label15" for="block-itemR-05">⑤残量メーター</label>
+										<div class="content">
+											<p>
+												登録する商品の残量メーターを選択してください。
+											</p>
+										</div>
+										<input id="block-itemR-06" type="checkbox" class="toggle">
+										<label class="Label Label16" for="block-itemR-06">⑥リンク</label>
+										<div class="content">
+											<p>
+												登録する商品を購入する際のリンクを入力してください。
 											</p>
 										</div>
 									</div>
@@ -440,7 +479,7 @@
 						<tr>
 							<td>
 								<input id="block-my-5" type="checkbox" class="toggle">
-								<label class="Label Label5" for="block-my-5">④退会</label>
+								<label class="Label Label6" for="block-my-5">⑤退会</label>
 								<div class="content">
 									<p>
 										退会をすることができます。<br>

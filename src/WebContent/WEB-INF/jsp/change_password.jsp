@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>パスワード変更</title>
 		<link rel="stylesheet" href="/mecar/css/common.css">
 		<link rel="stylesheet" href="/mecar/css/change.css">
 		<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -69,8 +69,12 @@
 							<input type="reset" value="リセット" class="button">
 						</td>
 					</tr>
+					<tr>
+						<td colspan="3" align="center">
+							<p id="output" align="center"><p>
+						</td>
+					</tr>
 				</table>
-				<p id="output"><p>
 			</form>
 		</main>
 		<footer>
