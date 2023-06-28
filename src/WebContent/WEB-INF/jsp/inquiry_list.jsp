@@ -80,11 +80,11 @@
 					<div class="inquiries_container">
 						<div class="inquiry">
 							<p class="inquiry_title">ID</p>
-							<p class="inquiry_id"></p>
+							<p class="user_id"></p>
 						</div>
 						<div class="inquiry">
 							<p class="inquiry_title">メールアドレス</p>
-							<p class="inquiry_mail"></p>
+							<p class="user_mail"></p>
 						</div>
 					</div>
 					<div class="inquiries_container">

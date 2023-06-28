@@ -123,7 +123,15 @@ main h1 {
 /* 商品部分 */
 .items_container form {
 	text-align: center;
-	padding: 20px 0;
+	padding: 10px 0 40px 0;
+	max-width: 70%;
+	margin: 0 auto;
+}
+
+.items_container form:hover {
+	background-color: rgba(211,211,211,0.4);
+	border-radius: 10px;
+	transition: all 0.5s;
 }
 
 .items_container nobr {

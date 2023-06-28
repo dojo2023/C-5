@@ -48,7 +48,7 @@ tr:nth-child(odd) {
 
 
 /* お問い合わせ内容確認ポップアップ */
-.contents_wrapper, .regist_wrapper {
+.inquiries_wrapper {
 	/* デフォルトはdisplay: none;で非表示 */
 	display: none;
 	position: fixed;
@@ -60,22 +60,41 @@ tr:nth-child(odd) {
 	z-index: 100;
 }
 
-.contents_modal, .regist_modal {
+.inquiries_modal {
 	position: absolute;
 	top: 20%;
-	left: 34%;
+	left: 25%;
 	background-color: #e6ecf0;
-	padding: 20px 0 40px;
+	padding: 20px 0;
 	border-radius: 10px;
-	width: 450px;
+	width: 650px;
 	height: auto;
 	text-align: center;
 }
 
-.close_contents_modal, .close_regist_modal {
+.close_modal {
 	position: absolute;
-	top: 12px;
-	right: 12px;
+	top: 6px;
+	right: 30px;
 	color: rgba(128,128,128,0.46);
 	cursor: pointer;
 }
+
+.inquiry_container {
+	display: flex;
+}
+
+.inquiry_container .inquiry {
+	width: 50%;
+}
+
+.inquiry {
+
+}
+
+
+
+
+
+
+
