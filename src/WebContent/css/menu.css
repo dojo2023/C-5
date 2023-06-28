@@ -213,7 +213,7 @@ main h1 {
 	top: 20%;
 	left: 25%;
 	background-color: #e6ecf0;
-	padding: 20px 0 40px;
+	padding: 20px 0;
 	border-radius: 10px;
 	width: 650px;
 	height: auto;
@@ -234,16 +234,13 @@ main h1 {
 	display: flex;
 }
 
-.regist {
-	margin: 15px 0;
-}
-
-.regist p {
-	font-size: 20px;
-}
-
 .regist_container .regist {
 	width: 50%;
+}
+
+.regist {
+	margin: 15px 0;
+	font-size: 20px;
 }
 
 .regist input, .regist select {
@@ -254,7 +251,137 @@ main h1 {
 	width: 350px;
 }
 
-.regist_btn {
-
+.regist_btn, .update_btn {
+	padding: 10px 40px;
+	border-radius: 5px;
+	border: none;
+	background-color: #668c95;
+	font-size: 100%;
+	font-weight: normal;
+	color: #fff;
+	cursor: pointer;
+	appearance: none;
+	margin-top: 15px;
 }
+
+/* 商品内容確認・削除ポップアップ */
+.update_show, .contents_delete {
+	float: left;
+	margin-left: 10px;
+	opacity: 0.5;
+}
+
+.update_show:hover, .contents_delete:hover {
+	opacity: 1;
+	transition: all 0.5s;
+}
+
+.contents {
+	margin-top: 70px;
+}
+
+.contents_container {
+	display: flex;
+}
+
+.contents_container .content {
+	width: 50%;
+}
+
+.content {
+	margin: 15px 0;
+}
+
+.content_title, .content_title_price {
+	font-size: 20px;
+	border-bottom: 2px solid #d1d2d3;
+	display: inline-block;
+}
+
+.content_title_price {
+	margin-bottom: 10px;
+}
+
+.item_name, .item_frequency, .item_category {
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.content meter {
+	margin-top: 10px;
+	height: 20px;
+	width: 350px;
+}
+
+.item_url1 {
+	padding: 10px 40px;
+	border-radius: 5px;
+	background-color: #d4acaa;
+	font-size: 100%;
+	font-weight: normal;
+	color: #fff;
+	cursor: pointer;
+	opacity: 0.8;
+	border: none;
+	appearance: none;
+	position: relative;
+	bottom: 10px;
+}
+
+.item_url1:hover {
+	opacity: 1;
+	transition: all 0.5s;
+}
+
+.item_url2 {
+	padding: 10px 40px;
+	border-radius: 5px;
+	background-color: #668c95;
+	font-size: 100%;
+	font-weight: normal;
+	color: #fff;
+	cursor: pointer;
+	margin-top: 15px;
+	opacity: 0.8;
+}
+
+.item_url2:hover {
+	opacity: 1;
+	transition: all 0.5s;
+}
+
+/* 商品更新ポップアップ */
+.updates_container {
+	display: flex;
+}
+
+.updates_container .update {
+	width: 50%;
+}
+
+.update {
+	margin: 15px 0;
+	font-size: 20px;
+}
+
+.update input, .update select {
+	font-size: 20px;
+}
+
+.update .item_name {
+	margin: 0;
+}
+
+.meter_input1 {
+	width: 350px;
+}
+
+
+
+
+
+
+
+
+
 

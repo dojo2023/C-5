@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ItemsDao;
-import model.LoginUsers;
 
 /**
  * Servlet implementation class LinkServlet
@@ -52,21 +51,14 @@ public class LinkServlet extends HttpServlet {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");  // 商品名
-		String url = request.getParameter("url");  // 商品URL
-
-		// セッションスコープからインスタンスを取得する（商品IDを取得する準備）
-		LoginUsers user_id = (LoginUsers) session.getAttribute("user_id");
-
-		//ItemsDaoのメソッドを呼び出し、item_idを取得する
-		ItemsDao iDao = new ItemsDao();
-		int item_id = iDao.getItemId((String)user_id.getUser_id(), name, url);
+		int item_id = Integer.parseInt(request.getParameter("item_id"));
+		String item_url = request.getParameter("item_url");
 
 		// 残量を＋100する(ための処理をItemsDaoから呼び出す)
 		ItemsDao bDao = new ItemsDao();
 		bDao.updateMater(item_id);
 
 		// リンク先に飛ぶ(jspでやる)
-
+		response.sendRedirect(item_url);
 	}
 }

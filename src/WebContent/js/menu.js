@@ -11,6 +11,7 @@ $(function() {
 			let frequency = $(this).nextAll('.list_frequency').attr('value');
 			let category = $(this).nextAll('.list_category').attr('value');
 			let meter = $(this).nextAll('.list_meter').attr('value');
+			meter = Math.round(meter);
 			let url = $(this).nextAll('.list_url').attr('value');
 			//ポップアップ表示
 			$('.contents_wrapper').fadeIn();
@@ -21,8 +22,9 @@ $(function() {
 			$('.contents .item_frequency').text(frequency);
 			$('.contents .item_category').text(category);
 			$('.contents meter').attr('value', meter);
-			$('.contents .item_url1').attr('href', url);
+			$('.contents .item_id').attr('value', id);
 			$('.contents .item_url2').attr('href', url);
+			$('.contents .item_url3').attr('value', url);
 			//更新のポップアップに渡したい情報を入れ込む
 			$('.contents_modal .content_id').attr('value',  id);
 			$('.contents_modal .content_name').attr('value', name);

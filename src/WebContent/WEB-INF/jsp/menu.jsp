@@ -150,38 +150,48 @@
 			<input type="hidden" value="" class="content_meter">
 			<input type="hidden" value="" class="content_url">
 			<!-- 商品削除のボタン -->
-			<form method="POST" action="/mecar/DeleteItemServlet" onSubmit="return check()">
+			<form method="POST" action="/mecar/DeleteItemServlet" onSubmit="return check()" class="contents_delete">
 				<input type="hidden" name="item_id" value="" class="item_id">
 				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png" name="deleteItem">
 			</form>
 			<!-- プルダウンを閉じるボタン -->
 			<div class="close_modal">x</div>
 			<div class="contents">
-				<div class="content">
-					<p>商品名</p>
-					<p class="item_name"></p>
+				<div class="contents_container">
+					<div class="content">
+						<p class="content_title">商品名</p>
+						<p class="item_name"></p>
+					</div>
+					<div class="content">
+						<p class="content_title_price">値段</p><br>
+						<nobr></nobr>円
+					</div>
+				</div>
+				<div class="contents_container">
+					<div class="content">
+						<p class="content_title">購入頻度</p>
+						<p class="item_frequency"></p>
+					</div>
+					<div class="content">
+						<p class="content_title">カテゴリ</p>
+						<p class="item_category"></p>
+					</div>
 				</div>
 				<div class="content">
-					<p>値段</p>
-					<nobr></nobr>円
-				</div>
-				<div class="content">
-					<p>購入頻度</p>
-					<p class="item_frequency"></p>
-				</div>
-				<div class="content">
-					<p>カテゴリ</p>
-					<p class="item_category"></p>
-				</div>
-				<div class="content">
-					<p>残量メーター</p>
+					<p class="content_title">残量メーター</p><br>
 					<meter min="0" max="100" value="" high="50" low="20" optimum="80"></meter>
 				</div>
-				<div class="content">
-					<p><a href="" target="_blank" class="item_url1">リンク先購入</a></p>
-				</div>
-				<div class="content">
-					<p><a href="" target="_blank" class="item_url2">リンク先閲覧</a></p>
+				<div class="contents_container">
+					<div class="content">
+						<form method="POST" action="/mecar/LinkServlet">
+							<input type="hidden" name="item_url" value="" class="item_url3">
+							<input type="hidden" name="item_id" value="" class="item_id">
+							<input type="submit" value="リンク先購入" class="item_url1">
+						</form>
+					</div>
+					<div class="content">
+						<p><a href="" target="_blank" class="item_url2">リンク先閲覧</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -195,34 +205,38 @@
 			<form method="POST" action="/mecar/UpdateItemServlet">
 				<div class="updates">
 					<input type="hidden" name="item_id" value="" class="item_id">
-					<div class="update">
-						<p>商品名</p>
-						<input type="text" name="name" value="" class="item_name">
+					<div class="updates_container">
+						<div class="update">
+							<p>商品名</p>
+							<input type="text" name="name" value="" class="item_name">
+						</div>
+						<div class="update">
+							<p>値段</p>
+							<input type="text" name="price" value="" class="item_price">
+						</div>
 					</div>
-					<div class="update">
-						<p>値段</p>
-						<input type="text" name="price" value="" class="item_price">
-					</div>
-					<div class="update">
-						<p>購入頻度</p>
-						<select name="frequency" size="1">
-							<option value="" selected hidden>選択してください</option>
-							<option value="1">１週間</option>
-							<option value="2">２週間</option>
-							<option value="3">１か月</option>
-							<option value="4">２か月</option>
-							<option value="5">３か月</option>
-						</select>
-					</div>
-					<div class="update">
-						<p>カテゴリ</p>
-						<select name="category" size="1">
-							<option value="" selected hidden>選択してください</option>
-							<option value="1">食料品</option>
-							<option value="2">日用品</option>
-							<option value="3">ケア用品</option>
-							<option value="4">その他</option>
-						</select>
+					<div class="updates_container">
+						<div class="update">
+							<p>購入頻度</p>
+							<select name="frequency" size="1">
+								<option value="" selected hidden>選択してください</option>
+								<option value="1">１週間</option>
+								<option value="2">２週間</option>
+								<option value="3">１か月</option>
+								<option value="4">２か月</option>
+								<option value="5">３か月</option>
+							</select>
+						</div>
+						<div class="update">
+							<p>カテゴリ</p>
+							<select name="category" size="1">
+								<option value="" selected hidden>選択してください</option>
+								<option value="1">食料品</option>
+								<option value="2">日用品</option>
+								<option value="3">ケア用品</option>
+								<option value="4">その他</option>
+							</select>
+						</div>
 					</div>
 					<div class="update">
 						<p>残量メーター</p>
@@ -233,7 +247,7 @@
 						<p>リンク</p>
 						<input type="url" name="url" value="" class="item_url">
 					</div>
-					<input type="submit" name="submit" value="更新">
+					<input type="submit" name="submit" value="更新" class="update_btn">
 				</div>
 			</form>
 		</div>
