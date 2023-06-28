@@ -23,5 +23,5 @@ function MoveCheck(){
 }
 }
 // 削除ボタンにイベントリスナーを追加
-var deleteButton = document.getElementById('delete_button');
-deleteButton.addEventListener('click', MoveCheck);
+//var deleteButton = document.getElementById('delete_button');
+//deleteButton.addEventListener('click', MoveCheck);
