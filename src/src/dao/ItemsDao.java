@@ -477,7 +477,7 @@ public class ItemsDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/EM", "C5", "mecar");
 
 			// SQL文を準備する
-			String sql = "update Items set item_meter = item_meter + 100 where item_id=?";
+			String sql = "update Items set item_meter = 100 where item_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる

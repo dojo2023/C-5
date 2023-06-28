@@ -99,7 +99,7 @@ $(function() {
 
 
 /* 商品を削除するときのダイアログボックス */
-function check(){
+function Dcheck(){
 
 	if(window.confirm('削除してよろしいですか？')){ // 確認ダイアログを表示
 
@@ -115,20 +115,67 @@ function check(){
 
 }
 
-/* 商品登録時の空欄防止 */
+
+/* 商品を登録するときのダイアログボックス */
+function Rcheck(){
+
+	if(window.confirm('登録してよろしいですか？')){ // 確認ダイアログを表示
+
+		return true; // 「OK」時は送信を実行
+
+	}
+	else{ // 「キャンセル」時の処理
+
+		window.alert('キャンセルしました'); // 警告ダイアログを表示
+		return false; // 送信を中止
+
+	}
+
+}
+
+
+
+
+/* 登録時の空欄防止 */
 document.getElementById('Registitem_form').onsubmit = function(event) {
 
     const name_i = document.getElementById('Registitem_form').name.value;
     const url_i = document.getElementById('Registitem_form').url.value;
     const frequency_i =document.getElementById('Registitem_form').frequency.value;
     const category_i =document.getElementById('Registitem_form').category.value;
+    const price_i =document.getElementById('Registitem_form').price.value;
 
     if (name_i === "" || url_i === "" ) {
         event.preventDefault();
-         document.getElementById('output').textContent = '必須事項を入力してください';
+         document.getElementById('routput').textContent = '商品名とURLを入力してください';
+         };
+
+    if(frequency_i === "" || category_i === ""){
+    event.preventDefault();
+         document.getElementById('routput').textContent = '購入頻度とカテゴリーを入力してください';
+	};
+ if( price_i === "" ){
+    event.preventDefault();
+         document.getElementById('routput').textContent = '値段を入力してください';
+	};
+}
+
+/* 商品更新時の空欄防止 */
+document.getElementById('Update_form').onsubmit = function(event) {
+
+    const name_i = document.getElementById('Update_form').name.value;
+    const url_i = document.getElementById('Update_form').url.value;
+    const frequency_i =document.getElementById('Update_form').frequency.value;
+    const category_i =document.getElementById('Update_form').category.value;
+
+    if (name_i === "" || url_i === "" ) {
+        event.preventDefault();
+         document.getElementById('output').textContent = '商品名とURLを入力してください';
          }
     if(frequency_i === "" || category_i === ""){
     event.preventDefault();
-         document.getElementById('output').textContent = '必須事項を入力してください';}
+         document.getElementById('output').textContent = '購入頻度とカテゴリーを入力してください';}
 };
+
+
 

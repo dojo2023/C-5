@@ -150,7 +150,7 @@
 			<input type="hidden" value="" class="content_meter">
 			<input type="hidden" value="" class="content_url">
 			<!-- 商品削除のボタン -->
-			<form method="POST" action="/mecar/DeleteItemServlet" onSubmit="return check()" class="contents_delete">
+			<form method="POST" action="/mecar/DeleteItemServlet" onSubmit="return Dcheck()" class="contents_delete">
 				<input type="hidden" name="item_id" value="" class="item_id">
 				<input type="image" src="/mecar/img/スタンダードなゴミ箱アイコンブルー.png" name="deleteItem">
 			</form>
@@ -202,7 +202,7 @@
 		<div class="update_modal">
 			<!-- プルダウンを閉じるボタン -->
 			<div class="close_modal">x</div>
-			<form method="POST" action="/mecar/UpdateItemServlet">
+			<form method="POST" action="/mecar/UpdateItemServlet" id = "Update_form">
 				<div class="updates">
 					<input type="hidden" name="item_id" value="" class="item_id">
 					<div class="updates_container">
@@ -247,7 +247,10 @@
 						<p>リンク</p>
 						<input type="url" name="url" value="" class="item_url">
 					</div>
-					<input type="submit" name="submit" value="更新" class="update_btn">
+					<p id="output" class="error"></p>
+                    <span id="regist_message" class = "error_regist"></span>
+					<input type="submit" name="submit" value="更新" class="update_btn" >
+
 				</div>
 			</form>
 		</div>
@@ -302,9 +305,9 @@
 						<p>リンク</p>
 						<input type="url" name="url" placeholder="リンク">
 					</div>
-					<input type="submit" name="submit" value="登録" class="regist_btn">
-					<p id="output" class="error"></p>
+					<p id="routput" class="error"></p>
                     <span id="regist_message" class = "error_regist"></span>
+					<input type="submit" name="submit" value="登録" class="regist_btn" onSubmit="return Rcheck()">
 				</div>
 			</form>
 		</div>
