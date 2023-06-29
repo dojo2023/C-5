@@ -35,6 +35,10 @@ td {
 	padding: 15px 5px;
 }
 
+.inquiries_show {
+	cursor: pointer;
+}
+
 .inquiries_show:hover {
 	background-color: rgba(211,211,211,0.4);
 	border-radius: 10px;
