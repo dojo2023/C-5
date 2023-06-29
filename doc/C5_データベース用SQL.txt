@@ -41,8 +41,8 @@ user_date date
 );
 
 
-【usrsの日付を入れるSQL】sampleデータインサートの後に必ず実行！！
-UPDATE　users SET user_date = '2023-06-14'(
+注意【usrsの日付を入れるSQL】sampleデータインサートの後に必ず実行！！
+UPDATE　users SET user_date = '2023-06-14'
  
 【usersテーブルにサンプルデータを登録するSQL文】
 INSERT INTO users (user_id,user_pw,user_mail) 
