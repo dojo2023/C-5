@@ -26,9 +26,9 @@ drop table テーブル名
 購入頻度			frequency
 
 
-【更新のSQL】
-UPDATE テーブル名 SET カラム名1 = '値'
- WHERE 条件式;
+【usrsの日付を入れるSQL】
+UPDATE　users SET user_date = '2023-06-14'
+ ;
 
 
 
