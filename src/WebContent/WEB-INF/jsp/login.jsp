@@ -21,7 +21,6 @@
 <main>
 	<h1>ログイン</h1>
 
-	<hr>
 	<form method="POST" action="/mecar/LoginServlet" id="login_form">
 		<label class="id" id="id">ユーザーID</label> <br>
 		<input type="text" name="USER_ID" class = "Users"><br>

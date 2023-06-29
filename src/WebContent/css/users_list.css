@@ -1,34 +1,47 @@
 @charset "UTF-8";
 
-
-table {
-  width: 80%;
+/* タイトル */
+main h1 {
+	padding: 10px 20px;
+	border-bottom: 2px solid #d1d2d3;
 }
 
-
-
-td.delete-cell {
-  /* 削除列の横幅を元の大きさに戻す */
-  width: auto;
+/* キーワード検索 */
+.keyword_wrapper {
+	float: right;
+	margin: 20px 10px;
 }
 
-td.user-id-cell {
-  /* ユーザーID列の横幅を調整する */
-  width: 40%;
+.keyword {
+	border: 1px solid #668c95;
+	border-radius: 20px;
+	padding: 7px 14px;
+	font-size: 20px;
+	width: 350px;
 }
 
-td.user-mail-cell {
-  /* メールアドレス列の横幅を調整する */
-  width: 60%;
-}
-div.table-container {
-  display: flex;
-  justify-content: center;
-}
-tr:nth-child(even) {
-  background-color: #b0c4de;
+/* ユーザー一覧 */
+#table {
+	padding: 80px 0 50px 0;
 }
 
-tr:nth-child(odd) {
-  background-color: #ffffff;
+#list {
+	text-align: center;
+	position: relative;
+	left: 35%;
+}
+
+td {
+	padding: 15px 5px;
+}
+
+.inquiries_show:hover {
+	background-color: rgba(211,211,211,0.4);
+	border-radius: 10px;
+	transition: all 0.5s;
+}
+
+#delete_button {
+	height: 30px;
+	width: 30px;
 }

@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者ログイン</title>
 <link rel="stylesheet" href="/mecar/css/common.css">
+<link rel="stylesheet" href="/mecar/css/login.css">
 </head>
 <body>
     <header>
@@ -14,11 +15,11 @@
 <main>
 <h1>管理者ログイン</h1>
 
-  <form id="form"method="POST" action="/mecar/LoginAdminServlet">
-  	ユーザーID<input type="text" name="DOJO"><br>
-  	パスワード<input type="password" name="pass"><br>
-  	<input type="submit" name="LOGIN" value="ログイン">
-  	<input type="reset" name="RESET" value="リセット">
+  <form id="form" method="POST" action="/mecar/LoginAdminServlet">
+  	ユーザーID<input type="text" name="DOJO" class="Users">
+  	パスワード<input type="password" name="pass" class="Password">
+  	<input type="submit" name="LOGIN" value="ログイン" class="button">
+  	<input type="reset" name="RESET" value="リセット" class="button">
   </form>
 <p id="output"></p>
 

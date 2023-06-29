@@ -30,7 +30,7 @@
 	<!-- キーワード検索 -->
 	<form id="form" method="POST" action="/mecar/InquiryListServlet" class="keyword_wrapper">
 		<input type="search" name="keyWord" placeholder="キーワード検索" class="keyword">
-		<input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン">
+		<input type="image" src="/mecar/img/虫眼鏡ブルー.png" alt="検索ボタン" name="search">
 	</form>
 
 
@@ -89,7 +89,7 @@
 					</div>
 					<div class="inquiries_container">
 						<div class="inquiry">
-							<p class="inquiry_title">対応ステータス</p>
+							<p class="inquiry_title">対応ステータス</p><br>
 							<select name="status" size="1">
 								<option value="" selected hidden>選択してください</option>
 								<option value="0">未対応</option>
@@ -103,12 +103,12 @@
 						</div>
 					</div>
 					<div class="inquiry">
-						<p class="inquiry_title">件名</p>
-						<textarea class="inquiry_subject"></textarea>
+						<p class="inquiry_title">件名</p><br>
+						<textarea class="inquiry_subject" readonly></textarea>
 					</div>
 					<div class="inquiry">
-						<p class="inquiry_title">お問い合わせ内容</p>
-						<textarea class="inquiry_content"></textarea>
+						<p class="inquiry_title">お問い合わせ内容</p><br>
+						<textarea class="inquiry_content" readonly></textarea>
 					</div>
 					<input type="hidden" name="inquiry_id" value="" class="inquiry_id">
 					<input type="submit" name="submit" value="更新" class="update_btn">

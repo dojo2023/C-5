@@ -1,50 +1,46 @@
 @charset "UTF-8";
-/*.right-align {
-  float: right;
-  margin-right:  100px;
-}*/
-/*.table-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}*/
-.table-container {
-  width: 100%;
+
+/* タイトル */
+main h1 {
+	padding: 10px 20px;
+	border-bottom: 2px solid #d1d2d3;
 }
 
-td.inquiry-status-cell {
-  /* 対応ステータス列の横幅を調整する */
-  width: 20%;
+/* キーワード検索 */
+.keyword_wrapper {
+	float: right;
+	margin: 20px 10px;
 }
 
-td.user-id-cell {
-  /* ユーザーID列の横幅を調整する */
-  width: 10%;
-}
-td.user-mail-cell {
-  /* メールアドレス列の横幅を調整する */
-  width: 20%;
-}
-
-td.inquiry-subject-cell {
-  /* 件名列の横幅を調整する */
-  width: 30%;
-}
-td.inquiry-date-cell {
-  /* 日付列の横幅を調整する */
-  width: 20%;
-}
-div.table-container {
-  display: flex;
-  justify-content: center;
-}
-tr:nth-child(even) {
-  background-color: #b0c4de;
+.keyword {
+	border: 1px solid #668c95;
+	border-radius: 20px;
+	padding: 7px 14px;
+	font-size: 20px;
+	width: 350px;
 }
 
-tr:nth-child(odd) {
-  background-color: #ffffff;
+/* お問い合わせ一覧 */
+#table {
+	padding: 80px 0 50px 0;
 }
+
+#list {
+	text-align: center;
+	position: relative;
+	left: 22%;
+}
+
+td {
+	padding: 15px 5px;
+}
+
+.inquiries_show:hover {
+	background-color: rgba(211,211,211,0.4);
+	border-radius: 10px;
+	transition: all 0.5s;
+}
+
 
 
 /* お問い合わせ内容確認ポップアップ */
@@ -80,16 +76,43 @@ tr:nth-child(odd) {
 	cursor: pointer;
 }
 
-.inquiry_container {
+.inquiries_container {
 	display: flex;
 }
 
-.inquiry_container .inquiry {
+.inquiries_container .inquiry {
 	width: 50%;
 }
 
-.inquiry {
+.inquiry_title {
+	margin: 10px 0;
+	border-bottom: 2px solid #d1d2d3;
+	display: inline-block;
+}
 
+.inquiry_subject {
+	height: 1em;
+	width: 15em;
+	font-size: 15px;
+}
+
+.inquiry_content {
+	height: 7em;
+	width: 35em;
+	font-size: 15px;
+}
+
+.update_btn {
+	padding: 10px 40px;
+	border-radius: 5px;
+	border: none;
+	background-color: #668c95;
+	font-size: 100%;
+	font-weight: normal;
+	color: #fff;
+	cursor: pointer;
+	appearance: none;
+	margin-top: 15px;
 }
 
 

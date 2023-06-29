@@ -21,14 +21,6 @@ import model.Inquiries;
 public class InquiryListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InquiryListServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -65,21 +57,33 @@ public class InquiryListServlet extends HttpServlet {
 			return;
 		}
 
-		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String keyWord = request.getParameter("keyWord");
-
-
+		//キーワード検索または対応ステータスの更新を行う
 		InquiriesDao aInquiries = new InquiriesDao();
+		if (request.getParameter("search.x") != null) {
+			// リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			String keyWord = request.getParameter("keyWord");
 
-		//クラス名	    変数名     =  代入する値;
-		List<Inquiries> cardList = aInquiries.select(keyWord);
+			//クラス名	    変数名     =  代入する値;
+			List<Inquiries> cardList = aInquiries.select(keyWord);
 
-		// 検索結果をリクエストスコープに格納する。
-		request.setAttribute("cardList" , cardList);
+			// 検索結果をリクエストスコープに格納する。
+			request.setAttribute("cardList" , cardList);
 
-		// 結果ページにフォワードする。
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry_result.jsp");
-		dispatcher.forward(request, response);
+			// 結果ページにフォワードする。
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/inquiry_result.jsp");
+			dispatcher.forward(request, response);
 		}
+		else {
+			//リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			int status = Integer.parseInt(request.getParameter("status"));
+			int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
+
+			aInquiries.update(status, inquiry_id);
+
+			//InquiryListServletにリダイレクトする
+			response.sendRedirect("/mecar/InquiryListServlet");
+		}
+	}
 }

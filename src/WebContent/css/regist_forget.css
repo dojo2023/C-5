@@ -29,6 +29,7 @@ form{
   font-size:0.95em;
   transition: 0.3s ease-in-out;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 .button:hover{
